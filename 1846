@@ -1,0 +1,36 @@
+class Solution:
+    def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
+
+
+        # 方法一：排序+贪心
+        """arr.sort()
+        #print(arr)
+
+        n = len(arr)
+
+        pre = 0
+        for i in range(n):
+            if arr[i] - pre > 1:
+                arr[i] = pre + 1
+            pre = arr[i]
+
+        #print(arr)
+        return arr[n-1]"""
+
+
+        # 方法二：计数+贪心
+        n = len(arr)
+        cnt = [0] * (n+1)
+
+        for i in range(n):
+            cnt[min(n, arr[i])] += 1
+        #print(cnt)
+
+        miss = 0
+        for i in range(1, n+1):
+            if cnt[i] == 0:
+                miss += 1
+            else:
+                miss -= min(miss, cnt[i] - 1)
+
+        return n - miss
