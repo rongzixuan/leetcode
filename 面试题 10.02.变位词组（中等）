@@ -11,24 +11,42 @@ class Solution:
             return []
 
         # 方法一：排序+哈希表
-        hash_table = {}
+        """hash_table = {}
         res = []
 
         index = 0
         for st in strs:
             st_out = "".join(sorted(st))
-            #print('st_out:', st_out)
             if st_out not in hash_table:
                 hash_table[st_out] = index
                 index += 1
-                #print(hash_table)
                 res.append([st])
             else:
-                #print('res:', res)
-                #print('hash_table[st_out]:', hash_table[st_out])
                 res[hash_table[st_out]].append(st)
 
         #print(hash_table)
         #print(res)
-        return res
+        return res"""
+
+
+        # 方法二：排序+哈希表
+        """res = defaultdict(list)
+
+        for st in strs:
+            st_out = "".join(sorted(st))
+            res[st_out].append(st)
+
+        return list(res.values())"""
+
+
+        # 方法三：计数+哈希表
+        res = defaultdict(list)
+
+        for st in strs:
+            count = [0] * 26
+            for ch in st:
+                count[ord(ch) - ord('a')] += 1
+            res[tuple(count)].append(st)
+
+        return list(res.values())
 
