@@ -1,0 +1,34 @@
+"""
+编写一种方法，对字符串数组进行排序，将所有变位词组合在一起。变位词是指字母相同，但排列不同的字符串。
+
+注意：本题相对原题稍作修改
+"""
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+
+        if strs == []:
+            return []
+
+        # 方法一：排序+哈希表
+        hash_table = {}
+        res = []
+
+        index = 0
+        for st in strs:
+            st_out = "".join(sorted(st))
+            #print('st_out:', st_out)
+            if st_out not in hash_table:
+                hash_table[st_out] = index
+                index += 1
+                #print(hash_table)
+                res.append([st])
+            else:
+                #print('res:', res)
+                #print('hash_table[st_out]:', hash_table[st_out])
+                res[hash_table[st_out]].append(st)
+
+        #print(hash_table)
+        #print(res)
+        return res
+
