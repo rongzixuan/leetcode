@@ -1,0 +1,111 @@
+"""
+存在一个由 n 个不同元素组成的整数数组 nums ，但你已经记不清具体内容。好在你还记得 nums 中的每一对相邻元素。
+
+给你一个二维整数数组 adjacentPairs ，大小为 n - 1 ，其中每个 adjacentPairs[i] = [ui, vi] 表示元素 ui 和 vi 在 nums 中相邻。
+
+题目数据保证所有由元素 nums[i] 和 nums[i+1] 组成的相邻元素对都存在于 adjacentPairs 中，存在形式可能是 [nums[i], nums[i+1]] ，也可能是 [nums[i+1], nums[i]] 。这些相邻元素对可以 按任意顺序 出现。
+
+返回 原始数组 nums 。如果存在多种解答，返回 其中任意一个 即可。
+"""
+
+class Solution:
+    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+
+        # 方法一：哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        """hash_table1 = defaultdict(list) # 存储数字
+        hash_table2 = defaultdict(list) # 存储序号
+        n = len(adjacentPairs)
+        points = set() # 端点列表（用list超时）
+        index = -1 # 位置指针
+        num = -1 # 数字
+        res = []
+
+        for i in range(n):
+            left, right = adjacentPairs[i][0], adjacentPairs[i][1]
+
+            hash_table1[left].append(i)
+            hash_table1[right].append(i)
+            hash_table2[i].append(left)
+            hash_table2[i].append(right)
+
+            if len(hash_table1[left]) == 1:
+                points.add(left)
+            else:
+                points.remove(left)
+            if len(hash_table1[right]) == 1:
+                points.add(right) 
+            else:
+                points.remove(right)
+        #print(hash_table1)
+        #print(hash_table2)
+        #print(points)
+        #print('===============')
+
+        points = list(points)
+        point1, point2 = points[0], points[1]
+
+        num = point1 
+
+        while len(res) < (n+1):
+            if len(res) == 0: 
+                res.append(num)
+            #print('res:', res)
+            index = hash_table1[num][0]
+            #print('index:', index)    
+            hash_table2[index].remove(num)
+            hash_table1[num].remove(index)
+            #print(hash_table1)
+            #print(hash_table2)
+
+            num = hash_table2[index][0]
+            #print('num:', num)
+            res.append(num)
+            #print('res:', res)
+            hash_table1[num].remove(index)
+            hash_table2[index].remove(num)
+            #print(hash_table1)
+            #print(hash_table2)
+            #print('-------')
+
+        return res"""
+
+
+        # 方法二：哈希表
+        # 时间复杂度：
+        # 空间复杂度
+        hash_table = defaultdict(list)
+        n = len(adjacentPairs)
+        res = []
+
+        for i in range(n):
+            left, right = adjacentPairs[i][0], adjacentPairs[i][1]
+            hash_table[left].append(right)
+            hash_table[right].append(left)
+
+        #print('hash_table:', hash_table)
+        num = -1
+        for key in (hash_table):
+            #print(key)
+            if len(hash_table[key]) == 1:
+                num = key
+                break
+
+        res.append(num)
+        num = hash_table[num][0] 
+        res.append(num)
+        #print('res:', res)
+
+        while len(res) < n+1:
+            #print('res[-2]:', res[-2])
+            #print('hash_table[num]:', hash_table[num])
+            num = hash_table[num][1] if (res[-2] == hash_table[num][0]) else hash_table[num][0]
+            #print('num:', num)
+            res.append(num)
+
+        return res
+
+
+
+
