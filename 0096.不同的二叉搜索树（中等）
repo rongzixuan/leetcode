@@ -15,3 +15,12 @@ class Solution:
                 dp[i] += dp[j-1] * dp[i-j]
         #print(dp)
         return dp[n]
+        
+        
+        # 方法二：数学（卡塔兰数）
+        res = 1
+
+        for i in range(0, n):
+            res = res * 2 * (2*i+1) / (i+2)
+
+        return int(res)
