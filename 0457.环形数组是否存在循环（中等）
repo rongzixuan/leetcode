@@ -66,7 +66,7 @@ class Solution:
         # 方法二：模拟法-使用标记
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        n = len(nums)
+        """n = len(nums)
         if n == 0 or n == 1:
             return False
         mark = [-1] * n
@@ -94,14 +94,7 @@ class Solution:
 
                 mark[j] = i    
                 #print('mark:', mark)           
-                """if j == i and count != 0:
-                    if count > 1:  
-                        #print('True:', i)    
-                        return True
-                    else:
-                        #print('False:', i) 
-                        break"""
-
+                
                 count += 1
                 next_j = j + nums[j]
                 if next_j >= n:
@@ -116,7 +109,39 @@ class Solution:
                 else:
                     j = next_j
 
+        return False"""
+
+
+
+        # 方法三：双指针（快慢指针）
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        n = len(nums)
+
+        def getNext(i):
+            return (i + nums[i] + n) % n
+
+        for i in range(n):
+            fast, slow = getNext(i), i
+
+            while nums[i] * nums[fast] > 0 and nums[i] * nums[getNext(fast)] > 0: # 方向相同
+                if slow == fast:
+                    if slow == getNext(slow):
+                        break
+                    else:
+                        return True
+                
+                slow = getNext(slow)
+                fast = getNext(getNext(fast))
+
         return False
+
+
+
+
+
+
+         
 
 
          
