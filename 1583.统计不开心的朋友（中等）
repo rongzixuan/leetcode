@@ -12,3 +12,42 @@ u 与 x 的亲近程度胜过 u 与 v
 返回 不开心的朋友的数目 。
 
 """
+
+class Solution:
+    def unhappyFriends(self, n: int, preferences: List[List[int]], pairs: List[List[int]]) -> int:
+
+
+        # 方法一：模拟
+        # 时间复杂度：O(n^2)
+        # 空间复杂度：O(n^2)
+        count = set()
+        relation = [[0] * n for _ in range(n)] # 亲密关系的映射
+        match = [0 for _ in range(n)]
+
+        for i in range(n):
+            for j in range(n-1):
+                #print(i, j, preferences[i][j])
+                relation[i][preferences[i][j]] = j + 1
+        #print(relation)
+
+        for x, y in pairs:
+            match[x] = y
+            match[y] = x
+        #print(match)
+
+        for i in range(n):
+            x, y = i, match[i]
+            for j in range(n):
+                u, v = j, match[j]
+                #print(x, y, u, v)
+                if x != u and relation[x][y] > relation[x][u] and relation[u][v] > relation[u][x]:
+                    #print(x, y, u, v)
+                    #print('1111')
+                    count.add(x)
+
+        return len(count)
+
+
+
+
+
