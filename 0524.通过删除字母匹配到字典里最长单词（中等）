@@ -1,0 +1,78 @@
+"""
+给你一个字符串 s 和一个字符串数组 dictionary 作为字典，找出并返回字典中最长的字符串，该字符串可以通过删除 s 中的某些字符得到。
+
+如果答案不止一个，返回长度最长且字典序最小的字符串。如果答案不存在，则返回空字符串。
+
+"""
+
+class Solution:
+    def findLongestWord(self, s: str, dictionary: List[str]) -> str:
+
+
+        # 方法一：双指针
+        # 时间复杂度：O(n*(d+n))，其中d为dic长度
+        # 空间复杂度：O(1)
+        m, n = len(s), len(dictionary)
+        res = ''
+
+        for i in range(n):
+            dic = dictionary[i]
+            p1 = p2 = 0
+            while p2 < len(dic) and p1 < m:
+                if s[p1] == dic[p2]:
+                    p1 += 1
+                    p2 += 1
+                else:
+                    while p1 < m and s[p1] != dic[p2]:
+                        p1 += 1
+
+            if p1 == m and p2 != len(dic):
+                continue
+            else:
+                res = dic if len(dic) > len(res) or(len(dic) == len(res) and dic < res) else res
+
+        return res
+
+
+
+        # 方法二：排序 + 双指针
+        # 时间复杂度：O(n*(d+n))，其中d为dic长度
+        # 空间复杂度：O(1)
+        dictionary.sort()
+        m, n = len(s), len(dictionary)
+        res = ''
+
+        for i in range(n):
+            dic = dictionary[i]
+            p1 = p2 = 0
+            while p2 < len(dic) and p1 < m:
+                if s[p1] == dic[p2]:
+                    p1 += 1
+                    p2 += 1
+                else:
+                    while p1 < m and s[p1] != dic[p2]:
+                        p1 += 1
+
+            if p1 == m and p2 != len(dic):
+                continue
+            else:
+                res = dic if len(dic) > len(res) else res
+
+        return res
+
+
+
+        # 方法三：动态规划
+        # 时间复杂度：O()
+        # 空间复杂度：O()
+
+
+ 
+
+
+
+
+
+
+
+            
