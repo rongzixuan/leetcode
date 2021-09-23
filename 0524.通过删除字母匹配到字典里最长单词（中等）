@@ -1,10 +1,3 @@
-"""
-给你一个字符串 s 和一个字符串数组 dictionary 作为字典，找出并返回字典中最长的字符串，该字符串可以通过删除 s 中的某些字符得到。
-
-如果答案不止一个，返回长度最长且字典序最小的字符串。如果答案不存在，则返回空字符串。
-
-"""
-
 class Solution:
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
 
@@ -12,7 +5,7 @@ class Solution:
         # 方法一：双指针
         # 时间复杂度：O(n*(d+n))，其中d为dic长度
         # 空间复杂度：O(1)
-        m, n = len(s), len(dictionary)
+        """m, n = len(s), len(dictionary)
         res = ''
 
         for i in range(n):
@@ -31,14 +24,14 @@ class Solution:
             else:
                 res = dic if len(dic) > len(res) or(len(dic) == len(res) and dic < res) else res
 
-        return res
+        return res"""
 
 
 
         # 方法二：排序 + 双指针
         # 时间复杂度：O(n*(d+n))，其中d为dic长度
         # 空间复杂度：O(1)
-        dictionary.sort()
+        """dictionary.sort()
         m, n = len(s), len(dictionary)
         res = ''
 
@@ -58,21 +51,45 @@ class Solution:
             else:
                 res = dic if len(dic) > len(res) else res
 
-        return res
+        return res"""
 
 
 
         # 方法三：动态规划
-        # 时间复杂度：O()
-        # 空间复杂度：O()
+        # 时间复杂度：O(n + m * d)，其中d为dic长度
+        # 空间复杂度：O(n)， n为字符串s的长度
+        m, n = len(dictionary), len(s)
+        dp = [[0] * 26 for _ in range(n)]
+        dp.append([n] * 26)
+        #print(dp)
+
+        # dp[i][j]表示从i开始字符j第一次出现的位置
+        for i in range(n-1, -1, -1):
+            for j in range(26):
+                if s[i] == chr(97 + j):
+                    dp[i][j] = i
+                else:
+                    dp[i][j] = dp[i+1][j]
+        #print(dp)
+
+        res = ""
+        for dic in dictionary:
+            j = 0
+            match = True
+            for i in range(len(dic)):
+                if dp[j][ord(dic[i])-97] == n:
+                    match = False
+                    break
+                j = dp[j][ord(dic[i])-97] + 1
+            #print(match)
+            if match:
+                if len(dic) > len(res) or (len(dic) == len(res) and dic < res):
+                    res = dic
+
+        return res
 
 
- 
 
 
 
 
-
-
-
-            
