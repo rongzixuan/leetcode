@@ -35,32 +35,20 @@ class Solution:
         dp[0] = 1
 
         for i in range(2, n+1):
-            #if i >= 3:
-            # 加两个字符
             if int(s[i-2] + s[i-1]) == 0:  # 连续两个0无法分割
                 return 0
 
             if s[i-2] != '0' and int(s[i-2] + s[i-1]) <= 26:
                 dp[i] += dp[i-2]
-            """elif int(s[i-2] + s[i-1]) > 26 and int(s[i-1]) == 0:  # 如40
-                pass
-            elif int(s[i-2] + s[i-1]) > 26:  # 如48
-                dp[i] += dp[i-1]           
-            elif int(s[i-2] + s[i-1]) == 10 or int(s[i-2] + s[i-1]) == 20:  # 10、20
-                pass
-            elif int(s[i-2]) == 0:  # 如06
-                dp[i] += dp[i-1]
-            else:   # 如16
-                dp[i] += dp[i-2] + 1"""
 
             if s[i-1] != '0':
                 dp[i] += dp[i-1]
-
 
         #print(dp)
         return dp[n]
             
 
 
+          
 
 
