@@ -40,18 +40,17 @@ class Solution:
         if image[sr][sc] == newColor:
             return image
 
-        stack = [(sr, sc)]
+        queue = [(sr, sc)]
 
-        while stack:
-            i, j = stack.pop()
+        while queue:
+            i, j = queue.pop()
             image[i][j] = newColor
 
             for new_i, new_j in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
                 if 0 <= new_i < m and 0 <= new_j < n and image[new_i][new_j] == initColor:
-                    stack.append((new_i, new_j))
+                    queue.append((new_i, new_j))
 
         return image
-
 
 
 
