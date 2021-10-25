@@ -1,0 +1,26 @@
+"""
+给定一个字符串S，通过将字符串S中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。
+"""
+
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+
+        # 方法一：递归
+        # 时间复杂度：O(2^n * n)
+        # 空间复杂度：O(2^n * n)
+        """n = len(s)
+        ans = [[]]
+
+        for i in range(n):
+            m = len(ans)
+
+            if s[i].isdigit():
+                for j in range(m):
+                    ans[j].append(s[i])
+            elif s[i].isalpha():
+                for j in range(m):
+                    ans.append(ans[j][:])
+                    ans[j].append(s[i].lower())
+                    ans[j+m].append(s[i].upper())
+
+        return ["".join(x) for x in ans]"""
