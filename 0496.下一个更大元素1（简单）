@@ -35,9 +35,22 @@ class Solution:
         # 方法二：单调栈 + 哈希表
         # 时间复杂度：O(m + n)
         # 空间复杂度:O(m)
-        m, n = len(nums1), len(nums2)
-        if n == 1:
-            return [-1]
+        res = {}
+        stack = []
+
+        for num in reversed(nums2):
+            while stack and num >= stack[-1]:
+                stack.pop(-1)
+            res[num] = stack[-1] if stack else -1
+            stack.append(num)
+
+        return [res[num] for num in nums1]
+
+
+
+
+
+
 
 
 
