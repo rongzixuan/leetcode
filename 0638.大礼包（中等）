@@ -40,3 +40,53 @@ special[i].length == n + 1
 
 """
 
+
+class Solution:
+    def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
+
+
+        # 方法一：记忆化搜索
+        # 时间复杂度：
+        # 空间复杂度：
+        n = len(price)
+        m = len(special)
+
+        special2 = []  # 符合条件的大礼包
+        for i in range(m):
+            flag = True
+            count = 0
+            for j in range(n):
+                if special[i][j] > needs[j]:
+                    flag = False
+                count += price[j] * special[i][j]
+                #print('count:', count)
+
+            #print('count2:', count)
+            if flag and count >= special[i][n]:
+                special2.append(special[i])
+        #print(special2)
+
+
+        # 记忆化搜索
+        from functools import lru_cache
+        @lru_cache(None)
+        def dfs(cur_needs):
+            costs = sum(price[i] * cur_needs[i] for i in range(n))
+            for sp in special2:
+                nxt_need = []
+                for i in range(n):
+                    if sp[i] > cur_needs[i]:
+                        break
+                    nxt_need.append(cur_needs[i] - sp[i])
+                if len(nxt_need) == n:
+                    costs = min(costs, dfs(tuple(nxt_need)) + sp[-1])
+            return costs
+
+        return dfs(tuple(needs))
+
+
+
+
+
+
+
