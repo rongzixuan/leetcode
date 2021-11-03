@@ -14,3 +14,40 @@
 输出: 10
 
 """
+
+class Solution:
+    def trapRainWater(self, heightMap: List[List[int]]) -> int:
+
+
+        # 方法一：广度优先搜索
+        # 时间复杂度：O(m^2 * n^2)
+        # 空间复杂度：O(m * n)
+        m, n = len(heightMap), len(heightMap[0])
+        if m < 3 and n < 3:
+            return 0
+
+        queue = []
+        max_height = max(max(row) for row in heightMap) # 最高柱     
+        volumns = [[max_height] * n for _ in range(m)] 
+        for i in range(m):
+            for j in range(n):
+                if (i == 0 or i == m-1) or (j == 0 or j == n-1):
+                    volumns[i][j] = heightMap[i][j]
+                    queue.append((i, j))
+      
+        res = 0
+        while queue:
+            i, j = queue.pop(0)
+            #print(i, j)
+            #res += volumns[i][j] - heightMap[i][j]
+            for new_i, new_j in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
+                if 0 < new_i < m-1 and 0 < new_j < n-1:
+                    if volumns[i][j] < volumns[new_i][new_j] and volumns[new_i][new_j] > heightMap[new_i][new_j]:  
+                        volumns[new_i][new_j] = max(volumns[i][j], heightMap[new_i][new_j])
+                        queue.append((new_i, new_j))
+
+        for i in range(m):
+            for j in range(n):
+                res += volumns[i][j] - heightMap[i][j]
+
+        return res
