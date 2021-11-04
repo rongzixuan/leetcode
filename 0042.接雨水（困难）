@@ -101,7 +101,7 @@ class Solution:
         return res"""
 
 
-        # 方法四：单调n栈
+        # 方法四：单调栈
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
         n = len(height)
@@ -109,6 +109,26 @@ class Solution:
             return 0
 
         stack = []
+        res = 0
+        for i, h in enumerate(height):
+            while stack and h > height[stack[-1]]:
+                mid = stack.pop(-1)
+                if not stack:
+                    break
+                left = stack[-1]
+                cur_width = i - left - 1
+                cur_height = min(height[i], height[left]) - height[mid]
+                res += cur_height * cur_width
+            stack.append(i)
+
+        return res
+
+
+
+
+
+
+
 
 
 
