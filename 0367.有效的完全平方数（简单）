@@ -21,3 +21,43 @@
 
 """
 
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+
+
+        # 方法一：二分法
+        # 时间复杂度：O(logn)
+        # 空间复杂度：O(1)
+        """left, right = 0, num
+        while left <= right:
+            mid = left + (right - left) // 2
+            #print(left, right)
+            if mid * mid == num:
+                return True
+            elif mid * mid > num:
+                right = mid - 1
+            else:
+                left = mid + 1
+
+        return False"""
+
+
+        # 方法二：牛顿迭代法
+        # 时间复杂度：O(log4n)
+        # 空间复杂度：O(1)
+        x0 = num
+        while True:
+            x1 = (x0 + num / x0) / 2
+            #print('x1:', x1)
+            if abs(num - x1 * x1) < 1e-6:
+                break
+            x0 = x1
+            #print(x0)
+
+        return int(x0) * int(x0) == num
+            
+
+
+
+
+
