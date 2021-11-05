@@ -24,8 +24,44 @@
 
 提示：
 
-1 <= arr.length <= 105
--104 <= arr[i], difference <= 104
+1 <= arr.length <= 10^5
+-10^4 <= arr[i], difference <= 10^4
 
 """
+
+class Solution:
+    def longestSubsequence(self, arr: List[int], difference: int) -> int:
+
+
+        # 方法一：动态规划 + 哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        """n = len(arr)
+        if n == 1:
+            return 1
+
+        from collections import defaultdict
+        hash_table = defaultdict(list)
+        dp = [1] * n
+        for i in range(n):
+            if arr[i] - difference in hash_table:
+                dp[i] = dp[hash_table[arr[i] - difference][-1]]+ 1
+            hash_table[arr[i]].append(i)
+        #print(hash_table)
+
+        return max(dp)"""
+
+
+        # 方法二：动态规划 + 哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        n = len(arr)
+        if n == 1:
+            return 1
+
+        dp = defaultdict(int)
+        for a in arr:
+            dp[a] = dp[a-difference] + 1
+
+        return max(dp.values())
 
