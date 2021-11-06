@@ -22,7 +22,7 @@ class Solution:
         # 方法一：广度优先搜索
         # 时间复杂度：O(m^2 * n^2)
         # 空间复杂度：O(m * n)
-        m, n = len(heightMap), len(heightMap[0])
+        """m, n = len(heightMap), len(heightMap[0])
         if m < 3 and n < 3:
             return 0
 
@@ -49,5 +49,45 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 res += volumns[i][j] - heightMap[i][j]
+
+        return res"""
+
+
+        # 方法二：最小堆 + 广度优先搜索（栈）
+        # 时间复杂度：O(m * n * log(m+n))
+        # 空间复杂度：O(m * n)
+        m, n = len(heightMap), len(heightMap[0])
+        if m < 3 and n < 3:
+            return 0
+
+        import heapq
+        hq = [] # 最小堆
+        visited = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if i == 0 or i == m-1 or j == 0 or j == n-1:
+                    visited[i][j] = 1
+                    heapq.heappush(hq, (heightMap[i][j], (i, j)))
+                    #heapq.heappush(hq, (heightMap[i][j], i * n + j))
+        #print('hq before:', hq)
+        #print(visited)
+
+        res = 0
+        while hq:
+            cur_height, (i, j) = heapq.heappop(hq)
+            #cur_height, k = heapq.heappop(hq)
+            #i, j = k // n, k % n
+            #print(cur_height, i, j)
+            for new_i, new_j in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
+                if 0 < new_i < m-1 and 0 < new_j < n-1 and visited[new_i][new_j] == 0:
+                    if cur_height > heightMap[new_i][new_j]:
+                        res += cur_height - heightMap[new_i][new_j]                   
+                        #heapq.heappush(hq, (cur_height, new_i * n + new_j))
+                        heapq.heappush(hq, (cur_height, (new_i, new_j)))
+                    else:
+                        #heapq.heappush(hq, (heightMap[new_i][new_j], new_i * n + new_j))
+                        heapq.heappush(hq, (heightMap[new_i][new_j], (new_i, new_j)))
+                    visited[new_i][new_j] = 1
+            #print('hq:', hq)
 
         return res
