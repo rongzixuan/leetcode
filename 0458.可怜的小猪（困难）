@@ -36,5 +36,42 @@ class Solution:
         # 方法一：数学
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
-        times = int(minutesToTest / minutesToDie) + 1
-        return ceil(log(buckets) / log(times))  
+        """times = int(minutesToTest / minutesToDie) + 1
+        return ceil(log(buckets) / log(times))"""  
+
+        # 方法二：动态规划
+        # 时间复杂度：O()
+        # 空间复杂度：O()
+        if buckets == 1:
+            return 0
+
+        times = minutesToTest // minutesToDie        
+        c = [[0] * (buckets + 1) for _ in range(buckets + 1)]  # 组合计算
+        c[0][0] = 1
+
+        # dp[i][j]表示用i只小猪，经过j轮能判断出的最多的桶的数目
+        dp = [[0] * (times + 1) for _ in range(buckets + 1)] 
+        for i in range(buckets + 1):
+            dp[i][0] = 1
+        for i in range(times + 1):
+            dp[0][i] = 1
+
+        for i in range(1, buckets + 1):
+            c[i][0] = 1
+            c[i][i] = 1
+            for k in range(1, i):
+                c[i][k] = c[i-1][k] + c[i-1][k-1]
+            for j in range(1, times + 1):
+                for k in range(i + 1):
+                    dp[i][j] += dp[k][j-1] * c[i][k]
+                if dp[i][j] >= buckets:
+                    return i
+
+        return 0
+
+
+
+
+
+
+ 
