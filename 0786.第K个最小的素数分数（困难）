@@ -35,7 +35,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O(n ^ 2)
         # 空间复杂度：O(n ^ 2)
-        n = len(arr)
+        """n = len(arr)
         res = []
 
         for i in range(n):
@@ -44,4 +44,66 @@ class Solution:
 
         res.sort(key=lambda x: x[0])
         #print(res)
-        return res[k-1][1]
+        return res[k-1][1]"""
+
+
+        # 方法二：优先队列
+        # 时间复杂度：
+        # 空间复杂度：
+        """n = len(arr)
+
+        heap = []
+        for i in range(n):
+            heapq.heappush(heap, (1 / arr[i], 0, i))
+
+        for k in range(k):
+            val, i, j = heapq.heappop(heap)
+            #print(val, i, j)
+            if i + 1 < j:
+                heapq.heappush(heap, (arr[i+1] / arr[j], i+1, j))
+
+        return [arr[i], arr[j]]"""
+
+
+        # 方法三：二分查找 + 双指针
+        # 时间复杂度：
+        # 空间复杂度：
+        n = len(arr)
+        res = []
+
+        left, right = 0.0, 1.0  # 分数
+        while True:
+            #print(left, right)
+            mid = left + (right - left) / 2
+            print('mid:', mid)
+
+            i = -1
+            count = 0
+            x, y = 0, 1
+            for j in range(1, n):
+                #print('i, j:', i, j)
+                while arr[i+1] / arr[j] < mid:
+                    i += 1
+                    if arr[i] / arr[j] > x / y:
+                        x, y = arr[i], arr[j]
+                count += (i+1)
+            #print(count)
+
+            if count == k:
+                return [x, y]
+            elif count > k:
+                right = mid
+            else:
+                left = mid
+
+
+
+
+
+
+
+
+
+
+
+
