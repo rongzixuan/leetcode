@@ -27,3 +27,21 @@ arr 中的所有数字 互不相同 ，且按 严格递增 排序
 1 <= k <= arr.length * (arr.length - 1) / 2
 
 """
+
+class Solution:
+    def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
+
+
+        # 方法一：暴力法
+        # 时间复杂度：O(n ^ 2)
+        # 空间复杂度：O(n ^ 2)
+        n = len(arr)
+        res = []
+
+        for i in range(n):
+            for j in range(i+1, n):
+                res.append((arr[i] / arr[j], [arr[i], arr[j]]))
+
+        res.sort(key=lambda x: x[0])
+        #print(res)
+        return res[k-1][1]
