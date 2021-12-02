@@ -29,3 +29,34 @@ n == score.length
 score 中的所有值 互不相同
 
 """
+
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
+
+
+        # 方法一：哈希表
+        # 时间复杂度：O(nlogn)
+        # 空间复杂度：o(n)
+        n = len(score)
+        score_map = defaultdict(int)
+        for i, sc in enumerate(score):
+            score_map[sc] = i
+        #print(score_map)
+
+        score_map = sorted(score_map.items(), reverse=True, key=lambda x: x[0])
+        #print(score_map)
+
+        res = [""] * n
+        i = 1
+        for k, v in score_map:
+            if i == 1:
+                res[v] = 'Gold Medal'
+            elif i == 2:
+                res[v] = 'Silver Medal'
+            elif i == 3:
+                res[v] = 'Bronze Medal'
+            else:
+                res[v] = str(i)
+            i += 1
+
+        return res
