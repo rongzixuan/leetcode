@@ -21,3 +21,46 @@
 1 <= k <= floor(nums.length / 3)
 
 """
+
+class Solution:
+    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+
+
+        # 方法一：前缀和 + 滑动窗口
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        """n = len(nums)
+        tmp_sum1, tmp_sum2, tmp_sum3 = 0, 0, 0
+        max_1, max_12, max_123 = 0, 0, 0
+        max_1_index, max_12_index, max_123_index = 0, [], []
+
+        for i in range(2*k, n):
+            tmp_sum1 += nums[i - 2 * k]
+            tmp_sum2 += nums[i - k]
+            tmp_sum3 += nums[i]
+
+            if i >= 3 * k - 1:
+                if tmp_sum1 > max_1:
+                    max_1 = tmp_sum1
+                    max_1_index = i - 3 * k + 1
+                if max_1 + tmp_sum2 > max_12:
+                    max_12 = max_1 + tmp_sum2
+                    max_12_index = [max_1_index, i - 2 * k + 1]
+                if max_12 + tmp_sum3 > max_123:
+                    max_123 = max_12 + tmp_sum3
+                    max_123_index = [max_12_index[0], max_12_index[1], i - k + 1]
+                tmp_sum1 -= nums[i - 3 * k + 1]
+                tmp_sum2 -= nums[i - 2 * k + 1]
+                tmp_sum3 -= nums[i - k + 1]
+            
+            #print(max_1_index, max_12_index, max_123_index)
+
+        return max_123_index"""
+
+
+        # 方法二：动态规划
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        n = len(nums)
+
+        
