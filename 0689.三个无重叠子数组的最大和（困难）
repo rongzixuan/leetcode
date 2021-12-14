@@ -61,6 +61,32 @@ class Solution:
         # 方法二：动态规划
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        n = len(nums)
+        n = len(nums)       
+
+        pre_sum = [0] * (n+1)
+        for i in range(1, n+1):
+            pre_sum[i] = pre_sum[i-1] + nums[i-1]
+        #print(pre_sum)
+
+        # dp[i][j]表示以i结尾，有j个子数组的和的最大值
+        dp = [[0] * 4 for _ in range(n+1)]
+        for i in range(k, n + 1):
+            for j in range(1, 4):
+                dp[i][j] = max(dp[i-1][j], dp[i-k][j-1] + pre_sum[i] - pre_sum[i-k])
+        #print(dp)
+
+        # 找到最大值对应的位置
+        index = 3
+        i = n
+        res = [0] * 3
+        while index > 0 and i >= 0:
+            while dp[i][index] == dp[i-1][index]:
+                i -= 1
+            #else:
+            index -= 1
+            res[index] = i - k               
+            i -= k
+
+        return res
 
         
