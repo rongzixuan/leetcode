@@ -56,10 +56,11 @@ class Solution:
         maxCnt = max((bisect_right(polarDegrees, polarDegrees[i] + degree) - i for i in range(n)), default=0)
         return maxCnt + sameCnt"""
 
+
         # 方法一：数学 + 二分法
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        n = len(points)
+        """n = len(points)
         angle_pi = angle * pi / 180
         #print(angle_pi)
 
@@ -95,4 +96,39 @@ class Solution:
                     right = mid - 1
             max_points = max(max_points, right + 1 - i)
 
+        return max_points + same_point"""
+
+
+        # 方法二：数学 + 滑动窗口
+        # 时间复杂度：O(nlogn)
+        # 空间复杂度：O(n)
+        n = len(points)
+        angle_pi = angle * pi / 180
+        #print(angle_pi)
+
+        points_angle = []
+        same_point = 0
+        for point in points:
+            if point == location:
+                same_point += 1
+            else:
+                tmp_angle = atan2(point[1] - location[1], point[0] - location[0])
+                points_angle.append(tmp_angle)
+        #print('same_point:', same_point)
+        points_angle.sort()
+        #print(points_angle)
+        points_angle += [deg + 2 * pi for deg in points_angle]
+        #points_angle = [tmp + 2 * pi for tmp in points_angle]  # 防止出现负数
+        #print(points_angle)
+
+        max_points = 0
+        m = len(points_angle)
+        max_points = 0
+        j = 0
+        for i in range(m):
+            while j < m and points_angle[j] - points_angle[i] <= angle_pi:
+                j += 1
+            max_points = max(max_points, j - i)
         return max_points + same_point
+
+
