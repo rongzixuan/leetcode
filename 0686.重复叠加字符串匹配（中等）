@@ -95,7 +95,30 @@ class Solution:
         # 空间复杂度：O(n)
         def strstr(a, b):
             m, n = len(a), len(b)
-            return 
+            if n == 0:
+                return 0
+
+            next_ = [0] * n
+            left = 0
+            for right in range(1, n):
+                #print('left, right:', left, right)
+                while left > 0 and b[left] != b[right]:
+                    left = next_[left - 1]
+                if b[left] == b[right]:
+                    left += 1
+                next_[right] = left
+
+            i, j = 0, 0
+            while i - j < m:
+                #print('i, j:', i, j)
+                while j > 0 and a[i % m] != b[j]:
+                    j = next_[j - 1] 
+                if a[i % m] == b[j]:                    
+                    j += 1
+                if j == n:
+                    return i - n + 1
+                i += 1
+            return -1
 
         m, n = len(a), len(b)
         index = strstr(a, b)
@@ -105,6 +128,9 @@ class Solution:
             return 1
         else:
             return (n + index - m - 1) // m + 2
+
+
+
 
 
 
