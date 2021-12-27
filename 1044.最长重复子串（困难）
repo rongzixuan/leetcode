@@ -76,11 +76,64 @@ class Solution:
         return ans"""
 
 
-        # 方法三：二分法 + 字符串哈希
-        # 时间复杂度：O()
-        # 空间复杂度：O()
-        n = len(s)
+        # 方法三：模拟
+        # 时间复杂度：O(n^2)
+        # 空间复杂度：O(1)
+        """ans = ""
+        for i in range(len(s)):
+            while s[i:i+len(ans)+1] in s[i+1:]:
+                ans = s[i:i+len(ans) + 1]
+        return ans"""
 
+
+        # 方法四：二分法 + 字符串哈希
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        # 生成两个进制
+        def check(arr, a1, a2, mod1, mod2, mid):
+            n = len(arr)
+            aL1, aL2 = pow(a1, mid, mod1), pow(a2, mid, mod2)
+            h1, h2 = 0, 0
+            for i in range(mid):
+                h1 = (h1 * a1 + arr[i]) % mod1
+                h2 = (h2 * a2 + arr[i]) % mod2
+            used = {(h1, h2)}
+
+            for i in range(1, n - mid + 1):
+                h1 = (h1 * a1 - arr[i - 1] * aL1 + arr[i + mid - 1]) % mod1
+                h2 = (h2 * a2 - arr[i - 1] * aL2 + arr[i + mid - 1]) % mod2
+                if (h1, h2) in used:
+                    return i
+                else:
+                    used.add((h1, h2))
+            return -1
+
+        a1, a2 = random.randint(26, 100), random.randint(26, 100)  # 生成两个进制
+        # 生成两个模
+        mod1, mod2 = random.randint(10**9+7, 2**31-1), random.randint(10**9+7, 2**31-1)
+        n = len(s)
+        arr = [ord(c) - ord('a') for c in s]
+        #print('arr:', arr)
+
+        left, right = 0, n-1
+        length = 0
+        start = -1
+        while left <= right:
+            mid = left + (right - left) // 2
+            idx = check(arr, a1, a2, mod1, mod2, mid)
+            if idx != -1:
+                left = mid + 1
+                length = mid
+                start = idx
+            else:
+                right = mid - 1
+
+        return s[start: start + length] if start != -1 else ""
+
+
+    
+
+        
     
 
         
