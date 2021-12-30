@@ -80,18 +80,49 @@ class Solution:
 
 
         # 方法三：哈希表 + 优先队列（堆）
-        # 时间复杂度：O()
+        # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
         n = len(hand)
         if n % groupSize != 0:
             return False
 
-        hand.sort()
-        from collections import Counter
-        cnt = Counter(hand)
+        #hand.sort()
+        from collections import defaultdict
+        hash_table = defaultdict(int)
 
         import heapq
         heap = []
+        for ch in hand:
+            hash_table[ch] += 1
+            heapq.heappush(heap, ch)
+        #print('heap:', heap)
+        #print('hash_table:', hash_table)
+
+        while heap:
+            k = heapq.heappop(heap)
+            #print('k:', k)
+            if hash_table[k] == 0:
+                continue
+            for i in range(k, k + groupSize):
+                if i not in hash_table:
+                    #print('false1:', i)
+                    return False
+                hash_table[i] -= 1
+                if hash_table[i] < 0:
+                    #print('false2:', i)
+                    return False
+
+        return True
+
+
+
+
+
+
+
+
+
+
         
 
 
