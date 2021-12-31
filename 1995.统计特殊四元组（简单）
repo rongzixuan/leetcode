@@ -30,7 +30,6 @@ a < b < c < d
 
 """
 
-
 class Solution:
     def countQuadruplets(self, nums: List[int]) -> int:
 
@@ -91,14 +90,44 @@ class Solution:
 
         # 方法三：哈希表3
         # 时间复杂度：O(n^2)
-        # 空间复杂度：O(n)
+        # 空间复杂度：O(n^2)
+        """n = len(nums)
+
+        from collections import defaultdict
+        hash_table = defaultdict(int)
+
+        res = 0
+        for i in range(2, n):
+            for j in range(i - 1):
+                hash_table[nums[j] + nums[i - 1]] += 1
+            for k in range(i + 1, n):
+                if (tmp := nums[k] - nums[i]) in hash_table:
+                    res += hash_table[tmp]
+
+        return res"""
+
+
+        # 方法四：哈希表4
+        # 时间复杂度：O(n^2)
+        # 空间复杂度：O(n^2)
         n = len(nums)
 
         from collections import defaultdict
         hash_table = defaultdict(int)
 
         res = 0
-        for 
+        for b in range(n - 3, -1, -1):
+            for d in range(b + 2, n):
+                hash_table[nums[d] - nums[b + 1]] += 1
+            for a in range(b):
+                if (tmp := nums[a] + nums[b]) in hash_table:
+                    res += hash_table[tmp]
+
+        return res
+
+
+
+
 
 
 
