@@ -30,6 +30,7 @@ a < b < c < d
 
 """
 
+
 class Solution:
     def countQuadruplets(self, nums: List[int]) -> int:
 
@@ -88,7 +89,7 @@ class Solution:
         return res"""
 
 
-        # 方法三：哈希表3
+        # 方法四：哈希表3
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
         """n = len(nums)
@@ -107,7 +108,7 @@ class Solution:
         return res"""
 
 
-        # 方法四：哈希表4
+        # 方法五：哈希表4
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
         n = len(nums)
@@ -124,6 +125,10 @@ class Solution:
                     res += hash_table[tmp]
 
         return res
+
+
+
+
 
 
 
