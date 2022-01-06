@@ -52,10 +52,20 @@ class Solution:
 
 
         # 方法一：栈
-        # 时间复杂度：
-        # 空间复杂度：
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
         names = path.split('/')
         
         stack = []
         for ch in names:
-            if 
+            if ch and ch != '.':
+                stack.append(ch)
+            elif ch == '..':
+                if stack:
+                    stack.pop()
+
+        return '/' + '/'.join(stack)
+
+
+
+
