@@ -37,7 +37,7 @@ class Solution:
         # 方法一：贪心
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        n = len(nums)
+        """n = len(nums)
         if n < 3:
             return False
 
@@ -50,7 +50,39 @@ class Solution:
             elif num > first and num < second:
                 second = num
 
+        return False"""
+
+
+        # 方法二：双向遍历
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        n = len(nums)
+        if n < 3:
+            return False
+
+        left_min = []
+        min_num = float('inf')
+        for num in nums:
+            if num < min_num:
+                min_num = num
+            left_min.append(min_num)
+        #print(left_min)
+
+        right_max = [0] * n
+        max_num = float('-inf')
+        for i in range(n - 1, -1, -1):
+            if nums[i] > max_num:
+                max_num = nums[i]
+            right_max[i] = max_num
+        #print(right_max)
+
+        for i, num in enumerate(nums):
+            if left_min[i] < num and num < right_max[i]:
+                return True
+
         return False
 
 
 
+
+        
