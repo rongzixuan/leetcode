@@ -32,3 +32,34 @@ nums1 和 nums2 均为升序排列
 1 <= k <= 1000
 
 """
+
+
+class Solution:
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+
+
+        # 方法一：优先队列（堆）
+        # 时间复杂度：O(klogk)
+        # 空间复杂度：O(k)
+        """m, n = len(nums1), len(nums2)
+        import heapq
+        #heap = []
+        heap = [(nums1[i] + nums2[0], i, 0) for i in range(min(k, m))]
+        #heapq.heappush(heap, [nums1[0] + nums2[0], 0, 0])
+        #print(heap)
+
+        res = []
+        while len(res) < k and heap:
+            num, i, j = heapq.heappop(heap)
+            #print('num, i, j:', num, i, j)
+            res.append([nums1[i], nums2[j]])
+            if j + 1 < n:
+                heapq.heappush(heap, (nums1[i] + nums2[j + 1], i, j + 1))
+
+        return res"""
+
+
+        # 方法二：二分法
+        # 时间复杂度：O()
+        # 空间复杂度：O(1)
+        m, n = len(nums1), len(nums2)
