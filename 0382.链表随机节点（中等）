@@ -36,3 +36,58 @@ solution.getRandom(); // 返回 3
 你能否在不使用额外空间的情况下解决此问题？
 
 """
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+
+# 方法一：数组
+# 时间复杂度：
+# __init__: O(n)
+# getRandom(): O(n)
+# 空间复杂度：O(n)
+"""class Solution:
+
+    def __init__(self, head: Optional[ListNode]):
+        #print(head)
+        self.arr = []
+        while head:
+            self.arr.append(head.val)
+            head = head.next
+
+    def getRandom(self) -> int:
+        return random.choice(self.arr)"""
+
+
+# 方法二：水塘抽样
+# 时间复杂度：
+# __init__: O(1)
+# getRandom(): O(n)
+# 空间复杂度：O(1)
+class Solution:
+
+    def __init__(self, head: Optional[ListNode]):
+        #print(head)
+        self.head = head
+
+    def getRandom(self) -> int:
+        res = 0
+        i = 1
+        node = self.head
+
+        while node:
+            if randrange(i) == 0:
+                res = node.val
+            i += 1
+            node = node.next
+
+        return res
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(head)
+# param_1 = obj.getRandom()
