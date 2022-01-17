@@ -30,3 +30,55 @@
 1 <= n <= 2 * 10^4
 
 """
+
+
+class Solution:
+    def countVowelPermutation(self, n: int) -> int:
+
+
+        # 方法一：动态规划
+        # 时间复杂度：O(c * n)
+        # 空间复杂度：O(c * n)
+        # c = 5
+        """MOD = 10 ** 9 + 7
+        dp = [[0] * 5 for i in range(n + 1)]
+        dp[1] = [1, 1, 1, 1, 1]
+        #print(dp)
+
+        for i in range(2, n + 1):
+            dp[i] = [dp[i - 1][1] + dp[i - 1][2] + dp[i - 1][4],
+                     dp[i - 1][0] + dp[i - 1][2],
+                     dp[i - 1][1] + dp[i - 1][3], 
+                     dp[i - 1][2],
+                     dp[i - 1][2] + dp[i - 1][3]]
+        #print(dp)
+
+        return sum(dp[-1]) % MOD"""
+
+
+        # 方法二：快速矩阵幂
+        # 时间复杂度：O(c^3 * n)
+        # 空间复杂度：O(c^2)
+        # c = 5
+        import numpy as np
+        MOD = 10 ** 9 + 7
+        factor = np.mat([(0, 1, 0, 0, 0), 
+                  (1, 0, 1, 0, 0), 
+                  (1, 1, 0, 1, 1), 
+                  (0, 0, 1, 0, 1), 
+                  (1, 0, 0, 0, 0)], np.dtype('O'))
+
+        res = np.mat([(1, 1, 1, 1, 1)], np.dtype('O'))
+
+        n -= 1
+        while n > 0:
+            if n % 2 == 1:
+                res *= factor 
+            factor = factor * factor
+            n //= 2
+
+        #print(res)
+        return res.sum() % MOD
+                
+
+
