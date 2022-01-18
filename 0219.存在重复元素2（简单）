@@ -30,7 +30,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        n = len(nums)
+        """n = len(nums)
         from collections import defaultdict
         hash_table = defaultdict(list)
 
@@ -40,4 +40,49 @@ class Solution:
                     return True
             hash_table[num].append(i)
 
+        return False"""
+
+
+        # 方法二：滑动窗口
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        n = len(nums)
+        
+        num_set = set()
+        if n <= k:
+            for i in range(n):
+                if nums[i] in num_set:
+                    #print('i:', i)
+                    return True
+                num_set.add(nums[i])
+            return False
+
+        for i in range(k + 1):
+            if nums[i] in num_set:
+                #print('i:', i)
+                return True
+            num_set.add(nums[i])
+        #print(num_set)
+
+        left, right = 1, k + 1
+        num_set.remove(nums[0])
+        #print(num_set)
+        while right < n:
+            #print('left, right, num_set:', left, right,num_set)
+            if nums[right] in num_set:
+                #print('right:', right)
+                return True
+            num_set.add(nums[right])
+            num_set.remove(nums[left])
+            left += 1
+            right += 1
+
         return False
+
+
+
+
+
+
+
+
