@@ -17,3 +17,39 @@
 timePoints[i] 格式为 "HH:MM"
 
 """
+
+
+class Solution:
+    def findMinDifference(self, timePoints: List[str]) -> int:
+
+
+        # 方法一：排序
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        def getMinutes(str1, str2):
+            time1 = int(str1[:2]) * 60 + int(str1[3:])
+            time2 = int(str2[:2]) * 60 + int(str2[3:])
+            if time1 > time2:
+                time2 += 1440
+            return time2 - time1
+
+        timePoints.sort()
+        #print(timePoints)
+        if timePoints[0] == timePoints[-1]:
+            return 0
+        n = len(timePoints)
+
+        min_sub = getMinutes(timePoints[-1], timePoints[0])
+        for i in range(1, n):
+            if timePoints[i] == timePoints[i - 1]:
+                return 0
+            tmp_sub = getMinutes(timePoints[i - 1], timePoints[i])
+            min_sub = min(min_sub, tmp_sub)
+
+        return min_sub
+
+
+
+
+
+
