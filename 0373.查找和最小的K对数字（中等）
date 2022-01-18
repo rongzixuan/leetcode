@@ -59,7 +59,121 @@ class Solution:
         return res"""
 
 
-        # 方法二：二分法
+        """m, n = len(nums1), len(nums2)
+
+        # 二分查找第 k 小的数对和
+        left, right = nums1[0] + nums2[0], nums1[m - 1] + nums2[n - 1] + 1
+        while left < right:
+            mid = (left + right) // 2
+            cnt = 0
+            i, j = 0, n - 1
+            while i < m and j >= 0:
+                if nums1[i] + nums2[j] > mid:
+                    j -= 1
+                else:
+                    cnt += j + 1
+                    i += 1
+            if cnt < k:
+                left = mid + 1
+            else:
+                right = mid
+        pairSum = left
+
+        ans = []
+        # 找数对和小于 pairSum 的数对
+        i = n - 1
+        for num1 in nums1:
+            while i >= 0 and num1 + nums2[i] >= pairSum:
+                i -= 1
+            for j in range(i + 1):
+                ans.append([num1, nums2[j]])
+                if len(ans) == k:
+                    return ans
+
+        # 找数对和等于 pairSum 的数对
+        i = n - 1
+        for num1 in nums1:
+            while i >= 0 and num1 + nums2[i] > pairSum:
+                i -= 1
+            j = i
+            while j >= 0 and num1 + nums2[j] == pairSum:
+                ans.append([num1, nums2[j]])
+                if len(ans) == k:
+                    return ans
+                j -= 1
+        return ans"""
+
+
+        # 方法二：二分法 + 双指针
         # 时间复杂度：O()
         # 空间复杂度：O(1)
         m, n = len(nums1), len(nums2)
+
+        def getKNum(nums1, nums2):
+            # 二分查找第k小的对数
+            m, n = len(nums1), len(nums2)
+            left, right = nums1[0] + nums2[0], nums1[-1] + nums2[-1]
+            #pair = -1
+            while left <= right:
+                mid = left + (right - left) // 2
+                i, j = 0, n - 1
+                count = 0
+                while i < m and j >= 0: 
+                    #print(i, j)
+                    if nums1[i] + nums2[j] <= mid:                       
+                        count += j + 1
+                        i += 1
+                    elif nums1[i] + nums2[j] > mid: 
+                        j -= 1
+                #print(left, right, mid)
+                #print('count:', count)
+                if count > k:
+                    right = mid - 1
+                elif count < k:
+                    left = mid + 1
+                else:
+                    print(mid)
+                    return mid
+            print(left)
+            return left
+
+        pair = getKNum(nums1, nums2)
+
+        res = []
+        # 找数对和小于 pairSum 的数对
+        i = n - 1
+        for num1 in nums1:
+            while i >= 0 and num1 + nums2[i] >= pair:
+                i -= 1
+            for j in range(i + 1):
+                res.append([num1, nums2[j]])
+                if len(res) == k:
+                    return res
+
+        # 找数对和等于 pairSum 的数对
+        i = n - 1
+        for num1 in nums1:
+            while i >= 0 and num1 + nums2[i] > pair:
+                i -= 1
+            j = i
+            while j >= 0 and num1 + nums2[j] == pair:
+                res.append([num1, nums2[j]])
+                if len(res) == k:
+                    return res
+                j -= 1
+
+        return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
