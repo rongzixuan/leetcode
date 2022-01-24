@@ -40,3 +40,25 @@ Alice 输掉游戏，因为已移除石子值总和（15）可以被 3 整除，
 1 <= stones[i] <= 10^4
 
 """
+
+
+class Solution:
+    def stoneGameIX(self, stones: List[int]) -> bool:
+
+
+        # 方法一：博弈
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(1)
+        count0, count1, count2 = 0, 0, 0
+        for stone in stones:
+            if (re := stone % 3) == 0:
+                count0 += 1
+            elif re == 1:
+                count1 += 1
+            else:
+                count2 += 1
+
+        if count0 % 2 == 0:
+            return count1 >= 1 and count2 >= 1
+        else:
+            return abs(count1 - count2) > 2
