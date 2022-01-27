@@ -52,3 +52,47 @@ ui != vi
 1 <= time, change <= 10^3
 
 """
+
+
+class Solution:
+    def secondMinimum(self, n: int, edges: List[List[int]], time: int, change: int) -> int:
+
+
+        # 方法一：广度优先搜索
+        # 时间复杂度：O(n + m)
+        # 空间复杂度：O(n + m)
+        # m为边的个数
+        graph = [[] for _ in range(n + 1)]
+        for x, y in edges:
+            graph[x].append(y)
+            graph[y].append(x)
+        #print(graph)
+
+        queue = deque([(1, 0)])
+        dist = [[float('inf')] * 2 for _ in range(n + 1)]
+        dist[1][0] = 0
+        while dist[n][1] == float('inf'):
+            x, d = queue.popleft()
+            new_d = d + 1
+            for y in graph[x]:               
+                if new_d < dist[y][0]:
+                    dist[y][0] = new_d
+                    queue.append((y, new_d))
+                elif dist[y][0] < new_d < dist[y][1]:
+                    dist[y][1] = new_d
+                    queue.append((y, new_d))
+        #print(dist)
+
+        res = 0
+        for _ in range(dist[n][1]):
+            if res % (change * 2) >= change:
+                res += change * 2 - res % (change * 2)
+            res += time
+
+        return res
+
+
+
+
+
+
