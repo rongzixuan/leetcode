@@ -37,3 +37,52 @@ isWater[i][j] 要么是 0 ，要么是 1 。
 """
 
 
+class Solution:
+    def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
+
+
+        # 方法一：多元广度优先搜索
+        # 时间复杂度：O(m * n)
+        # 空间复杂度：O(m * n)
+        m, n = len(isWater), len(isWater[0])
+        #print(m, n)
+
+        res = [[-1] * n for _ in range(m)]
+        queue = []
+        queue = deque()
+        #visited = [[False] * n for _ in range(m)]
+        #visited = set()
+        for i in range(m):
+            for j in range(n):
+                if isWater[i][j] == 1:
+                    queue.append((i, j))
+                    res[i][j] = 0
+                    #visited[i][j] = True
+                    #visited.add((i, j))
+        #print(queue)
+        
+        while queue:
+            #i, j = queue.pop(0) 
+            i, j = queue.popleft()          
+            #print(i, j)
+            for new_i, new_j in [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]:
+                if 0 <= new_i < m and 0 <= new_j < n and res[new_i][new_j] == -1:
+                    """min_ = float('inf')
+                    for tmp_i, tmp_j in [(new_i + 1, new_j), (new_i - 1, new_j), (new_i, new_j + 1), (new_i, new_j - 1)]:
+                        if 0 <= tmp_i < m and 0 <= tmp_j < n and (tmp_i, tmp_j) in visited:
+                            min_ = min(min_, res[tmp_i][tmp_j])
+                    res[new_i][new_j] = min_ + 1"""
+                    res[new_i][new_j] = res[i][j] + 1
+                    queue.append((new_i, new_j))
+                    #visited[new_i][new_j] = True
+                    #visited.add((new_i, new_j))
+
+        return res
+
+
+
+
+
+
+
+
