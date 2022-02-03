@@ -37,10 +37,10 @@ class Solution:
     def findMinFibonacciNumbers(self, k: int) -> int:
 
 
-        # 方法一：贪心
+        # 方法一：贪心（超时）
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        if k == 1 or k == 2:
+        """if k == 1 or k == 2:
             return 1
 
         #dp = [1, 1]
@@ -49,23 +49,56 @@ class Solution:
         while c <= k:
             #dp.append(c)
             count.add(c)
-            print('c:', c)
+            #print('c:', c)
             a, b, c = b, c, b + c
 
         res = 1
-        k -= c
+        k -= b
         tmp_k = k
         while k:  
-            print('k:', k)          
+            #print('k:', k)          
             if tmp_k in count:
                 k -= tmp_k
-                count += 1
+                res += 1
                 tmp_k = k
             else:
                 while tmp_k not in count:
+                    #print('tmp_k:', tmp_k)
                     tmp_k -= 1
 
+        return res"""
+
+
+        # 方法二：贪心
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        if k == 1 or k == 2:
+            return 1
+
+        dp = [1, 1]
+        a, b, c = 1, 1, 2
+        count = {1, 1}
+        while c <= k:
+            dp.append(c)
+            #count.add(c)
+            #print('c:', c)
+            a, b, c = b, c, b + c
+
+        res = 0
+        #k -= b
+        #tmp_k = k
+        i = len(dp) - 1
+        while k:  
+            #print('k:', k)          
+            while dp[i] > k:
+                i -= 1
+            k -= dp[i]
+            res += 1
+
         return res
+
+
+
 
 
 
