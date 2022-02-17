@@ -41,7 +41,7 @@ class Solution:
         # 时间复杂度：O(n * n * k)
         # 空间复杂度：O(n * n * k)
         # dp[k][i][j]表示第k步时落在(i, j)的概率
-        dp = [[[0] * n for _ in range(n)] for _ in range(k + 1)]   
+        """dp = [[[0] * n for _ in range(n)] for _ in range(k + 1)]   
         dp[0][row][column] = 1
         #print(dp)
         place1 = {(row, column)}
@@ -61,6 +61,37 @@ class Solution:
         for i in range(n):
             for j in range(n):
                 ans += dp[k][i][j]
-        return ans
+        return ans"""
+
+
+        # 方法二：动态规划 + 广度优先搜索2
+        # 时间复杂度：O(n * n * k)
+        # 空间复杂度：O(n * n * k)
+        # dp[k][i][j]表示从(i, j)开始，第k步时落在(i, j)的概率
+        dp = [[[0] * n for _ in range(n)] for _ in range(k + 1)] 
+        #dp[0][row][column] = 1
+
+        for step in range(0, k + 1):
+            for r in range(n):
+                for c in range(n):
+                    if step == 0:
+                        dp[step][r][c] = 1
+                    else:
+                        for new_r, new_c in [(r - 2, c - 1), (r - 1, c - 2), (r + 1, c - 2), (r + 2, c - 1), (r + 2, c + 1), (r + 1, c + 2), (r - 1, c + 2), (r - 2, c + 1)]:
+                            if 0 <= new_r < n and 0 <= new_c < n:
+                                dp[step][new_r][new_c] += dp[step - 1][r][c] / 8
+                                
+        print(dp)
+        return dp[k][row][column]
+
+
+
+
+
+
+
+
+
+
 
 
