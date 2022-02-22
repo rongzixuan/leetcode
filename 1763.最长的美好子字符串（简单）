@@ -66,15 +66,73 @@ class Solution:
         # 方法二：枚举2
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        n = len(s)
+        """n = len(s)
         max_n = 0
         res = ""
-        for i in range(n - 1):
-            for j in range(i + 1, n):
+        for i in range(n):
+            lower, upper = 0, 0
+            for j in range(i, n):
                 sub_s = s[i: j + 1]
                 #print(sub_s)
-                if check(sub_s) and len(sub_s) > max_n:
+                if s[j].islower():
+                    lower |= (1 << (ord(s[j]) - ord('a')))
+                else:
+                    upper |= (1 << (ord(s[j]) - ord('A')))
+                if lower == upper and len(sub_s) > max_n:
                     res = sub_s
                     max_n = len(sub_s)
+
+        return res"""
+
+
+        # 方法三：分治
+        # 时间复杂度：O(n * C)
+        # 空间复杂度：O(C)
+        # C = 26
+        n = len(s)
+        max_index = 0
+        max_length = 0
+
+        def dfs(left, right):
+            #print('left, right:', left, right)
+            nonlocal max_index, max_length
+            if left >= right:
+                return 
+            count_c = [0] * 26
+            count_C = [0] * 26
+            for i in range(left, right + 1):
+                if s[i].isupper():
+                    count_C[ord(s[i]) - ord('A')] += 1
+                elif s[i].islower():
+                    count_c[ord(s[i]) - ord('a')] += 1
+
+            split = -1
+            for i in range(26):
+                if (count_C[i] > 0 and count_c[i] == 0) or (count_C[i] == 0 and count_c[i] > 0):
+                    split = i
+            #print('split:', split)
+            if split == -1:
+                if (right - left + 1) > max_length:
+                    max_index, max_length = left, right - left + 1
+                return
+            if split != -1 and right - left == 1:
+                return 
+
+            i = left
+            while i <= right:
+                #print('i:', i)
+                while i <= right and (ord(s[i].lower()) - ord('a')) == split:
+                    i += 1
+                if i > right:
+                    break 
+                start = i
+                while i <= right and (ord(s[i].lower()) - ord('a')) != split:
+                    i += 1
+                #print('left, i - 1:', start, i - 1)
+                dfs(start, i - 1)
+
+        dfs(0, n - 1)
+        return s[max_index: max_index + max_length]
+
 
 
