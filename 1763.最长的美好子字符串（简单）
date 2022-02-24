@@ -89,7 +89,7 @@ class Solution:
         # 时间复杂度：O(n * C)
         # 空间复杂度：O(C)
         # C = 26
-        n = len(s)
+        """n = len(s)
         max_index = 0
         max_length = 0
 
@@ -132,7 +132,60 @@ class Solution:
                 dfs(start, i - 1)
 
         dfs(0, n - 1)
+        return s[max_index: max_index + max_length]"""
+
+
+        # 方法四：滑动窗口
+        # 时间复杂度：O(n * C)
+        # 空间复杂度：O(C)
+        # C = 26
+        n = len(s)
+        m = len(set(s.lower()))
+        #print(n, m)
+        max_index, max_length = 0, 0
+        for i in range(1, m + 1):      # 枚举滑动窗口内大小写同时出现的字符的个数
+            count_lower = [0] * 26     # 统计小写字符
+            count_upper = [0] * 26     # 统计大写字符
+            left, right = 0, 0
+            same = 0                   # 大小写个数都大于0个字符的个数
+            total = 0                  # 出现的字符的总个数
+            while right < n:
+                idx = ord(s[right].lower()) - ord('a')
+                if s[right].islower():
+                    count_lower[idx] += 1
+                    if count_lower[idx] == 1 and count_upper[idx] > 0:
+                        same += 1   
+                else:
+                    count_upper[idx] += 1
+                    if count_upper[idx] == 1 and count_lower[idx] > 0:
+                        same += 1
+                if count_lower[idx] + count_upper[idx] == 1:
+                    total += 1
+
+                while total > i:
+                    idx = ord(s[left].lower()) - ord('a')
+                    if s[left].islower():
+                        count_lower[idx] -= 1
+                        if count_lower[idx] == 0 and count_upper[idx] > 0:
+                            same -= 1
+                    else:
+                        count_upper[idx] -= 1
+                        if count_upper[idx] == 0 and count_lower[idx] > 0:
+                            same -= 1
+                    if count_lower[idx] + count_upper[idx] == 0:
+                        total -= 1
+                    left += 1
+                    
+                if same == i:
+                    if right - left + 1 > max_length:
+                        max_index, max_length = left, right - left + 1
+                right += 1
+
         return s[max_index: max_index + max_length]
+
+
+
+
 
 
 
