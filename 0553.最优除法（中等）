@@ -26,6 +26,13 @@
 """
 
 
+class Node:
+    def __init__(self):
+        self.minVal = float('inf')
+        self.maxVal = float('-inf')
+        self.maxStr = ""
+        self.minStr = ""
+
 class Solution:
     def optimalDivision(self, nums: List[int]) -> str:
 
@@ -47,14 +54,42 @@ class Solution:
         return res"""
 
 
-        # 方法二：
-        # 时间复杂度：O(n)
-        # 空间复杂度：O()
+        # 方法二：动态规划
+        # 时间复杂度：O(n^3)
+        # 空间复杂度：O(n^2)
         n = len(nums)
-        if n == 1:
-            return str(nums[0]) 
-        elif n == 2:
-            return str(nums[0]) + '/' + str(nums[1])
+
+        dp = [[Node() for _ in range(n)] for _ in range(n)]   # dp[i][j]表示
+        for i in range(n):
+            dp[i][i].minVal = nums[i]
+            dp[i][i].maxVal = nums[i]
+            dp[i][i].minStr = str(nums[i])
+            dp[i][i].maxStr = str(nums[i])
+        #print(dp)
+
+        for length in range(n):
+            for i in range(n - length):
+                for k in range(i, i + length):
+                    if dp[i][i + length].maxVal < dp[i][k].maxVal / dp[k + 1][i + length].minVal:
+                        dp[i][i + length].maxVal = dp[i][k].maxVal / dp[k + 1][i + length].minVal
+                        if k + 1 == i + length:
+                            dp[i][i + length].maxStr = dp[i][k].maxStr + "/" + dp[k + 1][i + length].minStr
+                        else:
+                            dp[i][i + length].maxStr = dp[i][k].maxStr + "/(" + dp[k + 1][i + length].minStr + ")"
+                    if dp[i][i + length].minVal > dp[i][k].minVal / dp[k + 1][i + length].maxVal:
+                        dp[i][i + length].minVal = dp[i][k].minVal / dp[k + 1][i + length].maxVal
+                        if k + 1 == i + length:
+                            dp[i][i + length].minStr = dp[i][k].minStr + "/" + dp[k + 1][i + length].maxStr
+                        else:
+                            dp[i][i + length].minStr = dp[i][k].minStr + "/(" + dp[k + 1][i + length].maxStr + ")"
+
+        return dp[0][n - 1].maxStr
+
+
+
+
+
+
 
 
 
