@@ -76,8 +76,8 @@ class Solution:
 
 
         # 方法二：二进制枚举
-        # 时间复杂度：O()
-        # 空间复杂度：O()
+        # 时间复杂度：O(2^m * n)
+        # 空间复杂度：O(n)
         m = len(requests)
 
         res = 0
@@ -96,6 +96,7 @@ class Solution:
                 res = mask.bit_count()
 
         return res
+
 
 
 
