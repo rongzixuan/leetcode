@@ -83,13 +83,37 @@ class Solution:
         ans = ""
         stack = [root]
         visited = set()
-        visited.add(root)
         while stack:
-            node = stack.pop()
-            ans += str(node.val)
-            if node.left and node.right:
-                ans += '('
-                stack.append(node.left)
+            node = stack[-1]
+            if node in visited:
+                ans += ')'
+                stack.pop()
+            else:
+                visited.add(node)
+                ans += ('(' + str(node.val))
+
+                if node.left and node.right:
+                    stack.append(node.right)
+                    stack.append(node.left)
+                elif node.left:
+                    stack.append(node.left)
+                elif node.right:
+                    ans += '()'
+                    stack.append(node.right)
+
+        return ans[1: -1]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
