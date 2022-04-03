@@ -24,3 +24,19 @@ s 仅由大写英文字母组成
 0 <= k <= s.length
 
 """
+
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+
+
+        # 方法一：滑动窗口
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(C)
+        # C = 26
+        n = len(s)
+
+        left = 0
+
+
+
