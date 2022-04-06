@@ -76,21 +76,81 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
                     + sum(self.nums[block2 * self.m: (right + 1)]) """
 
 
-
 # 方法三：线段树
+"""class NumArray:
+
+    def __init__(self, nums: List[int]):
+        self.nums = nums
+        self.n = len(nums)
+        self.segment_tree = [0] * (self.n * 4)
+        self.build(nums, 0, 0, self.n - 1)
+
+    def build(self, nums, node, start, end):
+        if start == end:
+            self.segment_tree[node] = nums[start]
+            return 
+        mid = start + (end - start) // 2
+        self.build(nums, node * 2 + 1, start, mid)
+        self.build(nums, node * 2 + 2, mid + 1, end)
+        self.segment_tree[node] = self.segment_tree[node * 2 + 1] + self.segment_tree[node * 2 + 2]
+
+    def change(self, index, val, node, start, end):
+        if start == end:
+            self.segment_tree[node] = val
+            return 
+        mid = start + (end - start) // 2
+        if index <= mid:
+            self.change(index, val, node * 2 + 1, start, mid)
+        else:
+            self.change(index, val, node * 2 + 2, mid + 1, end)
+        self.segment_tree[node] = self.segment_tree[node * 2 + 1] + self.segment_tree[node * 2 + 2]
+
+    def range(self, left, right, node, start, end):
+        if left == start and right == end:
+            return self.segment_tree[node]
+        mid = start + (end - start) // 2
+        if right <= mid:
+            return self.range(left, right, node * 2 + 1, start, mid)
+        elif left > mid:
+            return self.range(left, right, node * 2 + 2, mid + 1, end)
+        return self.range(left, mid, node * 2 + 1, start, mid) + self.range(mid + 1, right, node * 2 + 2, mid + 1, end)
+
+    def update(self, index: int, val: int) -> None:
+        self.change(index, val, 0, 0, self.n - 1)
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.range(left, right, 0, 0 , self.n - 1)"""
+
+
+# 方法四：树状数组
 class NumArray:
 
     def __init__(self, nums: List[int]):
         self.nums = nums
         self.n = len(nums)
-        self.m = int(self.n ** 0.5)
-        
+        self.tree = [0] * (self.n + 1)
+        for i, num in enumerate(nums, 1):
+            self.add(i, num) 
+
+    def add(self, i, num):
+        while i <= self.n:
+            self.tree[i] += num   
+            i += (i & (-i))  
+            
+    def prefixSum(self, i):
+        res = 0
+        while i:
+            res += self.tree[i]
+            #i -= (i & (-i))
+            i &= (i - 1)
+        return res
 
     def update(self, index: int, val: int) -> None:
-        
+        self.add(index + 1, val - self.nums[index])
+        self.nums[index] = val
 
     def sumRange(self, left: int, right: int) -> int:
-        
+        return self.prefixSum(right + 1) - self.prefixSum(left)
 
 
 # Your NumArray object will be instantiated and called as such:
