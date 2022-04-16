@@ -32,7 +32,7 @@ class Solution:
         # 方法一：排序 + 双指针
         # 时间复杂度：O(nlogn + n^2)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if not nums or n < 4:
             return []
         nums.sort()
@@ -65,7 +65,7 @@ class Solution:
                     else:
                         d -= 1
 
-        return res"""
+        return res
 
 
         # 方法二：排序 + 双指针2
