@@ -14,7 +14,7 @@ class Solution:
         # 方法一：迭代
         # 时间复杂度：O(m + n)，其中m、n分别为两个链表的长度
         # 空间复杂度：O(1)
-        """if not l1 and not l2:
+        if not l1 and not l2:
             return l1
         elif not l1:
             return l2
@@ -45,13 +45,13 @@ class Solution:
                     l2 = l2.next
                 tmp_node = tmp_node.next
 
-        return res"""
+        return res
 
 
         # 方法二：递归
         # 时间复杂度：O(m + n)，其中m、n分别为两个链表的长度
         # 空间复杂度：O(m + n)
-        """if not l1 and not l2:
+        if not l1 and not l2:
             return l1
         elif not l1:
             return l2
@@ -76,7 +76,7 @@ class Solution:
 
         res = ListNode(-1)
         tmp = res
-        return recurve(tmp, l1, l2)"""
+        return recurve(tmp, l1, l2)
 
 
         # 方法三：递归2
