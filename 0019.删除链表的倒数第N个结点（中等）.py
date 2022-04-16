@@ -17,7 +17,7 @@ class Solution:
         # 方法一：两次遍历
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """dummy_node = ListNode(0, head)
+        dummy_node = ListNode(0, head)
         tmp = dummy_node
         count = -1
 
@@ -31,7 +31,7 @@ class Solution:
             tmp = tmp.next
 
         tmp.next = tmp.next.next
-        return dummy_node.next"""
+        return dummy_node.next
 
 
 
