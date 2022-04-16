@@ -40,7 +40,7 @@ class Solution:
         # 方法一：模拟（超时）
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """if num <= 0:
+        if num <= 0:
             return False
 
         total = 1
@@ -65,13 +65,13 @@ class Solution:
         return total == num:
                 total += i
 
-        return total == num"""
+        return total == num
 
 
         # 方法二：数学枚举
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
-        #return num == 6 or num == 28 or num == 496 or num == 8128 or num == 33550336
+        return num == 6 or num == 28 or num == 496 or num == 8128 or num == 33550336
 
 
         # 方法三：模拟2
@@ -95,3 +95,6 @@ class Solution:
         return total == num
 
 
+    
+    
+    
