@@ -31,7 +31,7 @@ class Solution:
         # 方法一：排序 + 双指针
         # 时间复杂度：O(nlog + n^2)
         # 空间复杂度：O(logn)
-        """n = len(nums)
+        n = len(nums)
         nums.sort()
         
         res = float('inf')
@@ -56,13 +56,13 @@ class Solution:
                     #    second += 1       
                 #print('after:', first, second, third)               
 
-        return res"""
+        return res
 
 
         # 方法二：排序 + 双指针2
         # 时间复杂度：O(nlog + n^2)
         # 空间复杂度：O(logn)
-        """n = len(nums)
+        n = len(nums)
         nums.sort()
         
         res = float('inf')
@@ -89,4 +89,8 @@ class Solution:
                     second = tmp_second     
                 #print('after:', first, second, third)               
 
-        return res"""
+        return res
+    
+    
+    
+    
