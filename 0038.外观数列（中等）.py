@@ -33,7 +33,7 @@ class Solution:
         # 方法一：模拟
         # 时间复杂度：O(n * L)， 其中L味字符串最长长度
         # 空间复杂度：O(1)
-        """res = "1"
+        res = "1"
         if n == 1:
             return res
 
@@ -65,7 +65,7 @@ class Solution:
 
             #print('res:', res)
 
-        return res"""
+        return res
 
 
 
