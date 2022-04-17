@@ -7,7 +7,7 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 
         # 方法一：排序
-        """n = len(intervals)
+        n = len(intervals)
         if n == 0:
             return []
 
@@ -35,7 +35,7 @@ class Solution:
                 
         res.append([pre_left, pre_right])
 
-        return res"""
+        return res
 
 
         # 方法二：排序2
