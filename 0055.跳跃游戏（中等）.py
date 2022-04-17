@@ -17,7 +17,7 @@ class Solution:
         # 时间复杂度：O(nm) ,其中n为nums长度，m为nums最大值
         # 空间复杂度：O(n)
 
-        """n = len(nums)
+        n = len(nums)
         res = [False] * (n)
         res[0] = True
 
@@ -29,13 +29,13 @@ class Solution:
                         res[i+j] = True
 
         #print(res)
-        return res[n-1]"""
+        return res[n-1]
 
 
         # 方法二：贪心
         # 时间复杂度：O(n) ,其中n为nums长度
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         max_num = 0
 
         for i in range(n):
@@ -43,7 +43,7 @@ class Solution:
                 return False
             max_num = max(max_num, i + nums[i])
 
-        return max_num >= n-1"""
+        return max_num >= n-1
 
 
         # 方法三：贪心2
