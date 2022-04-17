@@ -9,7 +9,7 @@ class Solution:
         # 方法一：回溯
         # 时间复杂度：O(n * n!)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n == 1:
             return [nums]
 
@@ -28,7 +28,7 @@ class Solution:
                     res.pop(-1)
 
         backtrace(0, res)
-        return ans"""
+        return ans
 
 
         # 方法二：回溯2
