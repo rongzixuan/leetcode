@@ -30,7 +30,7 @@ class Solution:
         # 方法一：动态规划
         # 时间复杂度：O(n ^ 2)
         # 空间复杂度：O(n)
-        """n = len(height)
+        n = len(height)
         if n < 3:
             return 0
 
@@ -53,13 +53,13 @@ class Solution:
         #print('dp_left:', dp_left)
 
         res = sum([min(height[dp_left[i]], height[dp_right[i]]) - height[i] for i in range(1, n-1)])
-        return res"""
+        return res
 
 
         # 方法二：动态规划2
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(height)
+        n = len(height)
         if n < 3:
             return 0
 
@@ -74,13 +74,13 @@ class Solution:
         #print('dp_right:', dp_right)
 
         res = sum([min(dp_left[i], dp_right[i]) - height[i] for i in range(1, n-1)])
-        return res"""
+        return res
 
 
         # 方法三：双指针
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(height)
+        n = len(height)
         if n < 3:
             return 0
 
@@ -98,7 +98,7 @@ class Solution:
                 right -= 1
                 max_right = max(max_right, height[right])
 
-        return res"""
+        return res
 
 
         # 方法四：单调栈
