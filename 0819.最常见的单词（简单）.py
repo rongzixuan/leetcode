@@ -58,4 +58,33 @@ class Solution:
                 return word
 
 
+        # 方法二：哈希表
+        # 时间复杂度：O(n + m)
+        # 空间复杂度：O(n + m)
+        paragraph_list = re.split(r"[!?',;.\s]", paragraph)
+        #print(paragraph_list)
+
+        count = Counter([word.lower() for word in paragraph_list])
+        count = sorted(count.items(), key=lambda x: x[1], reverse=True)
+        #print(count)
+
+        banned_set = set(banned)
+        banned_set.add("")
+        for word, num in count:
+            if word not in banned_set:
+                return word
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
