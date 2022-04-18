@@ -13,7 +13,7 @@ class Solution:
         # 方法一：动态规划
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """if n == 1 or n == 2:
+        if n == 1 or n == 2:
             return n
 
         dp = [0] * n
@@ -23,7 +23,7 @@ class Solution:
         for i in range(2, n):
             dp[i] = dp[i-1] + dp[i-2]
 
-        return dp[n-1]"""
+        return dp[n-1]
 
 
         # 方法二：动态规划2
@@ -42,3 +42,7 @@ class Solution:
             b = c
 
         return c
+    
+    
+    
+    
