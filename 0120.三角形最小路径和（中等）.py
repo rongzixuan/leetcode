@@ -3,14 +3,18 @@
 
 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。
 也就是说，如果正位于当前行的下标 i ，那么下一步可以移动到下一行的下标 i 或 i + 1 。
-"""class Solution:
+
+"""
+
+
+class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
 
 
         # 方法一：动态规划
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
-        """n = len(triangle)
+        n = len(triangle)
         if n == 1:
             return triangle[0][0]
 
@@ -27,13 +31,13 @@
                 else:
                     dp[i][j] = min(dp[i-1][j-1], dp[i-1][j]) + triangle[i][j]
 
-        return min(dp[n-1])"""
+        return min(dp[n-1])
 
 
         # 方法二：动态规划2
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n)
-        """n = len(triangle)
+        n = len(triangle)
         if n == 1:
             return triangle[0][0]
 
@@ -56,7 +60,7 @@
                     dp[aft][j] = min(dp[pre][j-1], dp[pre][j]) + triangle[i][j]
 
         #print(dp)
-        return min(dp[1]) if n % 2 == 0 else min(dp[0])"""
+        return min(dp[1]) if n % 2 == 0 else min(dp[0])
 
 
         # 方法三：动态规划3
