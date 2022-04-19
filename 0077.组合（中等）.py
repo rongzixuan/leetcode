@@ -11,7 +11,7 @@ class Solution:
         # 方法一：回溯
         # 时间复杂度：O(n * k * k!)
         # 空间复杂度：O(1)
-        """if n == 1:
+        if n == 1:
             return [[1]]
 
         ans = []
@@ -28,7 +28,7 @@ class Solution:
                     res.pop(-1)
 
         backtrace(0)
-        return ans"""
+        return ans
 
 
         # 方法二：回溯2
@@ -51,3 +51,6 @@ class Solution:
 
         backtrace(0)
         return ans
+
+    
+    
