@@ -31,11 +31,11 @@ class Solution:
             return None
 
         # 方法一：深拷贝函数
-        """return copy.deepcopy(head)"""
+        return copy.deepcopy(head)
 
 
         # 方法二：哈希表
-        """hash_table = {}
+        hash_table = {}
         tmp = head
 
         while tmp:
@@ -51,7 +51,7 @@ class Solution:
                 hash_table[tmp].random = hash_table[tmp.random] 
             tmp = tmp.next
 
-        return hash_table[head]"""
+        return hash_table[head]
 
 
         # 方法三：原地算法
