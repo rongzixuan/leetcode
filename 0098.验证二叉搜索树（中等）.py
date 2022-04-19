@@ -21,7 +21,7 @@ class Solution:
         #print(root)
 
         # 方法一：递归(dfs)（理解错误）
-        """def recursion(root):
+        def recursion(root):
             if not root:
                 return True
             if root.left:
@@ -40,11 +40,11 @@ class Solution:
                 return False
             return True
 
-        return recursion(root)"""
+        return recursion(root)
 
 
         #方法二：递归
-        """def recursion(root, left, right):
+        def recursion(root, left, right):
             if not root:
                 return True
             val = root.val
@@ -57,7 +57,7 @@ class Solution:
                 return False
             return True
             
-        return recursion(root, -float('inf'), float('inf'))"""
+        return recursion(root, -float('inf'), float('inf'))
 
 
         # 方法三：中序遍历
@@ -77,3 +77,6 @@ class Solution:
         
         return True
 
+    
+    
+    
