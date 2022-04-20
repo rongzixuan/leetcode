@@ -1,4 +1,4 @@
-"""
+/*
 编写一个 SQL 查询，获取 Employee 表中第二高的薪水（Salary） 。
 
 +----+--------+
@@ -16,27 +16,27 @@
 | 200                 |
 +---------------------+
 
-"""
+*/
 
 
 
 # Write your MySQL query statement below
 
 # 方法一：limit
-/* select 
+select 
     distinct Salary as SecondHighestSalary
     from Employee 
 order by Salary desc 
-limit 1 offset 21 */
+limit 1 offset 21 
 
 
 # 方法二：limit
-/* select(
+select(
     select distinct Salary
     from Employee
     order by Salary desc
     limit 1 offset 1
-)as SecondHighestSalary; */
+)as SecondHighestSalary; 
 
 
 # 方法三：ifnull
