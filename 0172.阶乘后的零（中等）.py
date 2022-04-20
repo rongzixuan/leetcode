@@ -35,7 +35,7 @@ class Solution:
         # 方法一：数学
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(1)
-        """count_2, count_5 = 0, 0 
+        count_2, count_5 = 0, 0 
         for i in range(2, n + 1):
             while i % 2 == 0:
                 count_2 += 1
@@ -44,7 +44,7 @@ class Solution:
                 count_5 += 1
                 i //= 5
 
-        return min(count_2, count_5)"""
+        return min(count_2, count_5)
 
 
         # 方法二：数学2
