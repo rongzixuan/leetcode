@@ -13,7 +13,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(s)
+        n = len(s)
         #print(n)
         if n < 10:
             return []
@@ -33,7 +33,7 @@ class Solution:
                 res.add(tmp_s)
 
         #print(hash_table)
-        return list(res)"""
+        return list(res)
 
 
 
