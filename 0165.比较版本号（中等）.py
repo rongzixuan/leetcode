@@ -21,14 +21,14 @@ class Solution:
         # 方法一：字符串分割
         # 时间复杂度：O(m+n)，其中m、n分别为version1和version2的长度
         # 空间复杂度：O(m+n)
-        """for v1, v2 in zip_longest(version1.split('.'), version2.split('.'), fillvalue = 0):
+        for v1, v2 in zip_longest(version1.split('.'), version2.split('.'), fillvalue = 0):
             x1, y1 = int(v1), int(v2)
             if x1 > y1:
                 return 1
             elif x1 < y1:
                 return -1
 
-        return 0"""
+        return 0
 
 
 
