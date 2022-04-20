@@ -15,7 +15,7 @@ class Solution:
         # 方法一：双指针
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(numbers)
+        n = len(numbers)
         if n == 2:
             return [1, 2]
 
@@ -27,7 +27,7 @@ class Solution:
             elif numbers[i] + numbers[j] < target:
                 i += 1
             elif numbers[i] + numbers[j] > target:
-                j -= 1"""
+                j -= 1
 
 
         # 方法二：二分法
