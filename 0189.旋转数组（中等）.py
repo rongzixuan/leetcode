@@ -20,7 +20,7 @@ class Solution:
         # 方法一：使用额外数组
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         if n == 1:
             return nums
 
@@ -32,13 +32,13 @@ class Solution:
         #print('nums:', nums)
         #print('res:', res)
         for i in range(n):
-            nums[i] = res[i]"""
+            nums[i] = res[i]
             
 
         # 方法二：双指针1
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n == 1 or k == n or k == 0:
             return nums
 
@@ -61,7 +61,7 @@ class Solution:
                 tmp = (tmp + k) % n
                 #print('nums:', nums)
 
-        return nums"""
+        return nums
 
 
 
