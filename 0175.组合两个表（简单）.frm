@@ -1,4 +1,4 @@
-"""
+/*
 表1: Person
 
 +-------------+---------+
@@ -27,7 +27,7 @@ AddressId 是上表主键
 
 FirstName, LastName, City, State
 
-"""
+*/
 
 
 # Write your MySQL query statement below
