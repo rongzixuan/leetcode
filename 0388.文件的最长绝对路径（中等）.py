@@ -64,7 +64,7 @@ class Solution:
         # m = len(input)
         # n为文件及文件夹的个数
 
-       """ # 文件或文件夹有几个/t
+        # 文件或文件夹有几个\t
         def count_t(word): 
             length = len(word)
             count = 0
@@ -99,23 +99,51 @@ class Solution:
 
         #print(hash_table)
         #print(road_length)
-        return max(road_length.values())if len(road_length) > 0 else 0"""
+        return max(road_length.values())if len(road_length) > 0 else 0
 
 
         # 方法二：栈
-        # 时间复杂度：O()
-        # 空间复杂度：O()
+        # 时间复杂度：O(m)
+        # 空间复杂度：O(n)
         # m = len(input)
         # n为文件及文件夹的个数
 
-        stack = 
+        # 文件或文件夹有几个\t
+        def count_t(word): 
+            length = len(word)
+            count = 0
+            for ch in word:
+                #print('ch:',ch)
+                if ch == '\t':
+                    count += 1
+            return count
+
+        input_list = input.split('\n')
+        n = len(input_list)
+        #print(input_list)
+
+        stack = []        
+        index = 0
+        max_length = 0
+        tmp_length = 0
+        while index < n:
+            tmp_word = input_list[index]
+            tmp_count = count_t(tmp_word)
+            while len(stack) > 0 and stack[-1][1] + 1 != tmp_count:               
+                tmp_length -= (len(stack[-1][0]) - stack[-1][1] + 1)
+                stack.pop()
+            tmp_length += (len(tmp_word) - tmp_count + 1)
+            #print('tmp_word, tmp_count,tmp_length:', tmp_word, tmp_count,tmp_length)
+            stack.append([tmp_word, tmp_count])
+            if '.' in tmp_word:
+                max_length = max(max_length, tmp_length - 1)
+            index += 1
+
+        return max_length
+
 
 
 
 
 
             
-
-
-
-
