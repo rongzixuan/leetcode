@@ -30,7 +30,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         from collections import defaultdict
         hash_table = defaultdict(list)
 
@@ -40,7 +40,7 @@ class Solution:
                     return True
             hash_table[num].append(i)
 
-        return False"""
+        return False
 
 
         # 方法二：滑动窗口
