@@ -14,7 +14,7 @@ class Solution:
         # 方法一：迭代
         # 时间复杂度：O(N)
         # 空间复杂度：O(1)
-        """if not head:
+        if not head:
             return head
         if not head.next:
             return head
@@ -26,7 +26,7 @@ class Solution:
             pre = aft
             aft = tmp
 
-        return pre"""
+        return pre
 
 
         # 方法二：递归
