@@ -43,7 +43,7 @@ class Solution:
         # 方法一：排序 + 双指针
         # 时间复杂度：O(nlogn + n)
         # 空间复杂度：O(1)
-        """n = len(ages)
+        n = len(ages)
         if n == 1:
             return 0
 
@@ -59,7 +59,7 @@ class Solution:
             #print(i, left, right)
             res += max(0, right - left - 1)
 
-        return res"""
+        return res
 
 
         # 方法二：计数排序 + 前缀和
@@ -89,3 +89,5 @@ class Solution:
         return res
 
 
+    
+    
