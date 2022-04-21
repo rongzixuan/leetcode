@@ -14,7 +14,7 @@ class Solution:
         # 方法一：位运算
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """res = 0
+        res = 0
 
         for i in range(32):
             #print('i:', i)
@@ -27,13 +27,13 @@ class Solution:
             #print('res aft:', bin(res))
             n >>= 1
 
-        return res"""
+        return res
 
 
         # 方法二：位运算2
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """res = 0
+        res = 0
 
         for i in range(32):
             #print('i:', i)
@@ -44,7 +44,7 @@ class Solution:
             #print('res aft:', bin(res))
             n >>= 1
 
-        return res"""
+        return res
 
 
         # 方法三：分治法
