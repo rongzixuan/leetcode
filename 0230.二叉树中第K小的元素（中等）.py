@@ -47,7 +47,7 @@ class Solution:
         # 方法一：深度优先搜索（递归）
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """from sortedcontainers import SortedList
+        from sortedcontainers import SortedList
         sl = SortedList()
 
         def dfs(node):
@@ -66,13 +66,13 @@ class Solution:
 
         dfs(root)
         #print(sl)
-        return sl[k-1]"""
+        return sl[k-1]
 
 
         # 方法二：中序遍历（栈）
         # 时间复杂度：O(H+k)，其中H为二叉搜索树的深度
         # 空间复杂度：O(H)
-        """stack = []
+        stack = []
 
         while stack or root:
             while root:
@@ -84,7 +84,7 @@ class Solution:
             k -= 1
             if k == 0:
                 return root.val
-            root = root.right"""
+            root = root.right
 
 
         # 方法三：记录子树的节点数
