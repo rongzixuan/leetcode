@@ -8,7 +8,7 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
 
         # 方法一：动态规划
-        """dp = [[0] * (n+1) for _ in range(m+1)]
+        dp = [[0] * (n+1) for _ in range(m+1)]
 
         max_length = 0
         for i in range(1, m+1):
@@ -17,7 +17,7 @@ class Solution:
                     dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
                     max_length = max(max_length, dp[i][j])
 
-        return max_length * max_length"""
+        return max_length * max_length
 
 
         # 方法二：位运算
@@ -50,3 +50,7 @@ class Solution:
                 max_length = max(max_length, min(j-i+1, width))
 
         return max_length * max_length
+    
+    
+    
+    
