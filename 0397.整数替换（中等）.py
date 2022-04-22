@@ -23,7 +23,6 @@ n 变为 1 所需的最小替换次数是多少？
  
 
 提示：
-
 1 <= n <= 2^31 - 1
 
 """
@@ -36,7 +35,7 @@ class Solution:
         # 方法一：贪心
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """res = 0
+        res = 0
         while n > 1:
             #print(n)
             if n == 3:
@@ -50,7 +49,7 @@ class Solution:
                     n -= 1
             res += 1
 
-        return res"""
+        return res
 
 
         # 方法二：递归
