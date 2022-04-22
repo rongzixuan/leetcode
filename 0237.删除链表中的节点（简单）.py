@@ -22,3 +22,6 @@ class Solution:
         # 空间复杂度：O(1)
         node.val = node.next.val
         node.next = node.next.next
+
+        
+        
