@@ -9,7 +9,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         if n == 1:
             return [nums[0]]
 
@@ -24,7 +24,7 @@ class Solution:
             if v > n // 3:
                 res.append(k)
 
-        return res"""
+        return res
 
 
         # 方法二：摩尔投票法
