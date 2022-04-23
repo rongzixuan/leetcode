@@ -34,11 +34,11 @@ class Solution:
         #print(str(num))
         #print(list(str(num)))
         #print(sum([int(x) for x in list(str(num))]))
-        """while num > 9:
+        while num > 9:
             tmp_sum = sum([int(x) for x in list(str(num))])
             num = tmp_sum
 
-        return num"""
+        return num
 
 
         # 方法二：数学
