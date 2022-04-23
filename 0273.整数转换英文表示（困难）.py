@@ -10,7 +10,7 @@ class Solution:
         # 方法一：递归
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
-        """if num == 0:
+        if num == 0:
             return "Zero"
 
         res = ""
@@ -63,7 +63,7 @@ class Solution:
             #print('s3:', s3)
             res += s3
 
-        return res.strip()"""
+        return res.strip()
 
 
 
