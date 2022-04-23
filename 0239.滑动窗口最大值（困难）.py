@@ -13,7 +13,7 @@ class Solution:
         # 方法一：优先队列（大根堆）
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         if k == 1 or n == 1:
             return nums
 
@@ -32,14 +32,14 @@ class Solution:
                 heapq.heappop(heap)
             max_nums.append(-heap[0][0])
 
-        return max_nums"""
+        return max_nums
 
 
 
         # 方法二：遍历——超时
         # 时间复杂度：O(n*n)
         # 空间复杂度：O(k)
-        """n = len(nums)
+        n = len(nums)
         if k == 1 or n == 1:
             return nums
 
@@ -70,7 +70,7 @@ class Solution:
                         last_max = (nums[j], j)
                 max_nums.append(last_max[0])
 
-        return max_nums"""
+        return max_nums
 
 
         # 方法三：单调队列（双端队列）
@@ -102,3 +102,6 @@ class Solution:
 
         return res
 
+
+    
+    
