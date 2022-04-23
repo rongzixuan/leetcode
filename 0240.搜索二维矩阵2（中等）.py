@@ -3,6 +3,7 @@
 
 每行的元素从左到右升序排列。
 每列的元素从上到下升序排列。
+
 """
 
 class Solution:
@@ -11,7 +12,7 @@ class Solution:
         # 方法一：二分查找
         # 时间复杂度：O(m * logn)
         # 空间复杂度：O(1)
-        """m, n = len(matrix), len(matrix[0])
+        m, n = len(matrix), len(matrix[0])
         #print(m, n)
 
         for i in range(m):
@@ -29,7 +30,7 @@ class Solution:
                         right = mid - 1
 
         #print(left, right)
-        return False"""
+        return False
 
 
         # 方法二：z字形查找
