@@ -2,6 +2,7 @@
 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
 
 要求时间复杂度为O(n)。
+
 """
 
 class Status:
@@ -31,7 +32,7 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
 
         # 方法一：动态规划
-        """n = len(nums)
+        n = len(nums)
         dp = [0] * n
         dp[0] = nums[0]
 
@@ -42,9 +43,13 @@ class Solution:
 
         #print('dp:', dp)
         #print('max_num:', max_num)
-        return max_num"""
+        return max_num
 
 
         # 方法二：分治
         n = len(nums)
         return self.getInfo(nums, 0, n-1).mSum
+
+    
+    
+    
