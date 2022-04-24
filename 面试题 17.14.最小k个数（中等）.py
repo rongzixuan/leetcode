@@ -14,14 +14,14 @@ class Solution:
         # 方法一：排序
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(logn)
-        """arr.sort()
-        return arr[:k]"""
+        arr.sort()
+        return arr[:k]
 
 
         # 方法二：最大堆
         # 时间复杂度：O(nlogk)
         # 空间复杂度：O(k)
-        """heap = [-x for x in arr[:k]]
+        heap = [-x for x in arr[:k]]
         heapq.heapify(heap)
 
         for i in range(k, n):
@@ -29,7 +29,7 @@ class Solution:
                 heapq.heappop(heap)
                 heapq.heappush(heap, -arr[i])
 
-        return [-x for x in heap]"""
+        return [-x for x in heap]
 
 
 
