@@ -1,5 +1,6 @@
 """
 输入两个链表，找出它们的第一个公共节点。
+
 """
 
 # Definition for singly-linked list.
@@ -12,7 +13,7 @@ class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
 
         # 方法一：双指针1
-        """point_i, point_j = headA, headB
+        point_i, point_j = headA, headB
 
         none_flag = False
         while point_i and point_j:
@@ -30,7 +31,7 @@ class Solution:
             if point_j.next:
                 point_j = point_j.next
             else:
-                point_j = headA"""
+                point_j = headA
 
 
         # 方法二：双指针2
