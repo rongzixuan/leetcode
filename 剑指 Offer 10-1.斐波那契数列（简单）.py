@@ -16,7 +16,7 @@ class Solution:
         # 方法一：动态规划
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """MOD = 10 ** 9 + 7
+        MOD = 10 ** 9 + 7
 
         if n == 0 or n == 1:
             return n
@@ -27,7 +27,7 @@ class Solution:
         for i in range(2, n+1):
             dp[i] = dp[i-2] + dp[i-1]
 
-        return dp[n] % MOD"""
+        return dp[n] % MOD
 
 
 
@@ -46,3 +46,6 @@ class Solution:
             #print(a, b, c)
 
         return a % MOD
+
+    
+    
