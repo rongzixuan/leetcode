@@ -19,7 +19,7 @@ class Solution:
         # 方法一：数组
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """a = []
+        a = []
 
         tmp = head
         while tmp:
@@ -27,13 +27,13 @@ class Solution:
             tmp = tmp.next
         #print(a)
 
-        return a[-k]"""
+        return a[-k]
 
 
         # 方法二：两次遍历
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """count = 0
+        count = 0
         tmp = head
         i = 0
 
@@ -47,7 +47,7 @@ class Solution:
             if i == count - k:
                 return tmp
             tmp = tmp.next
-            i += 1"""
+            i += 1
 
 
         # 方法三：双指针（快慢指针）
