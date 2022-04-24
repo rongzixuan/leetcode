@@ -1,5 +1,6 @@
 """
 统计一个数字在排序数组中出现的次数。
+
 """
 
 class Solution:
@@ -10,7 +11,7 @@ class Solution:
             return 0
 
         # 方法一：二分法
-        """left, right = 0, n-1
+        left, right = 0, n-1
         while left <= right:
             #print(left, right)
             mid = left + (right-left) // 2
@@ -34,11 +35,11 @@ class Solution:
                 return right - left + 1
             
         #print(left, right)
-        return 0"""
+        return 0
 
 
         # 方法二：二分法
-        """def binarySearch(nums, target, firstFlag):
+        def binarySearch(nums, target, firstFlag):
             n = len(nums)
             left, right = 0, n-1
             res = n
@@ -66,12 +67,12 @@ class Solution:
         and nums[first_index] == target \
         and nums[last_index] == target:
             return last_index - first_index + 1
-        return 0"""
+        return 0
 
 
         # 方法三：二分法
   
-        """# 寻找左边界
+        # 寻找左边界
         left, right = 0, n-1
         while left <= right:
             mid = left + (right - left) // 2
@@ -91,7 +92,7 @@ class Solution:
                 left = mid + 1
         last_index = right + 1
 
-        return last_index - first_index"""
+        return last_index - first_index
 
 
         # 方法四：二分法
@@ -111,3 +112,6 @@ class Solution:
         last_index = binarySearch(nums, target)
         return last_index - first_index
 
+
+    
+    
