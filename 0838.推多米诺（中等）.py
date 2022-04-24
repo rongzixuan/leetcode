@@ -40,7 +40,7 @@ class Solution:
         # 方法一：广度优先搜索
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(dominoes)
+        n = len(dominoes)
         from collections import deque
         queue = deque()
         time = [-1] * n
@@ -65,7 +65,7 @@ class Solution:
                     elif time[new_i] == time[i] + 1:
                         force[new_i].append(force[i][0])                   
 
-        return ''.join(res)"""
+        return ''.join(res)
 
 
         # 方法二：模拟
