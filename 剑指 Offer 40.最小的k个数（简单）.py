@@ -12,14 +12,14 @@ class Solution:
         # 方法一：排序
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(1)
-        """arr.sort()
-        return arr[:k]"""
+        arr.sort()
+        return arr[:k]
 
 
         # 方法二：大根堆
         # 时间复杂度：O(nlogk)
         # 空间复杂度：O(k)
-        """n = len(arr)
+        n = len(arr)
         a = [-x for x in arr[:k]] 
         heapq.heapify(a) # 用负数建立大根堆
         
@@ -29,7 +29,7 @@ class Solution:
                 heapq.heappush(a, -arr[i])
 
         res = [-x for x in a]
-        return res"""
+        return res
 
 
         # 方法三：快排
