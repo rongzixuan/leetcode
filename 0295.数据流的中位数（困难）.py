@@ -22,7 +22,7 @@ class MedianFinder:
     # addNum()：O(logn)
     # findMedian()：O(1)
     # 空间复杂度：O(n)，堆的开销
-    """def __init__(self):
+    def __init__(self):
         self.minList = list() # 通过负数建立大根堆
         self.maxList = list() # 大根堆
 
@@ -51,7 +51,7 @@ class MedianFinder:
             return (-minList[0] + maxList[0]) / 2
         else:
             #print('3', minList, maxList)
-            return -minList[0]"""
+            return -minList[0]
 
 
 
