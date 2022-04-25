@@ -2,6 +2,7 @@
 给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
 
 返回所有可能的结果。答案可以按 任意顺序 返回。
+
 """
 
 class Solution:
@@ -11,7 +12,7 @@ class Solution:
         # 方法一：回溯+剪枝
         # 时间复杂度：O(n * 2^n)
         # 空间复杂度：O(n^2)
-        """res = []
+        res = []
         lremove, rremove = 0, 0
         for ch in s:
             if ch == '(':
@@ -49,7 +50,7 @@ class Solution:
                     helper(s[:i] + s[i+1:], i, lcount, rcount, lremove, rremove-1)
 
         helper(s, 0, 0, 0, lremove, rremove)
-        return res"""
+        return res
 
 
         # 方法二：广度优先搜索
