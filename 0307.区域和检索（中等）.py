@@ -37,7 +37,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 
 # 方法一：模拟（超时）
-"""class NumArray:
+class NumArray:
 
     def __init__(self, nums: List[int]):
         self.nums = nums
@@ -46,12 +46,12 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
         self.nums[index] = val
 
     def sumRange(self, left: int, right: int) -> int:
-        return sum(self.nums[left: right + 1])"""
+        return sum(self.nums[left: right + 1])
 
 
 
 # 方法二：分块处理
-"""class NumArray:
+class NumArray:
 
     def __init__(self, nums: List[int]):
         self.nums = nums
@@ -73,11 +73,11 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
         else:
             return sum(self.nums[left: (block1 * self.m + self.m)]) \
                     + sum(self.sums[block1 + 1 : block2]) \
-                    + sum(self.nums[block2 * self.m: (right + 1)]) """
+                    + sum(self.nums[block2 * self.m: (right + 1)]) 
 
 
 # 方法三：线段树
-"""class NumArray:
+class NumArray:
 
     def __init__(self, nums: List[int]):
         self.nums = nums
@@ -119,7 +119,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
         self.change(index, val, 0, 0, self.n - 1)
 
     def sumRange(self, left: int, right: int) -> int:
-        return self.range(left, right, 0, 0 , self.n - 1)"""
+        return self.range(left, right, 0, 0 , self.n - 1)
 
 
 # 方法四：树状数组
