@@ -39,7 +39,7 @@ class Solution:
         # 方法一：广度优先搜索（超时）
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n)
-        """connect = [[] for _ in range(n)]
+        connect = [[] for _ in range(n)]
         for x, y in edges:
             connect[x].append(y)
             connect[y].append(x)
@@ -64,13 +64,13 @@ class Solution:
                 min_depth = tmp_depth
                 ans = [i]
 
-        return ans"""
+        return ans
 
 
         # 方法二：广度优先搜索
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """if n == 1:
+        if n == 1:
             return [0]
 
         connect = [[] for _ in range(n)]
@@ -99,7 +99,7 @@ class Solution:
                         queue.append(new_node)
 
 
-        return ans"""
+        return ans
 
 
         # 方法三：拓扑排序
