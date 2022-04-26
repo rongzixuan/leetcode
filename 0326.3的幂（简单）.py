@@ -13,7 +13,7 @@ class Solution:
         # 方法一：数学模拟
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """if n <= 0:
+        if n <= 0:
             return False
         elif n == 1:
             return True
@@ -23,8 +23,9 @@ class Solution:
                 return False
             n //= 3
 
-        return True"""
+        return True
 
+    
         # 方法二：数学
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
