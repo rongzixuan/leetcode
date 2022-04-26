@@ -32,7 +32,7 @@ class Solution:
         # 时间复杂度：O(n * n * L)
         # 空间复杂度：O(L)
         # L为字符串最大长度
-        """n = len(words)
+        n = len(words)
 
         max_length = 0
         for i in range(n-1):
@@ -46,14 +46,14 @@ class Solution:
                 if flag:
                     max_length = max(max_length, length1 * length2)
 
-        return max_length"""
+        return max_length
 
 
         # 方法二：位运算
         # 时间复杂度：O(n * n)
         # 空间复杂度：O(n * L)
         # L为字符串最大长度
-        """n = len(words)
+        n = len(words)
         masks = [0 for _ in range(n)]
 
         for i in range(n):
@@ -67,7 +67,7 @@ class Solution:
                 if masks[i] & masks[j] == 0:
                     max_length = max(max_length, len(words[i]) * len(words[j]))
 
-        return max_length"""
+        return max_length
 
 
         # 方法三：位运算 + 哈希表
