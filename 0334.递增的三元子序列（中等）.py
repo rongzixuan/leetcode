@@ -3,7 +3,6 @@
 
 如果存在这样的三元组下标 (i, j, k) 且满足 i < j < k ，使得 nums[i] < nums[j] < nums[k] ，返回 true ；否则，返回 false 。
 
- 
 
 示例 1：
 输入：nums = [1,2,3,4,5]
@@ -37,7 +36,7 @@ class Solution:
         # 方法一：贪心
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n < 3:
             return False
 
@@ -50,7 +49,7 @@ class Solution:
             elif num > first and num < second:
                 second = num
 
-        return False"""
+        return False
 
 
         # 方法二：双向遍历
