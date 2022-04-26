@@ -15,7 +15,7 @@ class Solution:
         # 时间复杂度：O(nmlognm)
         # 空间复杂度：O(mn)
         # 其中，m为primes数组长度
-        """seen = {1}
+        seen = {1}
         heap = [1]
 
         for i in range(n):
@@ -26,7 +26,7 @@ class Solution:
                     seen.add(num)
                     heapq.heappush(heap, num)
 
-        return ugly"""
+        return ugly
 
 
 
