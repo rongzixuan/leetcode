@@ -4,6 +4,7 @@
 从 X-Y 平面上的点 (0,0) 开始，先向北移动 distance[0] 米，然后向西移动 distance[1] 米，向南移动 distance[2] 米，向东移动 distance[3] 米，持续移动。也就是说，每次移动后你的方位会发生逆时针变化。
 
 判断你所经过的路径是否相交。如果相交，返回 true ；否则，返回 false 。
+
 """
 
 
@@ -14,7 +15,7 @@ class Solution:
         # 方法一：归纳法（相交的情况）
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(distance)
+        n = len(distance)
         if n < 4:
             return False
 
@@ -40,7 +41,7 @@ class Solution:
                 print('111')
                 return True
 
-        return False"""
+        return False
 
 
         # 方法二：归纳法2（不相交的情况）
