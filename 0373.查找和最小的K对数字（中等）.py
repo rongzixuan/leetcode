@@ -5,7 +5,6 @@
 
 请找到和最小的 k 个数对 (u1,v1),  (u2,v2)  ...  (uk,vk) 。
 
- 
 
 示例 1:
 输入: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
@@ -41,7 +40,7 @@ class Solution:
         # 方法一：优先队列（堆）
         # 时间复杂度：O(klogk)
         # 空间复杂度：O(k)
-        """m, n = len(nums1), len(nums2)
+        m, n = len(nums1), len(nums2)
         import heapq
         #heap = []
         heap = [(nums1[i] + nums2[0], i, 0) for i in range(min(k, m))]
@@ -56,10 +55,10 @@ class Solution:
             if j + 1 < n:
                 heapq.heappush(heap, (nums1[i] + nums2[j + 1], i, j + 1))
 
-        return res"""
+        return res
 
 
-        """m, n = len(nums1), len(nums2)
+        m, n = len(nums1), len(nums2)
 
         # 二分查找第 k 小的数对和
         left, right = nums1[0] + nums2[0], nums1[m - 1] + nums2[n - 1] + 1
@@ -101,7 +100,7 @@ class Solution:
                 if len(ans) == k:
                     return ans
                 j -= 1
-        return ans"""
+        return ans
 
 
         # 方法二：二分法 + 双指针
