@@ -6,7 +6,6 @@
 Solution(ListNode head) 使用整数数组初始化对象。
 int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。
  
-
 示例：
 
 输入
@@ -50,7 +49,7 @@ solution.getRandom(); // 返回 3
 # __init__: O(n)
 # getRandom(): O(n)
 # 空间复杂度：O(n)
-"""class Solution:
+class Solution:
 
     def __init__(self, head: Optional[ListNode]):
         #print(head)
@@ -60,7 +59,7 @@ solution.getRandom(); // 返回 3
             head = head.next
 
     def getRandom(self) -> int:
-        return random.choice(self.arr)"""
+        return random.choice(self.arr)
 
 
 # 方法二：水塘抽样
