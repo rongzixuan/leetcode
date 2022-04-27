@@ -1,8 +1,6 @@
 """
 给你一个字符串 s 和一个整数 k ，请你找出 s 中的最长子串， 要求该子串中的每一字符出现次数都不少于 k 。返回这一子串的长度。
 
- 
-
 示例 1：
 输入：s = "aaabb", k = 3
 输出：3
@@ -12,7 +10,6 @@
 输入：s = "ababbc", k = 2
 输出：5
 解释：最长子串为 "ababb" ，其中 'a' 重复了 2 次， 'b' 重复了 3 次。
- 
 
 提示：
 1 <= s.length <= 10^4
@@ -30,7 +27,7 @@ class Solution:
         # 时间复杂度：O(n * C)
         # 空间复杂度：O(C)
         # C = 26
-        """n = len(s)
+        n = len(s)
 
         def dfs(left, right):
             #print('left, right:', left, right)
@@ -63,7 +60,7 @@ class Solution:
                 length = max(length, sub_length)
             return length 
 
-        return dfs(0, n - 1)"""
+        return dfs(0, n - 1)
 
 
         # 方法二：滑动窗口
