@@ -10,7 +10,6 @@
 示例 2：
 输入：n = 0
 输出：1
- 
 
 提示：
 0 <= n <= 8
@@ -25,7 +24,7 @@ class Solution:
         # 方法一：数学（排列组合）
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """ans = 0
+        ans = 0
         if n == 0:
             return 1
         elif n == 1:
@@ -38,7 +37,7 @@ class Solution:
                 ans += tmp_ans
                 #print(i, tmp_ans)
                 
-        return ans"""
+        return ans
 
 
         # 方法二：动态规划
