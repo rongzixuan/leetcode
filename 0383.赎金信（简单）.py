@@ -8,7 +8,6 @@
 magazine 中的每个字符只能在 ransomNote 中使用一次。
 
 
-
 示例 1：
 输入：ransomNote = "a", magazine = "b"
 输出：false
