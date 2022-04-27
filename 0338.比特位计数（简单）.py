@@ -1,5 +1,6 @@
 """
 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。
+
 """
 
 class Solution:
@@ -11,7 +12,7 @@ class Solution:
         # 方法一：位运算1-Brian Kernighan 算法
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """res = []
+        res = []
         for i in range(n+1):
             j = i
             count = 0
@@ -20,13 +21,13 @@ class Solution:
                 j &= j-1
             res.append(count)
 
-        return res"""
+        return res
 
 
         # 方法二：奇偶性1
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """res = [0] * (n+1)
+        res = [0] * (n+1)
 
         for i in range(1, n+1):
             #print('i:', i)
@@ -54,13 +55,13 @@ class Solution:
                         j &= j-1
                     res[i] = count
         
-        return res"""
+        return res
 
 
         # 方法三：奇偶性2
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """res = [0] * (n+1)
+        res = [0] * (n+1)
 
         for i in range(1, n+1):
             if i % 2 == 1: # 奇数
@@ -68,13 +69,13 @@ class Solution:
             elif i % 2 == 0: # 偶数
                 res[i] = res[i//2]
 
-        return res"""
+        return res
 
 
         # 方法四：动态规划-最高有效位
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """res = [0]
+        res = [0]
 
         high_bite = 0
         for i in range(1, n+1):
@@ -84,19 +85,19 @@ class Solution:
             else:
                 res.append(res[i-high_bite] + 1)
 
-        return res"""
+        return res
 
 
         # 方法五：动态规划-最低有效位
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """res = [0]
+        res = [0]
 
         for i in range(1, n+1):
             #print(i)
             res.append(res[i >> 1] + (i & 1))
 
-        return res"""
+        return res
 
 
         # 方法六：动态规划-最低设置位
