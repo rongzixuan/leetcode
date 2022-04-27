@@ -3,20 +3,15 @@
 
 进阶：不要 使用任何内置的库函数，如  sqrt 。
 
- 
-
 示例 1：
-
 输入：num = 16
 输出：true
-示例 2：
 
+示例 2：
 输入：num = 14
 输出：false
  
-
 提示：
-
 1 <= num <= 2^31 - 1
 
 """
@@ -28,7 +23,7 @@ class Solution:
         # 方法一：二分法
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """left, right = 0, num
+        left, right = 0, num
         while left <= right:
             mid = left + (right - left) // 2
             #print(left, right)
@@ -39,7 +34,7 @@ class Solution:
             else:
                 left = mid + 1
 
-        return False"""
+        return False
 
 
         # 方法二：牛顿迭代法
