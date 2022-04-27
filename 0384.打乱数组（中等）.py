@@ -7,7 +7,6 @@ Solution(int[] nums) 使用整数数组 nums 初始化对象
 int[] reset() 重设数组到它的初始状态并返回
 int[] shuffle() 返回数组随机打乱后的结果
  
-
 示例：
 输入
 ["Solution", "shuffle", "reset", "shuffle"]
