@@ -11,7 +11,7 @@ class Solution:
         # 方法一：排序
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n < 3:
             return max(nums)
 
@@ -25,13 +25,13 @@ class Solution:
             if diff == 2:
                 return nums[i]
 
-        return nums[0]"""
+        return nums[0]
 
 
         # 方法二：有序集合
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n < 3:
             return max(nums)
 
@@ -45,13 +45,13 @@ class Solution:
             if len(sl) > 3:
                 sl.pop(0)
 
-        return sl[0] if len(sl) == 3 else sl[-1]"""
+        return sl[0] if len(sl) == 3 else sl[-1]
 
 
         # 方法三：一次遍历
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n < 3:
             return max(nums)
 
@@ -64,7 +64,7 @@ class Solution:
             elif b > num > c:
                 c = num
 
-        return a if c == float('-inf') else c"""
+        return a if c == float('-inf') else c
 
 
         # 方法四：一次遍历2
