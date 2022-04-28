@@ -15,7 +15,7 @@ class Solution:
         # 方法一：差分 + 计数
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         if n < 2:
             return 0
 
@@ -38,14 +38,14 @@ class Solution:
                 count += (1 + tmp_count) * tmp_count // 2
             index += 1
 
-        return count"""
+        return count
 
 
 
         # 方法二：差分 + 计数
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n < 3:
             return 0
 
@@ -61,7 +61,7 @@ class Solution:
                 tmp_count = 0
             count += tmp_count
 
-        return count"""
+        return count
 
 
 
