@@ -1,15 +1,12 @@
 """
 给你一个 m x n 的矩阵，其中的值均为非负整数，代表二维高度图每个单元的高度，请计算图中形状最多能接多少体积的雨水。
 
-
 示例 1:
-
 输入: heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
 输出: 4
 解释: 下雨后，雨水将会被上图蓝色的方块中。总的接雨水量为1+2+1=4。
 
 示例 2:
-
 输入: heightMap = [[3,3,3,3,3],[3,2,2,2,3],[3,2,1,2,3],[3,2,2,2,3],[3,3,3,3,3]]
 输出: 10
 
@@ -22,7 +19,7 @@ class Solution:
         # 方法一：广度优先搜索
         # 时间复杂度：O(m^2 * n^2)
         # 空间复杂度：O(m * n)
-        """m, n = len(heightMap), len(heightMap[0])
+        m, n = len(heightMap), len(heightMap[0])
         if m < 3 and n < 3:
             return 0
 
@@ -50,7 +47,7 @@ class Solution:
             for j in range(n):
                 res += volumns[i][j] - heightMap[i][j]
 
-        return res"""
+        return res
 
 
         # 方法二：最小堆 + 广度优先搜索（栈）
@@ -91,3 +88,7 @@ class Solution:
             #print('hq:', hq)
 
         return res
+
+    
+    
+    
