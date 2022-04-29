@@ -4,7 +4,6 @@
 在执行上述操作后，返回包含相同字母的最长子字符串的长度。
 
  
-
 示例 1：
 输入：s = "ABAB", k = 2
 输出：4
@@ -17,7 +16,6 @@
 将中间的一个'A'替换为'B',字符串变为 "AABBBBA"。
 子串 "BBBB" 有最长重复字母, 答案为 4。
  
-
 提示：
 1 <= s.length <= 10^5
 s 仅由大写英文字母组成
@@ -34,7 +32,7 @@ class Solution:
         # 时间复杂度：O(C * n)
         # 空间复杂度：O(C)
         # C = 26
-        """n = len(s)
+        n = len(s)
         total = [0] * 26
 
         def getCharCount(ch):
@@ -53,7 +51,7 @@ class Solution:
             total[i] = getCharCount(chr(65 + i))
 
         #print(total)
-        return max(total)"""
+        return max(total)
 
 
         # 方法二：滑动窗口2
