@@ -3,7 +3,6 @@
 
 异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。
 
-
 示例 1:
 输入: s = "cbaebabacd", p = "abc"
 输出: [0,6]
@@ -33,7 +32,7 @@ class Solution:
         # 方法一：滑动窗口
         # 时间复杂度：O(m)
         # 空间复杂度：O(C)，C = 26
-        """m, n = len(s), len(p)
+        m, n = len(s), len(p)
         if m < n:
             return []
 
@@ -56,7 +55,7 @@ class Solution:
                 #print(i-n+1)
                 res.append(i-n+1)
 
-        return res"""
+        return res
 
 
         # 方法二：滑动窗口2
