@@ -51,7 +51,7 @@ class Solution:
         # 方法二：深度优先搜索
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n)，栈的开销
-        """def dfs(node, targetSum):
+        def dfs(node, targetSum):
             if not node:
                 return 0
 
@@ -68,14 +68,14 @@ class Solution:
         res = dfs(root, targetSum)
         res += self.pathSum(root.left, targetSum)
         res += self.pathSum(root.right, targetSum)
-        return res"""
+        return res
 
 
 
         # 方法三：前缀和
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """from collections import defaultdict
+        from collections import defaultdict
         pre_sum = defaultdict(int)
         pre_sum[0] = 1
 
@@ -98,6 +98,6 @@ class Solution:
             return res
 
         res = dfs(root, targetSum, 0)
-        return res"""
+        return res
 
 
