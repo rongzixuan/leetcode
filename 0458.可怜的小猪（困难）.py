@@ -10,10 +10,10 @@
 重复这一过程，直到时间用完。
 给你桶的数目 buckets ，minutesToDie 和 minutesToTest ，返回在规定时间内判断哪个桶有毒所需的 最小 猪数。
 
-
 示例 1：
 输入：buckets = 1000, minutesToDie = 15, minutesToTest = 60
 输出：5
+
 示例 2：
 输入：buckets = 4, minutesToDie = 15, minutesToTest = 15
 输出：2
@@ -21,7 +21,6 @@
 示例 3：
 输入：buckets = 4, minutesToDie = 15, minutesToTest = 30
 输出：2
- 
 
 提示：
 1 <= buckets <= 1000
@@ -36,9 +35,10 @@ class Solution:
         # 方法一：数学
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
-        """times = int(minutesToTest / minutesToDie) + 1
-        return ceil(log(buckets) / log(times))"""  
+        times = int(minutesToTest / minutesToDie) + 1
+        return ceil(log(buckets) / log(times)) 
 
+    
         # 方法二：动态规划
         # 时间复杂度：O()
         # 空间复杂度：O()
