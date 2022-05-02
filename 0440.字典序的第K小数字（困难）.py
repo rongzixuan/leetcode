@@ -1,7 +1,6 @@
 """
 给定整数 n 和 k，返回  [1, n] 中字典序第 k 小的数字。
 
- 
 
 示例 1:
 输入: n = 13, k = 2
@@ -12,7 +11,6 @@
 输入: n = 1, k = 1
 输出: 1
  
-
 提示:
 1 <= k <= n <= 10^9
 
@@ -26,7 +24,7 @@ class Solution:
         # 方法一：字典树思想 + 深度优先搜索（超时）
         # 时间复杂度：O(k * n)
         # 空间复杂度：O(k)
-        """i = 0
+        i = 0
         from collections import deque
         stack = deque([9, 8, 7, 6, 5, 4, 3, 2, 1])
 
@@ -38,7 +36,7 @@ class Solution:
                 return node
             for j in range(9, -1, -1):
                 if node * 10 + j <= n:
-                    stack.append(node * 10 + j)"""
+                    stack.append(node * 10 + j)
 
 
         # 方法二：字典树思想
