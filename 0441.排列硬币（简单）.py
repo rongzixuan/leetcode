@@ -12,7 +12,7 @@ class Solution:
         # 方法一：二分法
         # 时间复杂度：O(logn)
         # 空间复杂度：O(1)
-        """if n < 3:
+        if n < 3:
             return 1
 
         left, right = 0, 2*n**0.5
@@ -27,7 +27,7 @@ class Solution:
             elif ((1 + mid) * mid // 2) < n:
                 left = mid
 
-        return int(left)"""
+        return int(left)
 
 
         # 方法二：数学
