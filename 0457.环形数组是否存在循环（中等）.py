@@ -21,7 +21,7 @@ class Solution:
         # 方法一：模拟法
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n == 0 or n == 1:
             return False
 
@@ -59,14 +59,14 @@ class Solution:
                 elif j < 0:
                     j = n -abs(j) % n
 
-        return False"""
+        return False
 
 
 
         # 方法二：模拟法-使用标记
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         if n == 0 or n == 1:
             return False
         mark = [-1] * n
@@ -109,7 +109,7 @@ class Solution:
                 else:
                     j = next_j
 
-        return False"""
+        return False
 
 
 
