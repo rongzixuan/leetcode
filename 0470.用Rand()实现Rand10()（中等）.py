@@ -21,13 +21,13 @@ class Solution:
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
 
-        """while True: # 直到生成的数字满足要求，有返回值
+        while True: # 直到生成的数字满足要求，有返回值
             a = rand7()
             b = rand7()
 
             idx = (a-1) * 7 + b
             if idx <= 40:
-                return idx % 10 + 1"""
+                return idx % 10 + 1
 
 
 
