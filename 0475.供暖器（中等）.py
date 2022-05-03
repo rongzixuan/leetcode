@@ -22,7 +22,6 @@
 输入：houses = [1,5], heaters = [2]
 输出：3
  
-
 提示：
 1 <= houses.length, heaters.length <= 3 * 10^4
 1 <= houses[i], heaters[i] <= 10^9
@@ -36,7 +35,7 @@ class Solution:
         # 方法一：排序 + 二分法
         # 时间复杂度：O(nlogn + mlogn)
         # 空间复杂度：O(1)
-        """m, n = len(houses), len(heaters)
+        m, n = len(houses), len(heaters)
 
         from bisect import bisect_left, bisect_right
         max_dis = 0
@@ -51,7 +50,7 @@ class Solution:
             right_dis = heaters[right] - house if right < n else float('inf')           
             max_dis = max(max_dis, min(left_dis, right_dis))
 
-        return max_dis"""
+        return max_dis
 
 
         # 方法二：排序 + 双指针
