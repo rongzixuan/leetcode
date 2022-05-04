@@ -64,7 +64,7 @@ class Solution:
         # 时间复杂度：O(m * n * A(m, n))
         # 空间复杂度：O(m * n* A(m, n))
         # m，n分别为board、hand的长度
-        """import re
+        import re
         # 消除连续颜色相同的球
         def eliminate(s):
             #print('s 1:', s)
@@ -107,7 +107,7 @@ class Solution:
                         queue.append((new_board, new_hand, step+1))
                         visited.add((new_board, new_hand))
 
-        return -1"""
+        return -1
 
 
         # 方法二：深度优先搜索
