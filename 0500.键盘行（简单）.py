@@ -6,6 +6,7 @@
 第一行由字符 "qwertyuiop" 组成。
 第二行由字符 "asdfghjkl" 组成。
 第三行由字符 "zxcvbnm" 组成。
+
 """
 
 class Solution:
@@ -14,7 +15,7 @@ class Solution:
         # 方法一：遍历
         # 时间复杂度：O(L)，L为所有单词的总长度
         # 空间复杂度：O(1)
-        """#set1 = {'q','w','e','r','t','y','u','i','o','p'}
+        #set1 = {'q','w','e','r','t','y','u','i','o','p'}
         #set2 = {'a','s','d','f','g','h','j','k','l'}
         #set3 = {'z','x','c','v','b','n','m'}
         table = [1,2,2,1,0,1,1,1,0,1,1,1,2,2,0,0,0,0,1,0,0,2,0,2,0,2]
@@ -32,7 +33,7 @@ class Solution:
             if isValid:
                 res.append(word)
 
-        return res"""
+        return res
 
 
         # 方法二：集合比较
