@@ -20,7 +20,7 @@ class Solution:
         # 方法一：优先队列（最大堆） + 贪心（超时）
         # 时间复杂度：O(k*(n+logn))
         # 空间复杂度：O(n)
-        """n = len(profits)
+        n = len(profits)
         import heapq
         heap = []
         count = 0
@@ -50,7 +50,7 @@ class Solution:
             heapq.heapify(heap)
             #print(heap)
 
-        return w"""
+        return w
 
 
 
