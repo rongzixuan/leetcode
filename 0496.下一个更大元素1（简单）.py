@@ -4,6 +4,7 @@
 请你找出 nums1 中每个元素在 nums2 中的下一个比其大的值。
 
 nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。
+
 """
 
 class Solution:
@@ -13,7 +14,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O(m * n)
         # 空间复杂度:O(m)
-        """m, n = len(nums1), len(nums2)
+        m, n = len(nums1), len(nums2)
         if n == 1:
             return [-1]
 
@@ -29,7 +30,7 @@ class Solution:
             else:
                 res.append(nums2[j])
 
-        return res"""
+        return res
 
 
         # 方法二：单调栈 + 哈希表
