@@ -9,7 +9,6 @@
 从名次第 4 到第 n 的运动员，只能获得他们的名次编号（即，名次第 x 的运动员获得编号 "x"）。
 使用长度为 n 的数组 answer 返回获奖，其中 answer[i] 是第 i 位运动员的获奖情况。
 
- 
 
 示例 1：
 输入：score = [5,4,3,2,1]
@@ -21,7 +20,6 @@
 输出：["Gold Medal","5","Bronze Medal","Silver Medal","4"]
 解释：名次为 [1st, 5th, 3rd, 2nd, 4th] 。
  
-
 提示：
 n == score.length
 1 <= n <= 10^4
@@ -60,3 +58,6 @@ class Solution:
             i += 1
 
         return res
+
+    
+    
