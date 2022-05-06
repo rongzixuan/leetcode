@@ -12,7 +12,7 @@ class Solution:
         # 方法一：动态规划
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
-        """n = len(s)
+        n = len(s)
         if n == 1:
             return 1
 
@@ -37,7 +37,7 @@ class Solution:
                         dp[i][j] = max(dp[i+1][j], dp[i][j-1])
 
         #print(dp)
-        return dp[0][n-1]"""
+        return dp[0][n-1]
 
 
 
