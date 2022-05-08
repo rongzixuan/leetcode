@@ -14,7 +14,7 @@ class Solution:
         # 方法一：回溯
         # 时间复杂度：O(n!)
         # 空间复杂度：O(n^2)
-        """count = 0
+        count = 0
         visited = set()
         match = defaultdict(list)
 
@@ -37,7 +37,7 @@ class Solution:
                     visited.discard(x)
 
         backtrack(n, index)
-        return count"""
+        return count
 
 
 
