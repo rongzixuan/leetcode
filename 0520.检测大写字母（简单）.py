@@ -29,7 +29,7 @@ class Solution:
         # 方法一：遍历
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(word)
+        n = len(word)
         upper_flag = False
         upper_count = 0
 
@@ -46,7 +46,7 @@ class Solution:
         or (upper_flag and upper_count == 1):
             return True
 
-        return False"""
+        return False
 
 
         # 方法二：遍历
