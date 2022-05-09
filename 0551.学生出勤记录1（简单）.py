@@ -19,8 +19,7 @@ class Solution:
         # 方法一：自带函数
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """return s.count('A') <= 1 and 'LLL' not in s"""
-
+        return s.count('A') <= 1 and 'LLL' not in s
 
 
         # 方法二：一次遍历
