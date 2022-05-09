@@ -13,7 +13,7 @@ class Solution:
         # 方法一：模拟
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(s)
+        n = len(s)
         a = list(s)
         #print(a)
 
@@ -22,8 +22,7 @@ class Solution:
             a[i: i+k] = reversed(a[i: i+k])
 
         #print(a)
-        return ''.join(a)"""
-
+        return ''.join(a)
 
 
         # 方法二：模拟2
@@ -39,3 +38,6 @@ class Solution:
 
         #print(a)
         return ''.join(a)
+
+    
+    
