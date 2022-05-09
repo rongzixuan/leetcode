@@ -1,7 +1,7 @@
 """
 给定一个由 0 和 1 组成的矩阵 mat ，请输出一个大小相同的矩阵，其中每一个格子是 mat 中对应位置元素到最近的 0 的距离。
-
 两个相邻元素间的距离为 1 。
+
 """
 
 class Solution:
@@ -11,7 +11,7 @@ class Solution:
         # 方法一：广度优先搜索
         # 时间复杂度：O(m * n)
         # 空间复杂度：：O(m * n)
-        """m, n = len(mat), len(mat[0])
+        m, n = len(mat), len(mat[0])
         res_mat = [[0] * n for _ in range(m)]
 
         queue = []
@@ -30,14 +30,13 @@ class Solution:
                     res_mat[new_i][new_j] = depth + 1
                     queue.append((new_i, new_j, depth+1))
 
-        return res_mat"""
-
+        return res_mat
 
 
         # 方法二：动态规划
         # 时间复杂度：O(m * n)
         # 空间复杂度：：O(m * n)
-        """m, n = len(mat), len(mat[0])
+        m, n = len(mat), len(mat[0])
         res_mat = [[float('inf')] * n for _ in range(m)]
         #print(res_mat)
 
@@ -74,7 +73,7 @@ class Solution:
                 if j + 1 < n:
                     res_mat[i][j] = min(res_mat[i][j], res_mat[i][j+1] + 1)
 
-        return res_mat"""
+        return res_mat
 
 
         # 方法三：动态规划2
@@ -104,15 +103,6 @@ class Solution:
                     res_mat[i][j] = min(res_mat[i][j], res_mat[i][j+1] + 1)
 
         return res_mat
-
-
-
-
-
-
-
-
-
 
 
 
