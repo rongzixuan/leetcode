@@ -6,7 +6,6 @@
 i2 == -1
 给你两个字符串表示的复数 num1 和 num2 ，请你遵循复数表示形式，返回表示它们乘积的字符串。
 
- 
 
 示例 1：
 输入：num1 = "1+1i", num2 = "1+1i"
@@ -39,3 +38,6 @@ class Solution:
         #print(x1, y1, x2, y2)
 
         return str(x1 * x2 - y1 * y2) + '+' + str(x1 * y2 + x2 * y1) + 'i'
+    
+    
+    
