@@ -1,10 +1,7 @@
 """
 给定一个二叉树，计算 整个树 的坡度 。
-
 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。
-
 整个树 的坡度就是其所有节点的坡度之和。
-
 
 示例 1：
 输入：root = [1,2,3]
@@ -30,7 +27,6 @@
 示例 3：
 输入：root = [21,7,14,1,1,2,2,3,3]
 输出：9
- 
 
 提示：
 树中节点数目的范围在 [0, 10^4] 内
@@ -46,7 +42,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    """def findTilt(self, root: TreeNode) -> int:
+    def findTilt(self, root: TreeNode) -> int:
 
         # 方法一：深度优先搜索
         # 时间复杂度：O(n)
@@ -61,7 +57,7 @@ class Solution:
 
         total_sum, total_slope = dfs(root)
         #print(total_sum, total_slope)
-        return total_slope"""
+        return total_slope
 
 
     # 方法二：深度优先搜索2
