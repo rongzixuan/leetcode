@@ -1,6 +1,5 @@
 """
 给你两个字符串 s1 和 s2 ，写一个函数来判断 s2 是否包含 s1 的排列。如果是，返回 true ；否则，返回 false 。
-
 换句话说，s1 的排列之一是 s2 的 子串 。
 """
 
@@ -11,7 +10,7 @@ class Solution:
         # 方法一：双指针（超时）
         # 时间复杂度：O(n * m)
         # 空间复杂度：O(m)
-        """m, n = len(s1), len(s2)
+        m, n = len(s1), len(s2)
         from collections import defaultdict
         hash_table = defaultdict(int)
 
@@ -45,14 +44,13 @@ class Solution:
                     for k in range(i, j):
                         hash_table[s2[k]] += 1
 
-        return False"""
-
+        return False
 
 
         # 方法二：滑动窗口1
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """m, n = len(s1), len(s2)
+        m, n = len(s1), len(s2)
         if m > n:
             return False
 
@@ -72,13 +70,13 @@ class Solution:
             if count1 == count2:
                 return True
 
-        return False"""
+        return False
 
 
         # 方法三：滑动窗口2
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """m, n = len(s1), len(s2)
+        m, n = len(s1), len(s2)
         if m > n:
             return False
        
@@ -114,7 +112,7 @@ class Solution:
             if diff == 0:
                 return True
 
-        return False"""
+        return False
 
 
         # 方法四：双指针
