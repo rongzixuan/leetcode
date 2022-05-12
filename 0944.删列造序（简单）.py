@@ -59,3 +59,12 @@ class Solution:
                     break
 
         return count
+      
+      
+        # 方法二：遍历
+        # 时间复杂度：O(m * n)
+        # 空间复杂度：O(1)
+        return sum(any(x > y for x, y in pairwise(col)) for col in zip(*strs))
+      
+      
+      
