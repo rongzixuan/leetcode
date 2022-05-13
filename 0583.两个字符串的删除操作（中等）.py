@@ -10,7 +10,7 @@ class Solution:
         # 方法一：最长公共子序列（动态规划）
         # 时间复杂度：O(n1 * n2)
         # 空间复杂度：O(n1 * n2)
-        """n1, n2 = len(word1), len(word2)
+        n1, n2 = len(word1), len(word2)
         sub_n = 0
         dp = [[0] * (n2+1) for _ in range(n1+1)]
 
@@ -23,7 +23,7 @@ class Solution:
 
         #print(dp)
         sub_n = dp[n1][n2]
-        return n1 + n2 - 2 * sub_n"""
+        return n1 + n2 - 2 * sub_n
 
 
 
