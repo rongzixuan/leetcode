@@ -1,7 +1,7 @@
 """
 编写一种方法，对字符串数组进行排序，将所有变位词组合在一起。变位词是指字母相同，但排列不同的字符串。
-
 注意：本题相对原题稍作修改
+
 """
 
 class Solution:
@@ -11,7 +11,7 @@ class Solution:
             return []
 
         # 方法一：排序+哈希表
-        """hash_table = {}
+        hash_table = {}
         res = []
 
         index = 0
@@ -26,17 +26,17 @@ class Solution:
 
         #print(hash_table)
         #print(res)
-        return res"""
+        return res
 
 
         # 方法二：排序+哈希表
-        """res = defaultdict(list)
+        res = defaultdict(list)
 
         for st in strs:
             st_out = "".join(sorted(st))
             res[st_out].append(st)
 
-        return list(res.values())"""
+        return list(res.values())
 
 
         # 方法三：计数+哈希表
