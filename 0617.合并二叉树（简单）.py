@@ -1,6 +1,5 @@
 """
 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
-
 你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。
 
 """
@@ -18,7 +17,7 @@ class Solution:
         # 方法一：深度优先搜索（递归）
         # 时间复杂度：O(n)，n为两棵树节点最小值
         # 空间复杂度：o(n)   
-        """if not root1 and not root2:
+        if not root1 and not root2:
             return 
 
         new_root = root1 if root1 else root2
@@ -38,14 +37,13 @@ class Solution:
 
         recursion(root1, root2, new_root)
 
-        return new_root"""
-
+        return new_root
 
 
         # 方法二：深度优先搜索（递归）2
         # 时间复杂度：O(n)，n为两棵树节点最小值
         # 空间复杂度：o(n)
-        """if not root1 and not root2:
+        if not root1 and not root2:
             return
 
         def dfs(node1, node2):
@@ -63,8 +61,7 @@ class Solution:
                 new_node.right = dfs(node1.right, node2.right)
                 return new_node
 
-        return dfs(root1, root2)"""
-
+        return dfs(root1, root2)
 
 
         # 方法三：广度优先搜索（队列）
@@ -115,12 +112,4 @@ class Solution:
 
         return merged
 
-
-
-
-
-
-
-
-
-
+    
