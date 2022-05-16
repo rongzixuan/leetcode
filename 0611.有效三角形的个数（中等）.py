@@ -9,7 +9,7 @@ class Solution:
         # 方法一：排序 + 二分法
         # 时间复杂度：O(n*n*logn)
         # 空间复杂度：O(logn)
-        """nums.sort()
+        nums.sort()
         n = len(nums)
         if n == 0:
             return 0
@@ -30,8 +30,7 @@ class Solution:
                 count = right - j if right < n else 0
                 res += count
 
-        return res"""
-
+        return res
 
 
         # 方法二：排序 + 双指针
@@ -60,4 +59,3 @@ class Solution:
         
 
                 
-
