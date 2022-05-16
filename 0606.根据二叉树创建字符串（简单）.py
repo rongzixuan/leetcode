@@ -1,6 +1,5 @@
 """
 你需要采用前序遍历的方式，将一个二叉树转换成一个由括号和整数组成的字符串。
-
 空节点则用一对空括号 "()" 表示。而且你需要省略所有不影响字符串与原始二叉树之间的一对一映射关系的空括号对。
 
 示例 1:
@@ -44,7 +43,7 @@ class Solution:
         # 方法一：递归
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """if not root:
+        if not root:
             return ""
 
         ans = ""
@@ -71,7 +70,7 @@ class Solution:
                 ans += ')'
 
         dfs(root)
-        return ans"""
+        return ans
 
 
         # 方法二：迭代（栈）
@@ -102,29 +101,6 @@ class Solution:
                     stack.append(node.right)
 
         return ans[1: -1]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
