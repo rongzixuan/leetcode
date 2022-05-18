@@ -1,7 +1,7 @@
 """
 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
-
 具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
+
 """
 
 class Solution:
@@ -13,7 +13,7 @@ class Solution:
         count = n
             
         # 方法一：动态规划
-        """dp = [[0] * n for _ in range(n)]
+        dp = [[0] * n for _ in range(n)]
         for i in range(n):
             dp[i][i] = 1
             
@@ -35,11 +35,11 @@ class Solution:
                     #dp[i][j] = max(dp[i][j-1], dp[i+1][j])
                     dp[i][j] = 0
                     
-        return count"""
+        return count
 
 
         # 方法二：动态规划
-        """count = n
+        count = n
         dp = [[False] * n for _ in range(n)]
         for i in range(n):
             dp[i][i] = True
@@ -53,11 +53,11 @@ class Solution:
                     dp[i][j] = True
                     count += 1
 
-        return count"""
+        return count
 
 
         # 方法三：中心扩展法
-        """count = 0
+        count = 0
         for i in range(n):
             for j in range(i, i+2):
                 #print('i, j-1:', i, j)
@@ -71,7 +71,7 @@ class Solution:
                     else:
                         break
 
-        return count"""
+        return count
 
 
         # 方法四：中心扩展法2
@@ -89,10 +89,6 @@ class Solution:
                     break
 
         return count
-
-
-
-
 
 
 
