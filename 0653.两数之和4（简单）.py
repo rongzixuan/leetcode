@@ -1,8 +1,6 @@
 """
 给定一个二叉搜索树 root 和一个目标结果 k，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。
-
  
-
 示例 1：
 输入: root = [5,3,6,2,4,null,7], k = 9
 输出: true
@@ -10,7 +8,6 @@
 示例 2：
 输入: root = [5,3,6,2,4,null,7], k = 28
 输出: false
- 
 
 提示:
 二叉树的节点个数的范围是  [1, 10^4].
@@ -34,7 +31,7 @@ class Solution:
         # 方法一：深度优先搜索（递归） + 哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """from collections import defaultdict
+        from collections import defaultdict
         count = defaultdict(int)
 
         def dfs(node):
@@ -51,13 +48,13 @@ class Solution:
             return True if (res1 or res2) else False
 
         #print(count)
-        return True if dfs(root) else False"""
+        return True if dfs(root) else False
 
 
         # 方法二：深度优先搜索（栈） + 哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """stack = [root]
+        stack = [root]
         from collections import defaultdict
         count = defaultdict(int)
 
@@ -72,13 +69,13 @@ class Solution:
             if node.right:
                 stack.append(node.right)
 
-        return False"""
+        return False
 
 
         # 方法三：广度优先搜索 + 哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """queue = [root]
+        queue = [root]
         from collections import defaultdict
         count = defaultdict(int)
 
@@ -93,13 +90,13 @@ class Solution:
             if node.right:
                 queue.append(node.right)
 
-        return False"""
+        return False
 
 
         # 方法四：中序遍历（递归） + 双指针
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """arr = []
+        arr = []
         
         def midOrder(node):
             if not node:
@@ -118,7 +115,7 @@ class Solution:
             else:
                 right -= 1
 
-        return False"""
+        return False
 
 
         # 方法五：中序遍历（迭代-栈） + 双指针
@@ -152,23 +149,6 @@ class Solution:
                     node = node.right
 
         return False
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
