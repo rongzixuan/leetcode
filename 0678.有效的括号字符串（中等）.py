@@ -16,7 +16,7 @@ class Solution:
         # 方法一：栈
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """stack1 = []
+        stack1 = []
         stack2 = []
         n = len(s)
         if n == 1:
@@ -55,13 +55,13 @@ class Solution:
                 else:
                     stack1.pop()
                     stack2.pop()
-            return True"""
+            return True
 
 
         # 方法二：贪心
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """left_min = left_max = 0
+        left_min = left_max = 0
         n = len(s)
         #print('n:', n)
         if n == 1:
@@ -86,8 +86,7 @@ class Solution:
                 return False
 
         #print(left_min, left_max)
-        return left_min == 0"""
-
+        return left_min == 0
 
 
         # 方法三：动态规划
