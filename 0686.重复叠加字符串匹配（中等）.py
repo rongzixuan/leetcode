@@ -1,9 +1,7 @@
 """
 给定两个字符串 a 和 b，寻找重复叠加字符串 a 的最小次数，使得字符串 b 成为叠加后的字符串 a 的子串，如果不存在则返回 -1。
-
 注意：字符串 "abc" 重复叠加 0 次是 ""，重复叠加 1 次是 "abc"，重复叠加 2 次是 "abcabc"。
 
- 
 示例 1：
 输入：a = "abcd", b = "cdabcdab"
 输出：3
@@ -35,7 +33,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O((m+n) * (m+n))
         # 空间复杂度：O(1)
-        """m, n = len(a), len(b)
+        m, n = len(a), len(b)
         max_length = 2 * m + n
         tmp_length = m
         tmp_a = a
@@ -49,13 +47,13 @@ class Solution:
                 tmp_length += m
                 res += 1
 
-        return -1"""
+        return -1
 
 
         # 方法二：Rabin-Karp算法
         # 时间复杂度：O(m + n)
         # 空间复杂度：O(1)
-        """def strstr(a, b):
+        def strstr(a, b):
             m, n = len(a), len(b)
             if n == 0:
                 return 0
@@ -87,7 +85,7 @@ class Solution:
         elif index <= m - n:
             return 1
         else:
-            return (n + index - m - 1) // m + 2"""
+            return (n + index - m - 1) // m + 2
 
 
         # 方法三：Knuth-Morris-Pratt 算法
@@ -128,12 +126,6 @@ class Solution:
             return 1
         else:
             return (n + index - m - 1) // m + 2
-
-
-
-
-
-
 
 
 
