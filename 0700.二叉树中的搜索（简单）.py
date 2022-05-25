@@ -33,7 +33,7 @@ class Solution:
         # 方法一：dfs(递归)
         # 时间复杂度：O(n)
         # 空间复杂度:O(n)
-        """def recurve(node):
+        def recurve(node):
             if not node:
                 return 
             elif node.val == val:
@@ -44,7 +44,7 @@ class Solution:
                 return recurve(node.right)
 
         res = recurve(root)
-        return res if res else None"""
+        return res if res else None
 
 
         # 方法二：迭代
