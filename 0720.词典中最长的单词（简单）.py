@@ -1,9 +1,6 @@
 """
 给出一个字符串数组 words 组成的一本英语词典。返回 words 中最长的一个单词，该单词是由 words 词典中其他单词逐步添加一个字母组成。
-
 若其中有多个可行的答案，则返回答案中字典序最小的单词。若无答案，则返回空字符串。
-
- 
 
 示例 1：
 输入：words = ["w","wo","wor","worl", "world"]
@@ -15,7 +12,6 @@
 输出："apple"
 解释："apply" 和 "apple" 都能由词典中的单词组成。但是 "apple" 的字典序小于 "apply" 
  
-
 提示：
 1 <= words.length <= 1000
 1 <= words[i].length <= 30
@@ -57,7 +53,7 @@ class Solution:
         # 方法一：哈希集合
         # 时间复杂度：O(n * C), C = len(word)
         # 空间复杂度：O(n)
-        """n = len(words)
+        n = len(words)
         dict1 = set()
 
         for i, word in enumerate(words):
@@ -79,13 +75,13 @@ class Solution:
                 if len(dic) > max_length or (len(dic) == max_length and (max_word == "" or dic < max_word)):
                     max_word, max_length = dic, len(dic)
 
-        return max_word"""
+        return max_word
 
 
         # 方法二：排序 + 哈希集合
         # 时间复杂度：O(logn + n)
         # 空间复杂度：O(n)
-        """words.sort(key=lambda x: (len(x), x), reverse=False)
+        words.sort(key=lambda x: (len(x), x), reverse=False)
         #print(words)
         dict1 = set()  # 所有单词
         dict2 = set()  # 是有其他单词添加而来的单词
@@ -100,7 +96,7 @@ class Solution:
                     max_word, max_length = word, len(word)           
             dict1.add(word)
 
-        return max_word"""
+        return max_word
 
 
         # 方法三：字典树
@@ -117,14 +113,4 @@ class Solution:
                 max_word, max_length = word, len(word)
 
         return max_word
-
-
-
-
-
-
-
-
-
-
 
