@@ -6,7 +6,6 @@
 
 给定两个整数 left 和 right ，返回一个列表，列表的元素是范围 [left, right] 内所有的 自除数 。
 
-
 示例 1：
 输入：left = 1, right = 22
 输出：[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]
@@ -15,7 +14,6 @@
 输入：left = 47, right = 85
 输出：[48,55,66,77]
  
-
 提示：
 1 <= left <= right <= 10^4
 
@@ -42,3 +40,5 @@ class Solution:
                 ans.append(num)
 
         return ans
+
+    
