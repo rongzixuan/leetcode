@@ -1,6 +1,5 @@
 """
 有 n 个网络节点，标记为 1 到 n。
-
 给你一个列表 times，表示信号经过 有向 边的传递时间。 times[i] = (ui, vi, wi)，其中 ui 是源节点，vi 是目标节点， wi 是一个信号从源节点传递到目标节点的时间。
 
 现在，从某个节点 K 发出一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回 -1 。
@@ -14,7 +13,7 @@ class Solution:
         # 时间复杂度：O(m + n^2)
         # 空间复杂度：O(n^2)
         # m为边的个数
-        """dists = [[float('inf')] * n for _ in range(n)]
+        dists = [[float('inf')] * n for _ in range(n)]
         for i, j, time in times:
             dists[i-1][j-1] = time
         #print('dists:', dists)
@@ -37,8 +36,7 @@ class Solution:
         #print('min_dists:', min_dists)
 
         max_dist = max(min_dists)
-        return max_dist if max_dist != float('inf') else -1"""
-
+        return max_dist if max_dist != float('inf') else -1
 
 
         # 方法二：dijkstra算法 + 小根堆
@@ -70,8 +68,4 @@ class Solution:
 
         max_dist = max(min_dists)
         return max_dist if max_dist != float('inf') else -1
-
-
-
-
 
