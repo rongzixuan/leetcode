@@ -118,3 +118,80 @@ class Solution {
 
 
 
+// 方法三：A*启发式算法
+class Solution {
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    public int bfs(List<List<Integer>> forest, int i, int j, int[] target){
+        int target_i = target[0];
+        int target_j = target[1];
+        //System.out.println(target_i);
+        //System.out.println(target_j);
+
+        if (i == target_i && j == target_j){
+            return 0;
+        }
+
+        int m = forest.size();
+        int n = forest.get(0).size();
+        PriorityQueue<int[]> queue = new PriorityQueue<int[]>((a, b) -> a[0] - b[0]);
+        boolean[][] visited = new boolean[m][n];
+        queue.offer(new int[]{0, i * n + j});
+        visited[i][j] = true;
+
+        while (!queue.isEmpty()){
+            int[] arr = queue.poll();
+            int distance = arr[0], loc = arr[1];
+            //System.out.println("distance:" + distance);
+            //System.out.println("loc:" + loc);
+            for (int index = 0; index < 4; ++index){
+                int new_i = loc / n + dirs[index][0];
+                int new_j = loc % n + dirs[index][1];
+                //System.out.println("new_i:" + new_i + "new_j:" + new_j);
+                if (0 <= new_i && new_i < m && 0 <= new_j && new_j < n){
+                    if (!visited[new_i][new_j] && forest.get(new_i).get(new_j) > 0){
+                        if (new_i == target_i && new_j == target_j){
+                            return distance + 1;
+                        }
+                        queue.offer(new int[]{distance + 1, new_i * n + new_j});
+                        visited[new_i][new_j] = true;
+                    }
+                }
+            }       
+        }
+        return -1;
+    }
+
+    public int cutOffTree(List<List<Integer>> forest) {        
+        List<int[]> trees = new ArrayList<int[]>();
+        int m = forest.size();
+        int n = forest.get(0).size();
+
+        for (int i = 0; i < m; ++i){
+            for (int j = 0; j < n; ++j){
+                if (forest.get(i).get(j) > 1){
+                    trees.add(new int[]{i, j});
+                }
+            }
+        }
+        Collections.sort(trees, (a, b) -> forest.get(a[0]).get(a[1]) - forest.get(b[0]).get(b[1]));
+        //System.out.println(trees);
+
+        int i = 0;
+        int j = 0;
+        int ans = 0;
+        for (int index = 0; index < trees.size(); ++index){
+            //System.out.println("trees.get(index):" + trees.get(index));
+            int step = bfs(forest, i, j, trees.get(index));
+            //System.out.println("step:" + step);
+            if (step == -1){
+                return -1;
+            }
+            ans += step;
+            i = trees.get(index)[0];
+            j = trees.get(index)[1];
+        }
+        return ans;
+    }
+}
+
