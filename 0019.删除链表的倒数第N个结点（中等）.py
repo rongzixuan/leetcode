@@ -34,7 +34,6 @@ class Solution:
         return dummy_node.next
 
 
-
         # 方法二：双指针
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
@@ -51,9 +50,4 @@ class Solution:
 
         slow.next = slow.next.next
         return dummy_node.next
-
-
-
-
-
 
