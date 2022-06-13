@@ -93,18 +93,4 @@ class Solution:
         bst = MyBst(root)
         return bst.getK(k)
 
-
-
-            
-
         
-
-
-
-
-
-
-
-
-
-
