@@ -1,5 +1,6 @@
 """
 给定一个大小为 n 的整数数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。
+
 """
 
 class Solution:
@@ -68,13 +69,5 @@ class Solution:
             res.append(num2)
 
         return res
-
-
-
-
-
-
-
-
 
 
