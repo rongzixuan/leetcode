@@ -66,7 +66,6 @@ class Solution:
         return res.strip()
 
 
-
         # 方法二：迭代
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
@@ -122,6 +121,4 @@ class Solution:
 
         return res.strip()
             
-
-
 
