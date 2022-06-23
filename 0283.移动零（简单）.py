@@ -22,3 +22,6 @@ class Solution:
             nums[k] = 0
 
         return nums
+
+    
+    
