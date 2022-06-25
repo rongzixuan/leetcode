@@ -16,3 +16,7 @@ class Solution:
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
         return n % 4 != 0
+
+    
+    
+    
