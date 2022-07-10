@@ -52,3 +52,5 @@ class Solution:
         return int(x0) * int(x0) == num
             
 
+
+        
