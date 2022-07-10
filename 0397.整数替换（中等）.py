@@ -1,10 +1,9 @@
 """
 给定一个正整数 n ，你可以做如下操作：
-
 如果 n 是偶数，则用 n / 2替换 n 。
 如果 n 是奇数，则可以用 n + 1或n - 1替换 n 。
-n 变为 1 所需的最小替换次数是多少？
 
+n 变为 1 所需的最小替换次数是多少？
 
 示例 1：
 输入：n = 8
@@ -21,7 +20,6 @@ n 变为 1 所需的最小替换次数是多少？
 输入：n = 4
 输出：2
  
-
 提示：
 1 <= n <= 2^31 - 1
 
@@ -74,7 +72,5 @@ class Solution:
             return 1 + self.integerReplacement(n // 2)
         else:
             return 2 + min(self.integerReplacement((n+1) // 2), self.integerReplacement((n-1) // 2))
-
-
 
 
