@@ -30,3 +30,6 @@ class Solution:
             return ~ a ^ MASK2 ^ MASK3
         else:
             return a
+        
+        
+        
