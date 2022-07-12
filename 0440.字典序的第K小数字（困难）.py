@@ -1,7 +1,6 @@
 """
 给定整数 n 和 k，返回  [1, n] 中字典序第 k 小的数字。
 
-
 示例 1:
 输入: n = 13, k = 2
 输出: 10
@@ -65,10 +64,6 @@ class Solution:
                 k -= child_num
 
         return node
-
-
-
-
 
 
 
