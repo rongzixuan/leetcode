@@ -16,7 +16,6 @@ class Solution:
         :rtype: int
         """
 
-
         # 方法一：拒绝采样
         # 时间复杂度：O(1)
         # 空间复杂度：O(1)
@@ -28,7 +27,6 @@ class Solution:
             idx = (a-1) * 7 + b
             if idx <= 40:
                 return idx % 10 + 1
-
 
 
         # 方法2：拒绝采样进阶
@@ -53,3 +51,5 @@ class Solution:
                         return idx % 10 + 1
 
 
+                    
+                    
