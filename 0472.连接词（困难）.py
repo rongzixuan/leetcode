@@ -3,7 +3,6 @@
 
 连接词 定义为：一个完全由给定数组中的至少两个较短单词组成的字符串。
 
-
 示例 1：
 输入：words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"]
 输出：["catsdogcats","dogcatsdog","ratcatdogcat"]
@@ -15,7 +14,6 @@
 输入：words = ["cat","dog","catdog"]
 输出：["catdog"]
  
-
 提示：
 1 <= words.length <= 10^4
 0 <= words[i].length <= 1000
