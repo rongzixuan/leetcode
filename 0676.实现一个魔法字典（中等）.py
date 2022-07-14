@@ -150,10 +150,58 @@ class MagicDictionary:
         return dfs(self.root, 0, False)
 
 
+# 方法四：字典树 + dfs
+# 时间复杂度：
+# __init__(1)：
+# buildDict()
+# search()
+# 空间复杂度：O()
+# n = len(dictionary)
+# m = len(searchWord)
+class Trie:
+    def __init__(self):
+        self.child = defaultdict(int)
+        self.is_end = False
+
+class MagicDictionary:
+    def __init__(self):
+        self.trie = Trie()
+
+    def buildDict(self, dictionary: List[str]) -> None:
+        for word in dictionary:
+            cur = self.trie
+            for ch in word:
+                if ch not in cur.child:
+                    cur.child[ch] = Trie()
+                cur = cur.child[ch]
+            cur.is_end = True
+        #print('self.trie:', self.trie)
+
+    def search(self, searchWord: str) -> bool:
+        def dfs(node: Trie, index: int, count: int) -> bool:
+            #print(node, index, count)
+            if index == m:
+                return count == 1 and node.is_end
+
+            for ch in node.child:
+                tmp_count = count
+                if ch != searchWord[index]:
+                    tmp_count += 1
+                if tmp_count <= 1:
+                    if dfs(node.child[ch], index + 1, tmp_count):
+                        return True
+            return False
+
+        m = len(searchWord)
+        return dfs(self.trie, 0, 0)
+
+
 # Your MagicDictionary object will be instantiated and called as such:
 # obj = MagicDictionary()
 
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
+
+
 
 
