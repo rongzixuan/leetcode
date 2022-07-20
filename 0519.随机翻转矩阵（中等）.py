@@ -4,11 +4,9 @@
 尽量最少调用内置的随机函数，并且优化时间和空间复杂度。
 
 实现 Solution 类：
-
 Solution(int m, int n) 使用二元矩阵的大小 m 和 n 初始化该对象
 int[] flip() 返回一个满足 matrix[i][j] == 0 的随机下标 [i, j] ，并将其对应格子中的值变为 1
 void reset() 将矩阵中所有的值重置为 0
- 
 
 示例：
 输入
@@ -25,7 +23,6 @@ solution.flip();  // 返回 [0, 0]，根据前面已经返回过的下标，此�
 solution.reset(); // 所有值都重置为 0 ，并可以再次选择下标返回
 solution.flip();  // 返回 [2, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概率应当相同
  
-
 提示：
 1 <= m, n <= 10^4
 每次调用flip 时，矩阵中至少存在一个值为 0 的格子。
@@ -63,3 +60,5 @@ class Solution:
 # obj = Solution(m, n)
 # param_1 = obj.flip()
 # obj.reset()
+
+
