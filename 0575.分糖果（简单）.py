@@ -15,3 +15,7 @@ class Solution:
 
         count = len(set(candyType))
         return min(n // 2, count)
+
+    
+    
+    
