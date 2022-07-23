@@ -112,6 +112,17 @@ class MyCalendar:
         return True
 
 
+# 方法四：遍历
+class MyCalendar:
+    def __init__(self):
+        self.booked = []
+
+    def book(self, start: int, end: int) -> bool:
+        if any(l < end and start < r for l, r in self.booked):
+            return False
+        self.booked.append((start, end))
+        return True
+    
 # Your MyCalendar object will be instantiated and called as such:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
