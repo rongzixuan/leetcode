@@ -9,6 +9,7 @@
 一个<，如果你找不到一个后续的>与之匹配，是不合法的。并且当你找到一个<或</时，所有直到下一个>的前的字符，都应当被解析为 TAG_NAME（不一定合法）。
 cdata 有如下格式：<![CDATA[CDATA_CONTENT]]>。CDATA_CONTENT 的范围被定义成 <![CDATA[ 和后续的第一个 ]]>之间的字符。
 CDATA_CONTENT 可以包含任意字符。cdata 的功能是阻止验证器解析CDATA_CONTENT，所以即使其中有一些字符可以被解析为标签（无论合法还是不合法），也应该将它们视为常规字符。
+
 合法代码的例子:
 
 输入: "<DIV>This is the first line <![CDATA[<div>]]></DIV>"
@@ -33,6 +34,7 @@ cdata -> "<![CDATA[<div>]>]]>" ，其中 CDATA_CONTENT 为 "<div>]>"
 text2 -> "]]>>]"
 start_tag 不是 "<DIV>>>" 的原因参照规则 6 。
 cdata 不是 "<![CDATA[<div>]>]]>]]>" 的原因参照规则 7 。
+
 不合法代码的例子:
 
 输入: "<A>  <B> </A>   </B>"
@@ -131,9 +133,6 @@ class Solution:
         return not stack
 
                     
-
-
-
 
 
 
