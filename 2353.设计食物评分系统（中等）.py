@@ -13,7 +13,6 @@ String highestRated(String cuisine) 返回指定烹饪方式 cuisine 下评分�
 
 注意，字符串 x 的字典序比字符串 y 更小的前提是：x 在字典中出现的位置在 y 之前，也就是说，要么 x 是 y 的前缀，或者在满足 x[i] != y[i] 的第一个位置 i 处，x[i] 在字母表中出现的位置在 y[i] 之前。
 
-
 示例：
 
 输入
