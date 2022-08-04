@@ -6,7 +6,6 @@
 
 子字符串 定义为：字符串中的一个连续字符序列。
 
- 
 示例 1：
 输入：s = "abbca"
 输出：28
@@ -52,3 +51,6 @@ class Solution:
             position[ord(ch) - ord('a')] = i
 
         return ans
+
+    
+    
