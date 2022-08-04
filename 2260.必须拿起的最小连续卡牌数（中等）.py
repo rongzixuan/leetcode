@@ -39,8 +39,7 @@ class Solution:
                 left += 1
                     
         return min_length if min_length != float('inf') else -1
-        
-      
+         
         
         # 方法二：哈希表
         # 时间复杂度：O(n)
