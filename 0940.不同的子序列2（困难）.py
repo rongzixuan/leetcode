@@ -29,6 +29,7 @@ class Solution:
     def distinctSubseqII(self, s: str) -> int:
 
 
+        # 2022/06/13
         # 方法一：动态规划 + 哈希表
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n)
@@ -76,3 +77,39 @@ class Solution:
         return (dp[-1] - 1) % MOD
 
 
+        # 2022/11/08
+        # 方法一：动态规划 + 哈希表
+        # 时间复杂度：O(n^3)
+        # 空间复杂度：O(n)
+        n = len(s)
+        dp = [1] * n
+        #dp[0] = 1
+        ans = 0
+        #mark1 = defaultdict(int)
+        #mark2 = defaultdict(int)
+        mark = defaultdict(list)
+        for j in range(n):
+            #mark2[s[j]] += 1           
+            for v, arr in mark.items():
+                if len(arr) == 1 and v != s[j]:
+                    dp[j] += dp[arr[0]]
+                else:
+                    if v == s[j]:
+                        dp[j] += 1
+                    else:
+                        for i in range(len(arr)):
+                            dp[j] += (dp[arr[i]] - 1)
+                        dp[j] += 1
+            mark[s[j]].append(j)
+            #mark1[s[j]] += 1
+            #mark2 = defaultdict(int)
+        #print('dp:', dp)
+        #print('mark:', mark)
+
+        ans = sum(dp)
+        for k, v in mark.items():
+            if len(v) > 1:
+                ans -= (len(v) - 1)
+        return ans % (10**9 + 7)
+    
+        
