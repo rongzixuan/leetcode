@@ -3,8 +3,6 @@
 
 从点 (x, y) 可以转换到 (x, x+y)  或者 (x+y, y)。
 
- 
-
 示例 1:
 输入: sx = 1, sy = 1, tx = 3, ty = 5
 输出: true
@@ -21,7 +19,6 @@
 示例 3:
 输入: sx = 1, sy = 1, tx = 1, ty = 1 
 输出: true
- 
 
 提示:
 1 <= sx, sy, tx, ty <= 10^9
@@ -36,7 +33,7 @@ class Solution:
         # 方法一：辗转相减法（超时）
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """while tx >= sx or ty >= sy:
+        while tx >= sx or ty >= sy:
             if tx == 0 or ty == 0:
                 return False
             elif tx == sx and ty == sy:
@@ -49,7 +46,7 @@ class Solution:
             #print(tx, ty)
             
 
-        return False"""
+        return False
 
 
         # 方法二：辗转相除法
