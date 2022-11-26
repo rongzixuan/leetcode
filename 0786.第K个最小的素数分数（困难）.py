@@ -1,11 +1,8 @@
 """
 给你一个按递增顺序排序的数组 arr 和一个整数 k 。数组 arr 由 1 和若干 素数  组成，且其中所有整数互不相同。
-
 对于每对满足 0 < i < j < arr.length 的 i 和 j ，可以得到分数 arr[i] / arr[j] 。
-
 那么第 k 个最小的分数是多少呢?  以长度为 2 的整数数组返回你的答案, 这里 answer[0] == arr[i] 且 answer[1] == arr[j] 。
 
- 
 示例 1：
 输入：arr = [1,2,3,5], k = 3
 输出：[2,5]
@@ -17,7 +14,6 @@
 输入：arr = [1,7], k = 1
 输出：[1,7]
  
-
 提示：
 2 <= arr.length <= 1000
 1 <= arr[i] <= 3 * 10^4
@@ -35,7 +31,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O(n ^ 2)
         # 空间复杂度：O(n ^ 2)
-        """n = len(arr)
+        n = len(arr)
         res = []
 
         for i in range(n):
@@ -44,13 +40,13 @@ class Solution:
 
         res.sort(key=lambda x: x[0])
         #print(res)
-        return res[k-1][1]"""
+        return res[k-1][1]
 
 
         # 方法二：优先队列
         # 时间复杂度：
         # 空间复杂度：
-        """n = len(arr)
+        n = len(arr)
 
         heap = []
         for i in range(n):
@@ -62,7 +58,7 @@ class Solution:
             if i + 1 < j:
                 heapq.heappush(heap, (arr[i+1] / arr[j], i+1, j))
 
-        return [arr[i], arr[j]]"""
+        return [arr[i], arr[j]]
 
 
         # 方法三：二分查找 + 双指针
