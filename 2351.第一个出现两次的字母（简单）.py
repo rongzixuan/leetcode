@@ -28,6 +28,7 @@ s 包含至少一个重复字母
 
 """
 
+# 2022/07/24
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
         
@@ -42,4 +43,21 @@ class Solution:
                 return ch
               
               
-              
+# 2021/01/01             
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+
+
+        # 方法一：哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        n = len(s)
+        from collections import defaultdict
+        count = defaultdict(int)
+        for ch in s:
+            count[ch] += 1
+            if count[ch] == 2:
+                return ch
+            
+            
+            
