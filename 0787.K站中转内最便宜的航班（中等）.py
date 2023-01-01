@@ -23,3 +23,8 @@ class Solution:
         print(dp)
         min_dist = min(dp[m][dst] for m in range(1, k+2))
         return min_dist if min_dist != float('inf') else -1
+
+    
+    
+    
+    
