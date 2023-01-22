@@ -1,10 +1,8 @@
 """
 句子 是一个单词列表，列表中的单词之间用单个空格隔开，且不存在前导或尾随空格。每个单词仅由大小写英文字母组成（不含标点符号）。
-
 例如，"Hello World"、"HELLO" 和 "hello world hello world" 都是句子。
+
 给你一个句子 s 和一个整数 k ，请你将 s 截断 ，使截断后的句子仅含 前 k个单词。返回 截断 s后得到的句子。
-
-
 
 示例 1：
 输入：s = "Hello how are you Contestant", k = 4
@@ -26,7 +24,6 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 输入：s = "chopper is not a tanuki", k = 5
 输出："chopper is not a tanuki"
  
-
 提示：
 1 <= s.length <= 500
 k 的取值范围是 [1,  s 中单词的数目]
@@ -44,3 +41,6 @@ class Solution:
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
         return " ".join(s.split(" ")[: k])
+
+    
+    
