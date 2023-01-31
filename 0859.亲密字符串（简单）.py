@@ -5,7 +5,6 @@
 
 例如，在 "abcd" 中交换下标 0 和下标 2 的元素可以生成 "cbad" 。
  
-
 示例 1：
 输入：s = "ab", goal = "ba"
 输出：true
@@ -25,9 +24,7 @@
 输入：s = "aaaaaaabc", goal = "aaaaaaacb"
 输出：true
  
-
 提示：
-
 1 <= s.length, goal.length <= 2 * 10^4
 s 和 goal 由小写英文字母组成
 
