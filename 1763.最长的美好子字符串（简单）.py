@@ -3,8 +3,6 @@
 
 给你一个字符串 s ，请你返回 s 最长的 美好子字符串 。如果有多个答案，请你返回 最早 出现的一个。如果不存在美好子字符串，请你返回一个空字符串。
 
- 
-
 示例 1：
 输入：s = "YazaAay"
 输出："aAa"
@@ -27,7 +25,6 @@
 解释："dD" 和 "eE" 都是最长美好子字符串。
 由于有多个美好子字符串，返回 "dD" ，因为它出现得最早。
  
-
 提示：
 1 <= s.length <= 100
 s 只包含大写和小写英文字母。
@@ -42,7 +39,7 @@ class Solution:
         # 方法一：枚举
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """def check(a):
+        def check(a):
             count = set(a)
             for c in a:
                 if c.lower() not in count or c.upper() not in count:
@@ -60,13 +57,13 @@ class Solution:
                     res = sub_s
                     max_n = len(sub_s)
 
-        return res"""
+        return res
 
 
         # 方法二：枚举2
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """n = len(s)
+        n = len(s)
         max_n = 0
         res = ""
         for i in range(n):
@@ -82,14 +79,14 @@ class Solution:
                     res = sub_s
                     max_n = len(sub_s)
 
-        return res"""
+        return res
 
 
         # 方法三：分治
         # 时间复杂度：O(n * C)
         # 空间复杂度：O(C)
         # C = 26
-        """n = len(s)
+        n = len(s)
         max_index = 0
         max_length = 0
 
@@ -132,7 +129,7 @@ class Solution:
                 dfs(start, i - 1)
 
         dfs(0, n - 1)
-        return s[max_index: max_index + max_length]"""
+        return s[max_index: max_index + max_length]
 
 
         # 方法四：滑动窗口
