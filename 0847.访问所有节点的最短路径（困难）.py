@@ -14,7 +14,7 @@ class Solution:
         # 方法一：状态压缩 + 广度优先搜索 + 哈希表
         # 时间复杂度：O(2^n * n^2)
         # 空间复杂度：O(n * 2^n)
-        """n = len(graph)
+        n = len(graph)
         queue = [(i, 1 << i, 0) for i in range(n)]
         seen = {(i, 1 << i) for i in range(n)} # 哈希表
 
@@ -26,10 +26,9 @@ class Solution:
                 mask_next = mask | (1 << next_node)
                 if (next_node, mask_next) not in seen:
                     queue.append((next_node, mask_next, depth + 1))
-                    seen.add((next_node, mask_next))"""
+                    seen.add((next_node, mask_next))
 
 
-        
         # 方法二：floyd算法 + 状态压缩 + 动态规划
         # 时间复杂度：O(2^n * n^2)
         # 空间复杂度：O(n * 2^n)
