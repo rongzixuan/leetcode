@@ -4,6 +4,7 @@
 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。
 
 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。
+
 """
 
 class Solution:
@@ -12,7 +13,7 @@ class Solution:
         n = len(nums)
 
         # 方法一：排序+找差值(超时)
-        """nums.sort()
+        nums.sort()
         #print(nums)
         
         sub = []       
@@ -39,7 +40,7 @@ class Solution:
                 j += 1
 
         #print(max_frequence)
-        return max_frequence"""
+        return max_frequence
 
 
         # 方法二：排序 + 前缀和 + 二分 + 滑动窗口
