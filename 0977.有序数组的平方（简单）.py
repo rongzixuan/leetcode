@@ -1,8 +1,7 @@
 """
 给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。
 
-""'
-
+"""
 
 class Solution(object):
     def sortedSquares(self, nums):
@@ -11,11 +10,10 @@ class Solution(object):
         :rtype: List[int]
         """
 
-
         # 方法一：双指针
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n == 1 or nums[0] >= 0:
             return [num * num for num in nums]
         elif nums[-1] <= 0:
@@ -50,14 +48,14 @@ class Solution(object):
                     res.append(nums[j] * nums[j])
                     j += 1
 
-        return res"""
+        return res
 
 
 
         # 方法二：双指针2
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         if n == 1 or nums[0] >= 0:
             return [num * num for num in nums]
         elif nums[-1] <= 0:
@@ -92,8 +90,7 @@ class Solution(object):
                     res.append(nums[j] * nums[j])
                     j += 1
 
-        return res"""
-
+        return res
 
 
         # 方法三：双指针3
@@ -119,10 +116,6 @@ class Solution(object):
             k -= 1
 
         return res
-
-
-
-
 
 
 
