@@ -17,7 +17,7 @@ class Solution:
         # 方法一：两次遍历
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """count = 0
+        count = 0
         tmp = head
         while tmp:
             count += 1
@@ -29,7 +29,7 @@ class Solution:
             tmp = tmp.next
             i += 1
 
-        return tmp"""
+        return tmp
 
 
         # 方法二：快慢指针
@@ -42,13 +42,5 @@ class Solution:
             slow = slow.next
 
         return slow
-
-
-
-
-
-
-
-
 
 
