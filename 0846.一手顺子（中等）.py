@@ -3,7 +3,6 @@ Alice 手中有一把牌，她想要重新排列这些牌，分成若干组，�
 
 给你一个整数数组 hand 其中 hand[i] 是写在第 i 张牌，和一个整数 groupSize 。如果她可能重新排列这些牌，返回 true ；否则，返回 false 。
 
-
 示例 1：
 输入：hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
 输出：true
@@ -14,7 +13,6 @@ Alice 手中有一把牌，她想要重新排列这些牌，分成若干组，�
 输出：false
 解释：Alice 手中的牌无法被重新排列成几个大小为 4 的组。
  
-
 提示：
 1 <= hand.length <= 10^4
 0 <= hand[i] <= 10^9
@@ -29,7 +27,7 @@ class Solution:
         # 方法一：排序 + 哈希表
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(hand)
+        n = len(hand)
         if n % groupSize != 0:
             return False
         hand.sort()
@@ -54,13 +52,13 @@ class Solution:
                             #print('false k + i:', k + i)
                             return False
 
-        return True"""
+        return True
 
 
         # 方法二：排序 + 哈希表
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(hand)
+        n = len(hand)
         if n % groupSize != 0:
             return False
 
@@ -76,7 +74,7 @@ class Solution:
                 if cnt[i] < 0:
                     return False
 
-        return True"""
+        return True
 
 
         # 方法三：哈希表 + 优先队列（堆）
@@ -113,20 +111,6 @@ class Solution:
                     return False
 
         return True
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
 
 
 
