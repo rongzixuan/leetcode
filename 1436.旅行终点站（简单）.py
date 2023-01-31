@@ -12,7 +12,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """n = len(paths)
+        n = len(paths)
         if n == 1:
             return paths[0][1]
 
@@ -28,8 +28,7 @@ class Solution:
 
         for k, v in hash_table.items():
             if v == -1:
-                return k"""
-
+                return k
 
 
         # 方法二：哈希表
