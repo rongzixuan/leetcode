@@ -4,9 +4,8 @@
 同时给你一个下标从 0 开始的二维整数数组 queries ，其中 queries[i] = [lefti, righti] 表示 子字符串 s[lefti...righti] （包含左右端点的字符）。对于每个查询，你需要找到 子字符串中 在 两支蜡烛之间 的盘子的 数目 。如果一个盘子在 子字符串中 左边和右边 都 至少有一支蜡烛，那么这个盘子满足在 两支蜡烛之间 。
 
 比方说，s = "||**||**|*" ，查询 [3, 8] ，表示的是子字符串 "*||**|" 。子字符串中在两支蜡烛之间的盘子数目为 2 ，子字符串中右边两个盘子在它们左边和右边 都 至少有一支蜡烛。
-请你返回一个整数数组 answer ，其中 answer[i] 是第 i 个查询的答案。
 
- 
+请你返回一个整数数组 answer ，其中 answer[i] 是第 i 个查询的答案。
 
 示例 1:
 输入：s = "**|**|***|", queries = [[2,5],[5,9]]
@@ -22,7 +21,6 @@
 - queries[0] 有 9 个盘子在蜡烛之间。
 - 另一个查询没有盘子在蜡烛之间。
  
-
 提示：
 3 <= s.length <= 10^5
 s 只包含字符 '*' 和 '|' 。
@@ -40,7 +38,7 @@ class Solution:
         # 方法一：预处理 + 前缀和 + 二分法
         # 时间复杂度：O(n + m * lognC) , m = len(queries), C = len(candle_list)
         # 空间复杂度：O(n)
-        """n = len(s)
+        n = len(s)
         #print('n:', n)
         left, right, candle = -1, n, 0    # 左边/右边的蜡烛，蜡烛总数
         left_index, right_index = [-1] * n, [n] * n  # 左边/右边距离最近的蜡烛位置
@@ -110,7 +108,7 @@ class Solution:
                 count = 0
             ans.append(count)
 
-        return ans"""
+        return ans
 
 
         # 方法二：预处理 + 前缀和
@@ -147,7 +145,3 @@ class Solution:
 
 
         
-
-
-
-
