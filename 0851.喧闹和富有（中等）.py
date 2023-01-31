@@ -5,7 +5,6 @@
 
 现在，返回一个整数数组 answer 作为答案，其中 answer[x] = y 的前提是，在所有拥有的钱肯定不少于 person x 的人中，person y 是最安静的人（也就是安静值 quiet[y] 最小的人）。
 
-
 示例 1：
 输入：richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
 输出：[5,5,2,5,4,5,6,7]
@@ -43,7 +42,7 @@ class Solution:
         # 方法一：深度优先搜素
         # 时间复杂度：O(m + n)
         # 空间复杂度：O(m + n)
-        """m = len(richer)
+        m = len(richer)
         n = len(quiet)
 
         hash_table = defaultdict(list)
@@ -67,7 +66,7 @@ class Solution:
         
         for i in range(n):
             dfs(i) 
-        return res"""
+        return res
 
 
         # 方法二：拓扑排序
@@ -98,10 +97,6 @@ class Solution:
                     queue.append(j)
 
         return res
-
-
-
-
 
 
 
