@@ -18,7 +18,7 @@ class Solution:
         # 方法一：dfs + 三色标记法
         # 时间复杂度：O(m+n)，其中m为边的个数，n为节点的个数
         # 空间复杂度：O(n)
-        """n = len(graph)
+        n = len(graph)
         colors = [0] * n   # 0：未访问，1：正在访问或不安全，2：无环，安全
 
         def safe(x):
@@ -31,7 +31,7 @@ class Solution:
             colors[x] = 2
             return True
 
-        return [x for x in range(n) if safe(x)]"""
+        return [x for x in range(n) if safe(x)]
 
 
 
