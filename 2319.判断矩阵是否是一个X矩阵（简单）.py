@@ -26,6 +26,10 @@ n == grid.length == grid[i].length
 
 """
 
+
+"""
+2022/06/26
+"""
 class Solution:
     def checkXMatrix(self, grid: List[List[int]]) -> bool:
         
@@ -53,3 +57,28 @@ class Solution:
         return tmp_total == total
         
         
+"""
+2023/01/31
+"""
+
+class Solution:
+    def checkXMatrix(self, grid: List[List[int]]) -> bool:
+
+
+        # 方法一：模拟
+        # 时间复杂度：O(n^2)
+        # 空间复杂度：O(1)
+        n = len(grid)
+        for i in range(n):
+            for j in range(n):
+                if i == j or i + j == n - 1:
+                    if grid[i][j] == 0:
+                        return False
+                else:
+                    if grid[i][j] != 0:
+                        return False
+        return True
+
+
+
+
