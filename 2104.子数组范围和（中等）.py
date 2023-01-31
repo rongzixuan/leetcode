@@ -5,8 +5,6 @@
 
 子数组是数组中一个连续 非空 的元素序列。
 
- 
-
 示例 1：
 输入：nums = [1,2,3]
 输出：4
@@ -36,7 +34,6 @@
 输出：59
 解释：nums 中所有子数组范围的和是 59
  
-
 提示：
 1 <= nums.length <= 1000
 -10^9 <= nums[i] <= 10^9
@@ -53,7 +50,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         ans = 0
         for i in range(n - 1):
             max_num, min_num = nums[i], nums[i]
@@ -61,7 +58,7 @@ class Solution:
                 max_num, min_num = max(max_num, nums[j]), min(min_num, nums[j])
                 ans += (max_num - min_num)
 
-        return ans"""
+        return ans
 
 
         # 方法二：单调栈
