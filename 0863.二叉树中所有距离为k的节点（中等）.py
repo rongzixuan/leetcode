@@ -12,6 +12,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
 
@@ -66,3 +67,6 @@ class Solution:
         #find_target_node(target, None, 0) # 从target开始查找
                 
         return res
+
+    
+    
