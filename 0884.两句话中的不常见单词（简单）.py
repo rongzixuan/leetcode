@@ -5,7 +5,6 @@
 
 给你两个 句子 s1 和 s2 ，返回所有 不常用单词 的列表。返回列表中单词可以按 任意顺序 组织。
 
- 
 示例 1：
 输入：s1 = "this apple is sweet", s2 = "this apple is sour"
 输出：["sweet","sour"]
@@ -13,7 +12,6 @@
 示例 2：
 输入：s1 = "apple apple", s2 = "banana"
 输出：["banana"]
- 
 
 提示：
 1 <= s1.length, s2.length <= 200
@@ -31,7 +29,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(m + n)
         # 空间复杂度：O(m + n)
-        """m, n = len(s1), len(s2)
+        m, n = len(s1), len(s2)
         from collections import defaultdict
         count1 = defaultdict(int)
         count2 = defaultdict(int)
@@ -51,7 +49,7 @@ class Solution:
             if v == 1 and count1[k] == 0:
                 ans.append(k)          
 
-        return ans"""
+        return ans
 
 
         # 方法二：哈希表2
@@ -67,3 +65,7 @@ class Solution:
                 ans.append(k)           
 
         return ans
+
+    
+    
+    
