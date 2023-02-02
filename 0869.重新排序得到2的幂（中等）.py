@@ -2,6 +2,7 @@
 给定正整数 N ，我们按任何顺序（包括原始顺序）将数字重新排序，注意其前导数字不能为零。
 
 如果我们可以通过上述方式得到 2 的幂，返回 true；否则，返回 false。
+
 """
 
 class Solution:
@@ -11,7 +12,7 @@ class Solution:
         # 方法一：回溯 + 位运算
         # 时间复杂度：O(length!)
         # 空间复杂度：O(length)
-        """n_array = list(str(n))
+        n_array = list(str(n))
         #print(n_array)
         length = len(n_array)
 
@@ -32,13 +33,13 @@ class Solution:
                     return True
                 n_array[i], n_array[index] = n_array[index], n_array[i]
 
-        return True if backtrack(0) else False""" 
+        return True if backtrack(0) else False
 
 
         # 方法二：回溯 + 位运算 + 记忆化搜索
         # 时间复杂度：O(length!)
         # 空间复杂度：O(length)
-        """n_array = list(str(n))
+        n_array = list(str(n))
         #print(n_array)
         length = len(n_array)
         visited = set()
@@ -68,7 +69,7 @@ class Solution:
                 n_array[i], n_array[index] = n_array[index], n_array[i]
 
         #print(visited)
-        return True if backtrack(0) else False"""   
+        return True if backtrack(0) else False  
 
 
         # 方法三：预处理 + 哈希表
