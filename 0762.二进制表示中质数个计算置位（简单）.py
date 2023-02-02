@@ -5,7 +5,6 @@
 
 例如， 21 的二进制表示 10101 有 3 个计算置位。
  
-
 示例 1：
 输入：left = 6, right = 10
 输出：4
@@ -28,7 +27,6 @@
 15 -> 1111 (4 个计算置位, 4 不是质数)
 共计 5 个计算置位为质数的数字。
  
-
 提示：
 1 <= left <= right <= 10^6
 0 <= right - left <= 10^4
@@ -43,7 +41,7 @@ class Solution:
         # 方法一：位运算
         # 时间复杂度：o(nlogn)
         # 空间复杂度：O(1)
-        """ans = 0
+        ans = 0
 
         for num in range(left, right + 1):
             tmp = num
@@ -62,7 +60,7 @@ class Solution:
             if flag:
                 ans += 1
 
-        return ans"""
+        return ans
 
 
         # 方法二：位运算
@@ -76,11 +74,6 @@ class Solution:
                 ans += 1
 
         return ans
-
-
-
-
-
 
 
 
