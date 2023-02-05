@@ -9,8 +9,6 @@
 
 返回一个整数数组 ans 作为答案， ans[j] 应等于第 j 次查询 queries[j] 的结果，1 表示照亮，0 表示未照亮。
 
- 
-
 示例 1：
 输入：n = 5, lamps = [[0,0],[4,4]], queries = [[1,1],[1,0]]
 输出：[1,0]
@@ -25,9 +23,7 @@
 输入：n = 5, lamps = [[0,0],[0,4]], queries = [[0,4],[0,1],[1,4]]
 输出：[1,1,0]
  
-
 提示：
-
 1 <= n <= 10^9
 0 <= lamps.length <= 20000
 0 <= queries.length <= 20000
@@ -46,7 +42,7 @@ class Solution:
         # 方法一：哈希表（超时）
         # 时间复杂度：O(n^3)
         # 空间复杂度：O(n^2)
-        """from collections import defaultdict
+        from collections import defaultdict
         on1 = defaultdict(set)           # 每个格子被哪些灯照亮
         on2 = defaultdict(set)           # 每个灯照亮了哪些格子
         lamps_set = set()                # 打开的灯的集合
@@ -99,7 +95,7 @@ class Solution:
             #print('on1:', on1)
             #print('on1[(3, 1)]:', on1[(3, 1)])
 
-        return ans"""
+        return ans
 
 
         # 方法二：哈希表2
