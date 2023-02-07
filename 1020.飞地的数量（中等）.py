@@ -5,8 +5,6 @@
 
 返回网格中 无法 在任意次数的移动中离开网格边界的陆地单元格的数量。
 
- 
-
 示例 1：
 输入：grid = [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 输出：3
@@ -17,7 +15,6 @@
 输出：0
 解释：所有 1 都在边界上或可以到达边界。
  
-
 提示：
 m == grid.length
 n == grid[i].length
@@ -34,7 +31,7 @@ class Solution:
         # 方法一：广度优先搜索
         # 时间复杂度：O(m * n)
         # 空间复杂度：O(m * n)
-        """m, n = len(grid), len(grid[0])
+        m, n = len(grid), len(grid[0])
 
         def bfs(i, j):
             from collections import deque
@@ -62,13 +59,13 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == 1:
                     area += bfs(i, j)
-        return area"""
+        return area
 
 
         # 方法二：深度优先搜索（栈）
         # 时间复杂度：O(m * n)
         # 空间复杂度：O(m * n)
-        """m, n = len(grid), len(grid[0])
+        m, n = len(grid), len(grid[0])
 
         def dfs(i, j):
             from collections import deque
@@ -96,7 +93,7 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == 1:
                     area += dfs(i, j)
-        return area"""
+        return area
 
 
         # 方法三：深度优先搜索（递归）
@@ -135,10 +132,6 @@ class Solution:
                     flag, area = dfs(i, j, False)
                     ans += area
         return ans
-
-
-
-
 
 
 
