@@ -7,8 +7,6 @@
 
 只有在可以通过一系列的移动从源方格 source 到达目标方格 target 时才返回 true。否则，返回 false。
 
- 
-
 示例 1：
 输入：blocked = [[0,1],[1,0]], source = [0,0], target = [0,2]
 输出：false
@@ -22,7 +20,6 @@
 输出：true
 解释：
 因为没有方格被封锁，所以一定可以到达目标方格。
- 
 
 提示：
 0 <= blocked.length <= 200
@@ -43,7 +40,7 @@ class Solution:
         # 方法一：有限步数的广度优先搜索
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
-        """n = len(blocked)
+        n = len(blocked)
         if n < 2:
             return True
 
@@ -89,7 +86,7 @@ class Solution:
             if result == BLOCKED:
                 #print('false2')
                 return False
-            return True"""
+            return True
 
 
         # 方法二：离散化 + 广度优先搜索
@@ -145,13 +142,6 @@ class Solution:
                     grid[new_x][new_y] = 1
 
         return False
-
-
-
-
-
-
-
 
 
 
