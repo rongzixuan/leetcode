@@ -3,7 +3,6 @@
 
 返回 任意一个 具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 "" 。
 
-
 示例 1：
 输入：s = "banana"
 输出："ana"
@@ -11,7 +10,6 @@
 示例 2：
 输入：s = "abcd"
 输出：""
- 
 
 提示：
 2 <= s.length <= 3 * 10^4
@@ -26,7 +24,7 @@ class Solution:
         # 方法一：哈希表
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
-        """n = len(s)
+        n = len(s)
 
         from collections import defaultdict
         hash_table = defaultdict(list)
@@ -50,13 +48,13 @@ class Solution:
             if v[0] > 1:
                 return k
 
-        return "" """
+        return
 
 
         # 方法二：模拟
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """n = len(s)
+        n = len(s)
 
         ans = ''
         max_len = i = 0  # i代表子串的开始， j代表子串的结束
@@ -73,17 +71,17 @@ class Solution:
             else:
                 i += 1
             #print('i, j after:', i, j)
-        return ans"""
+        return ans
 
 
         # 方法三：模拟
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(1)
-        """ans = ""
+        ans = ""
         for i in range(len(s)):
             while s[i:i+len(ans)+1] in s[i+1:]:
                 ans = s[i:i+len(ans) + 1]
-        return ans"""
+        return ans
 
 
         # 方法四：二分法 + 字符串哈希
@@ -134,6 +132,4 @@ class Solution:
     
 
         
-    
-
-        
+   
