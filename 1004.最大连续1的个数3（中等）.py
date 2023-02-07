@@ -1,8 +1,6 @@
 """
 给定一个二进制数组 nums 和一个整数 k，如果可以翻转最多 k 个 0 ，则返回 数组中连续 1 的最大个数 。
 
- 
-
 示例 1：
 输入：nums = [1,1,1,0,0,0,1,1,1,1,0], K = 2
 输出：6
@@ -15,7 +13,6 @@
 解释：[0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 粗体数字从 0 翻转到 1，最长的子数组长度为 10。
  
-
 提示：
 1 <= nums.length <= 10^5
 nums[i] 不是 0 就是 1
@@ -31,7 +28,7 @@ class Solution:
         # 方法一：滑动窗口
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
         left = 0
         ans = 0
         count = 0
@@ -43,13 +40,13 @@ class Solution:
                 left += 1
             ans = max(ans, right - left + 1)
 
-        return ans """
+        return ans
 
 
         # 方法二：二分查找
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
         count = [0] * (n + 1)
         count[0] = 0
         for i in range(1, n + 1):
@@ -64,7 +61,7 @@ class Solution:
             print('i, j, ans:', i, j, ans)
             #print('ans:', ans)
 
-        return ans """
+        return ans
 
 
         # 方法三：二分查找
@@ -96,8 +93,6 @@ class Solution:
             #print('ans:', ans)
 
         return ans 
-
-
 
 
 
