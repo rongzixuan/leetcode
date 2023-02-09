@@ -7,8 +7,6 @@ Alice 和 Bob 轮流进行自己的回合，Alice 先手。每一回合，玩家
 如果不满足上一条，且移除后没有任何剩余的石子，那么 Bob 将会直接获胜（即便是在 Alice 的回合）。
 假设两位玩家均采用 最佳 决策。如果 Alice 获胜，返回 true ；如果 Bob 获胜，返回 false 。
 
- 
-
 示例 1：
 输入：stones = [2,1]
 输出：true
@@ -33,7 +31,6 @@ Alice 和 Bob 轮流进行自己的回合，Alice 先手。每一回合，玩家
 - 回合 4：Bob 可以移除值为 2 的第 3 个石子。已移除石子值总和为 = 1 + 3 + 4 + 2 = 10.
 - 回合 5：Alice 可以移除值为 5 的第 1 个石子。已移除石子值总和为 = 1 + 3 + 4 + 2 + 5 = 15.
 Alice 输掉游戏，因为已移除石子值总和（15）可以被 3 整除，Bob 获胜。
- 
 
 提示：
 1 <= stones.length <= 10^5
@@ -62,3 +59,7 @@ class Solution:
             return count1 >= 1 and count2 >= 1
         else:
             return abs(count1 - count2) > 2
+
+        
+        
+        
