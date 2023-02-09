@@ -3,7 +3,6 @@
 
 请你返回字符串的能量。
 
-
 示例 1：
 输入：s = "leetcode"
 输出：2
@@ -26,9 +25,7 @@
 输入：s = "tourist"
 输出：1
  
-
 提示：
-
 1 <= s.length <= 500
 s 只包含小写英文字母。
 
@@ -52,3 +49,7 @@ class Solution:
             i = j + 1
 
         return max_length
+
+    
+    
+    
