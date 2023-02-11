@@ -13,7 +13,7 @@ class Solution:
         # 方法一：动态规划
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """if n == 0:
+        if n == 0:
             return 0
         elif n == 1 or n == 2:
             return 1
@@ -24,13 +24,13 @@ class Solution:
         for i in range(3, n+1):
             dp[i] = dp[i-3] + dp[i-2] + dp[i-1]
 
-        return dp[n]"""
+        return dp[n]
 
 
         # 方法二：动态规划2
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
-        """if n == 0:
+        if n == 0:
             return 0
         elif n == 1 or n == 2:
             return 1
@@ -40,8 +40,7 @@ class Solution:
         for i in range(3, n+1):
             a, b, c = b, c, a + b + c
 
-        return c  """
-
+        return c
 
 
         # 方法三：矩阵快速幂
@@ -82,7 +81,6 @@ class Solution:
         re = matrix_pow(n, a) 
         #print(re)
         return re[0][2]
-
 
 
 
