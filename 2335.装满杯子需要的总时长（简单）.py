@@ -1,5 +1,6 @@
 """
 现有一台饮水机，可以制备冷水、温水和热水。每秒钟，可以装满 2 杯 不同 类型的水或者 1 杯任意类型的水。
+
 给你一个下标从 0 开始、长度为 3 的整数数组 amount ，其中 amount[0]、amount[1] 和 amount[2] 分别表示需要装满冷水、温水和热水的杯子数量。返回装满所有杯子所需的 最少 秒数。
 
 示例 1：
@@ -39,6 +40,7 @@ class Solution:
     def fillCups(self, amount: List[int]) -> int:
         
         
+        # 2022/07/10      
         # 方法一：贪心
         # 时间复杂度：
         # 空间复杂度：
@@ -61,5 +63,38 @@ class Solution:
                 amount_list.add(tmp2)
                 ans += 1
         return ans
+   
+
+        # 2023/02/11
+        # 方法一：贪心 + 排序
+        # 时间复杂度：
+        # 空间复杂度：
+        ans = 0
+        amount.sort(reverse=True)
+        while amount[0] > 0:
+            #print(amount)
+            amount[0] -= 1
+            ans += 1
+            if amount[1] > 0:
+                amount[1] -= 1
+            if amount[1] == amount[2] == 0:
+                return ans + amount[0]
+            else:
+                amount.sort(reverse=True)
+        return ans
+
+
+        # 方法二：贪心 + 分类讨论
+        # 时间复杂度：O(1)
+        # 空间复杂度：O(1)
+        amount.sort()
+        if (amount[0] + amount[1]) < amount[2]:
+            return amount[2]
+        else:
+            total = sum(amount)
+            return (total + 1) // 2
+    
+    
+    
         
         
