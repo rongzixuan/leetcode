@@ -22,7 +22,6 @@ a < b < c < d
 - (0, 1, 3, 4): 1 + 1 + 3 == 5
 - (0, 2, 3, 4): 1 + 1 + 3 == 5
 - (1, 2, 3, 4): 1 + 1 + 3 == 5
- 
 
 提示：
 4 <= nums.length <= 50
@@ -38,7 +37,7 @@ class Solution:
         # 方法一：暴力法
         # 时间复杂度：O(n^4)
         # 空间复杂度：O(1)
-        """n = len(nums)
+        n = len(nums)
 
         res = 0
         for i in range(n):
@@ -48,13 +47,13 @@ class Solution:
                         if nums[i] + nums[j] + nums[k] == nums[l]:
                             res += 1
 
-        return res"""
+        return res
 
 
         # 方法二：哈希表
         # 时间复杂度：O(n^3)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
 
         from collections import defaultdict
         hash_table = defaultdict(int)
@@ -67,13 +66,13 @@ class Solution:
                     if (tmp := nums[k] - nums[i] - nums[j]) in hash_table:
                         res += hash_table[tmp]
 
-        return res"""
+        return res
 
 
         # 方法三：哈希表2
         # 时间复杂度：O(n^3)
         # 空间复杂度：O(n)
-        """n = len(nums)
+        n = len(nums)
 
         from collections import defaultdict
         hash_table = defaultdict(int)
@@ -86,13 +85,13 @@ class Solution:
                     if (tmp := nums[k] + nums[i] + nums[j]) in hash_table:
                         res += hash_table[tmp]
 
-        return res"""
+        return res
 
 
         # 方法四：哈希表3
         # 时间复杂度：O(n^2)
         # 空间复杂度：O(n^2)
-        """n = len(nums)
+        n = len(nums)
 
         from collections import defaultdict
         hash_table = defaultdict(int)
@@ -105,7 +104,7 @@ class Solution:
                 if (tmp := nums[k] - nums[i]) in hash_table:
                     res += hash_table[tmp]
 
-        return res"""
+        return res
 
 
         # 方法五：哈希表4
@@ -125,15 +124,6 @@ class Solution:
                     res += hash_table[tmp]
 
         return res
-
-
-
-
-
-
-
-
-
 
 
 
