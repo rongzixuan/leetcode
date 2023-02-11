@@ -5,8 +5,6 @@
 
 您返回的结果必须是这几个值中的一个 {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}。
 
- 
-
 示例 1：
 输入：day = 31, month = 8, year = 2019
 输出："Saturday"
@@ -19,7 +17,6 @@
 输入：day = 15, month = 8, year = 1993
 输出："Sunday"
  
-
 提示：
 给出的日期一定是在 1971 到 2100 年之间的有效日期。
 
@@ -59,3 +56,6 @@ class Solution:
         return weeks[cnt % 7]
 
 
+
+    
+    
