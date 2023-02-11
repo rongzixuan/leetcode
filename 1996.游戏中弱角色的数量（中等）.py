@@ -5,8 +5,6 @@
 
 返回 弱角色 的数量。
 
- 
-
 示例 1：
 输入：properties = [[5,5],[6,3],[3,6]]
 输出：0
@@ -22,7 +20,6 @@
 输出：1
 解释：第三个角色是弱角色，因为第二个角色的攻击和防御严格大于该角色。
  
-
 提示：
 2 <= properties.length <= 10^5
 properties[i].length == 2
@@ -38,7 +35,7 @@ class Solution:
         # 方法一：排序
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(properties)
+        n = len(properties)
         properties = sorted(properties, key=lambda x: (-x[0], x[1]))
         #print(properties)
 
@@ -50,7 +47,7 @@ class Solution:
             else:
                 max_pro = max(max_pro, propertie[1])
 
-        return count"""
+        return count
 
 
         # 方法二：排序 + 单调栈
