@@ -28,3 +28,8 @@ class Solution:
             res[j] = right - (res[j] - left)
         #print(res)
         return res
+
+    
+    
+    
+    
