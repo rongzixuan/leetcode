@@ -50,7 +50,7 @@ class Solution:
         # 方法一：二分法 + 小根堆
         # 时间复杂度：O(mlogn + klogm)
         # 空间复杂度：O(m)
-        """m, n = len(mat), len(mat[0])
+        m, n = len(mat), len(mat[0])
         count = []
         res = []
 
@@ -72,8 +72,7 @@ class Solution:
 
         for i in range(k):
             res.append(heapq.heappop(count)[1])
-        return res"""
-
+        return res
 
 
         # 方法二：二分法 + 快排思想
