@@ -12,7 +12,7 @@ class Solution:
         # 方法一：模拟
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
-        """tmp_sum = 0
+        tmp_sum = 0
         n = len(nums)
         if n == 1:
             return nums
@@ -21,7 +21,7 @@ class Solution:
         for i in range(n):
             tmp_sum += nums[i]
             new_nums.append(tmp_sum)
-        return new_nums"""
+        return new_nums
 
 
         # 方法二：原地修改
