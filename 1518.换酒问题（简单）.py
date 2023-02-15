@@ -5,7 +5,6 @@
 
 请你计算 最多 能喝到多少瓶酒。
 
-
 示例 1：
 输入：numBottles = 9, numExchange = 3
 输出：13
@@ -25,7 +24,6 @@
 示例 4：
 输入：numBottles = 2, numExchange = 3
 输出：2
- 
 
 提示：
 1 <= numBottles <= 100
@@ -40,14 +38,14 @@ class Solution:
         # 方法一：模拟
         # 时间复杂度：O(numBottles / numExchange)
         # 空间复杂度：O(1)        
-        """res = numBottles
+        res = numBottles
         while numBottles:
             if numBottles < numExchange:
                 return res
             res += numBottles // numExchange
             numBottles = numBottles % numExchange + numBottles // numExchange
 
-        return res"""
+        return res
 
 
         # 方法二：数学
@@ -63,5 +61,3 @@ class Solution:
         
          
             
-
-        
