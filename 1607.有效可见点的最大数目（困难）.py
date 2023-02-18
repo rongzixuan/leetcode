@@ -9,7 +9,6 @@
 
 返回你能看到的点的最大数目。
 
-
 示例 1：
 输入：points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
 输出：3
@@ -24,7 +23,6 @@
 输入：points = [[1,0],[2,1]], angle = 13, location = [1,1]
 输出：1
 解释：如图所示，你只能看到两点之一。
- 
 
 提示：
 1 <= points.length <= 10^5
@@ -60,7 +58,7 @@ class Solution:
         # 方法一：数学 + 二分法
         # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
-        """n = len(points)
+        n = len(points)
         angle_pi = angle * pi / 180
         #print(angle_pi)
 
@@ -96,7 +94,7 @@ class Solution:
                     right = mid - 1
             max_points = max(max_points, right + 1 - i)
 
-        return max_points + same_point"""
+        return max_points + same_point
 
 
         # 方法二：数学 + 滑动窗口
@@ -132,3 +130,6 @@ class Solution:
         return max_points + same_point
 
 
+    
+    
+    
