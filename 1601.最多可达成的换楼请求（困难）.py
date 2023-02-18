@@ -7,8 +7,6 @@
 
 请你从原请求列表中选出若干个请求，使得它们是一个可行的请求列表，并返回所有可行列表中最大请求数目。
 
- 
-
 示例 1：
 输入：n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 输出：5
@@ -35,7 +33,6 @@
 输入：n = 4, requests = [[0,3],[3,1],[1,2],[2,0]]
 输出：4
  
-
 提示：
 1 <= n <= 20
 1 <= requests.length <= 16
@@ -51,7 +48,7 @@ class Solution:
         # 方法一：回溯 + 枚举
         # 时间复杂度：O(2^m)
         # 空间复杂度：O(n + m)
-        """m = len(requests)
+        m = len(requests)
 
         res = 0
         change = [0] * n
@@ -72,7 +69,7 @@ class Solution:
             dfs(index + 1, count + 1, change)
 
         dfs(0, count, change)
-        return res"""
+        return res
 
 
         # 方法二：二进制枚举
@@ -100,8 +97,3 @@ class Solution:
 
 
 
-
-
-
-
-        
