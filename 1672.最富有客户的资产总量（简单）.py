@@ -3,8 +3,6 @@
 
 客户的 资产总量 就是他们在各家银行托管的资产数量之和。最富有客户就是 资产总量 最大的客户。
 
- 
-
 示例 1：
 输入：accounts = [[1,2,3],[3,2,1]]
 输出：6
@@ -26,7 +24,6 @@
 输入：accounts = [[2,8,7],[7,1,3],[1,9,5]]
 输出：17
  
-
 提示：
 m == accounts.length
 n == accounts[i].length
@@ -44,3 +41,7 @@ class Solution:
         # 时间复杂度：O(m * n)
         # 空间复杂度：O(1)
         return max(map(sum, accounts))
+
+    
+    
+    
