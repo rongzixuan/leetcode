@@ -4,6 +4,7 @@
 如果闭区间 [left, right] 内每个整数都被 ranges 中 至少一个 区间覆盖，那么请你返回 true ，否则返回 false 。
 
 已知区间 ranges[i] = [starti, endi] ，如果整数 x 满足 starti <= x <= endi ，那么我们称整数x 被覆盖了。
+
 """
 
 class Solution(object):
@@ -16,7 +17,7 @@ class Solution(object):
         """
 
         # 方法一：暴力
-        """a = [False] * 51
+        a = [False] * 51
 
         n = len(ranges)
         for i in range(n):
@@ -27,11 +28,11 @@ class Solution(object):
         for i in range(left, right+1):
             if a[i] == False:
                 return False
-        return True"""
+        return True
 
 
         # 方法二：合并区间并标记
-        """ranges.sort(key = lambda d:d[0])
+        ranges.sort(key = lambda d:d[0])
         #print(ranges)
 
         a = [False] * 51
@@ -44,7 +45,8 @@ class Solution(object):
         for i in range(left, right+1):
             if a[i] == False:
                 return False
-        return True"""
+        return True
+    
 
         # 方法三：差分数组 + 前缀和
         diff = [0] * 52
@@ -67,3 +69,5 @@ class Solution(object):
         
 
 
+        
+        
