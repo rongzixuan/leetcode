@@ -5,8 +5,6 @@
 
 对数组 a 执行 按位或 ，结果等于 a[0] OR a[1] OR ... OR a[a.length - 1]（下标从 0 开始）。
 
- 
-
 示例 1：
 输入：nums = [3,1]
 输出：2
@@ -29,7 +27,6 @@
 - [3,2,1,5]
 - [2,5]
 - [2,1,5]
- 
 
 提示：
 1 <= nums.length <= 16
@@ -45,7 +42,7 @@ class Solution:
         # 方法一：位运算
         # 时间复杂度：O(n * 2^n)
         # 空间复杂度：O(1)
-        """from functools import reduce
+        from functools import reduce
         from operator import or_
         n = len(nums)
         max_count = 0
@@ -58,7 +55,7 @@ class Solution:
             elif tmp_or == max_or:
                 max_count += 1
 
-        return max_count"""
+        return max_count
 
 
         # 方法二：回溯
@@ -82,30 +79,6 @@ class Solution:
 
         dfs(0, 0)
         return max_count
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
 
 
