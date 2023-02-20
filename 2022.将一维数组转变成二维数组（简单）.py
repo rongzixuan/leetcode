@@ -5,8 +5,6 @@ original 中下标从 0 到 n - 1 （都 包含 ）的元素构成二维数�
 
 请你根据上述过程返回一个 m x n 的二维数组。如果无法构成这样的二维数组，请你返回一个空的二维数组。
 
- 
-
 示例 1：
 输入：original = [1,2,3,4], m = 2, n = 2
 输出：[[1,2],[3,4]]
@@ -35,7 +33,6 @@ original 中有 2 个元素。
 解释：
 original 中只有 1 个元素。
 无法将 1 个元素放满一个 1x2 的二维数组，所以返回一个空的二维数组。
- 
 
 提示：
 1 <= original.length <= 5 * 10^4
@@ -52,11 +49,11 @@ class Solution:
         # 方法一：模拟
         # 时间复杂度：O(m * n)
         # 空间复杂度：O(1)
-        """length = len(original)
+        length = len(original)
         if length != m * n:
             return []
 
-        return [original[i: i + n] for i in range(0, m * n, n)]"""
+        return [original[i: i + n] for i in range(0, m * n, n)]
 
 
         # 方法二：模拟2
@@ -65,3 +62,7 @@ class Solution:
         length = len(original)
 
         return [original[i: i + n] for i in range(0, m * n, n)] if m * n == length else []
+
+    
+    
+    
