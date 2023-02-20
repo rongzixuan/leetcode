@@ -7,8 +7,6 @@
 
 请你统计有多少个矩形能够切出边长为 maxLen 的正方形，并返回矩形 数目 。
 
- 
-
 示例 1：
 输入：rectangles = [[5,8],[3,9],[5,12],[16,5]]
 输出：3
@@ -19,7 +17,6 @@
 输入：rectangles = [[2,3],[3,7],[4,3],[3,7]]
 输出：3
  
-
 提示：
 1 <= rectangles.length <= 1000
 rectangles[i].length == 2
@@ -47,3 +44,7 @@ class Solution:
                 max_count += 1
 
         return max_count
+
+    
+    
+    
