@@ -24,6 +24,8 @@ nums 中的每个正整数都减去 x。
 
 """
 
+
+# 2022/07/31
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         
@@ -57,4 +59,13 @@ class Solution:
         
         
         
-        
+# 2023/02/24
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+
+
+        # 方法一：模拟
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        return len(set(nums) - {0})
+
