@@ -26,9 +26,20 @@ class Solution:
     def convertTemperature(self, celsius: float) -> List[float]:
         
         
+        # 2022/11/13
         # 方法一：模拟
         # 时间复杂度：
         # 空间复杂度：
         return [celsius + 273.15, celsius * 1.80 + 32.00]
+    
+    
+        # 2023/03/21
+        # 方法一：模拟
+        # 时间复杂度：O(1)
+        # 空间复杂度：O(1)
+        return [celsius + 273.15, celsius * 1.80 + 32.00]
+    
+    
+    
     
     
