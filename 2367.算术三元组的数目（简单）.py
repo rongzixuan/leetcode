@@ -32,6 +32,7 @@ class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         
         
+        # 2022/08/07
         # 方法一：哈希表
         # 时间复杂度：O(n)
         # 空间复杂度：O(n)
@@ -53,6 +54,22 @@ class Solution:
             if flag:
                 ans += 1
         return ans
+    
+    
+        # 2023/03/31
+        # 方法一：哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        ans = 0
+        from collections import defaultdict
+        count = defaultdict(int)
+        for i, num in enumerate(nums):
+            if num - diff in count and num - 2 * diff in count:
+                ans += 1
+            count[num] = i
+        return ans
+    
+    
             
             
             
