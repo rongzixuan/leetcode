@@ -35,6 +35,7 @@ class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
         
         
+        # 2022/09/04
         # 方法一：模拟
         # 时间复杂度：O(n + C)
         # 空间复杂度：O(C)
@@ -49,6 +50,22 @@ class Solution:
             if len(num) > 0:
                 if num[1] - num[0] - 1 != distance[i]:
                     return False
+        return True
+    
+    
+        # 2023/04/10
+        # 方法一：哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(C)
+        # C = 26
+        from collections import defaultdict
+        count = defaultdict(int)
+        for i, ch in enumerate(s):
+            if ch in count:
+                if i - count[ch] - 1 != distance[ord(ch) - ord('a')]:
+                    return False
+            else:
+                count[ch] = i
         return True
       
       
