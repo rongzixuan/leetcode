@@ -29,8 +29,9 @@ class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
         
         
+        # 2022/09/11
         # 方法一：哈希表
-        # 时间复杂度：O(n)
+        # 时间复杂度：O(nlogn)
         # 空间复杂度：O(n)
         count = Counter(nums)
         count = sorted(count.items(), key = lambda x: [x[1], -x[0]], reverse=True)
@@ -41,6 +42,26 @@ class Solution:
             if k % 2 == 0:
                 return k
         return -1
+    
+    
+        # 2023/04/13
+        # 方法一：哈希表
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        from collections import Counter
+        count = Counter(nums)
+        ans = -1
+        max_count = 0
+        #print(count)
+
+        for k, v in count.items():
+            if k % 2 == 0: 
+                if v > max_count:
+                    max_count = v
+                    ans = k
+                elif v == max_count and ans != -1:
+                    ans = min(ans, k)
+        return ans
       
       
       
