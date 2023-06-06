@@ -3,11 +3,13 @@
 
 你需要对数组执行 n - 1 步操作，其中第 i 步操作（从 0 开始计数）要求对 nums 中第 i 个元素执行下述指令：
 如果 nums[i] == nums[i + 1] ，则 nums[i] 的值变成原来的 2 倍，nums[i + 1] 的值变成 0 。否则，跳过这步操作。
+
 在执行完 全部 操作后，将所有 0 移动 到数组的 末尾 。
 
 例如，数组 [1,0,2,0,0,1] 将所有 0 移动到末尾后变为 [1,2,1,0,0,0] 。
 
 返回结果数组。
+
 注意 操作应当 依次有序 执行，而不是一次性全部执行。
 
 示例 1：
@@ -36,6 +38,7 @@ class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         
         
+        # 2022/11/06
         # 方法一：模拟
         # 时间复杂度：O(n)
         # 空间复杂度：O(1)
@@ -52,6 +55,24 @@ class Solution:
         m = len(ans)
         ans.extend([0] * (n - m))
         return ans
+    
+    
+        # 2023/06/06
+        # 方法一：模拟
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        n = len(nums)
+        ans = []
+        for i in range(n):
+            if i < n - 1 and nums[i] == nums[i + 1] and nums[i] != 0:
+                ans.append(2 * nums[i])
+                nums[i + 1] = 0
+            elif nums[i] != 0:
+                ans.append(nums[i])
+        m = len(ans)
+        ans.extend([0] * (n - m))
+        return ans
+        
                 
         
         
